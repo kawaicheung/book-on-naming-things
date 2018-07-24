@@ -45,15 +45,16 @@ Designers use the term “delight” a lot when describing how they want their u
 Good writing makes the experience of consuming information more enjoyable. Imagine if a lengthy legal document were written by Hemingway himself -- unadorned with all the usual trappings of “legalese.” Maybe we'd actually read them rather than have a lawyer tell us that “all this means is X, Y, and Z.”
 
 Good code-writing is not a far reach from good prose-writing. We can make our lines more delightful by the way we implement functionality and by the way we name things. A codebase that's already well written has a much greater chance of staying that way; one that's poorly written will most likely continue to get worse over time.
+
 [Software developers are more diverse than ever -- it's no longer just ‘science geeks'. The culture of development is changing (open source too). Need to emphasize human communication more than ever.]
 
 ```C#
 public int Count 
 {
-	get 
-	{
-		return 1;
-	}
+  get 
+  {
+    return 1;
+  }
 }
 ```
 
