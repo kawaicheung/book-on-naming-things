@@ -1,2 +1,4 @@
 Introduction.md
 Verbs.md
+Nouns.md
+Shape.md
