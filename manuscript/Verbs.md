@@ -106,3 +106,10 @@ I make an exception when a method does perform a true, irreversible delete on da
 Choosing such a term is difficult. Eradicate? Destroy? Burn?
 
 Ruby on Rails creator David Heinemeier Hansson reserves the term Incinerate in Basecamp to separate a normal, soft delete, from the sweaty-palms kind of delete.  It's become part of the technical lexicon for the development team.  “When we talk about incineration within the app, it means this one, specific thing.”
+
+[Perhaps add a list of better verbs instead of Create, Update, Get, Delete]
+
+Update: Assign,Add,Merge
+Get: Extract (Extract email from text in DD add-item emails first line)
+Create: Generate...
+Delete: Remove,Incinerate,Destroy
