@@ -89,9 +89,9 @@ Scenarios like these are difficult because each name, in isolation, feels approp
 
 But, the method reads a bit like the lines of a Dr. Suess story -- one of my two-year-old son’s favorites is Hop On Pop, which begins:
 
-UP PUP - Pup is up. 
-CUP PUP - Pup in cup. 
-PUP CUP - Cup on pup.
+> UP PUP - Pup is up. 
+> CUP PUP - Pup in cup. 
+> PUP CUP - Cup on pup.
 
 The lines of Dr. Suess, of course, are intentionally dizzying -- it’s fun to get lost in the words as my son cackles at the absurdity of the rhythm. On the contrary, It’s not all that fun to read dizzying code. For this, we need to make some name improvements.
 

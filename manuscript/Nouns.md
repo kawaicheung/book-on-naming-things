@@ -10,9 +10,9 @@ Sometimes, these generically-named classes are a code smell. Perhaps, the method
 
 Martin Fowler has a name for this type of pattern. He calls it the anemic domain model.  I best leave it to Martin to describe why he feels it's an antithetical to the fundamentals of object-oriented design:
 
-The basic symptom of an Anemic Domain Model is that at first blush it looks like the real thing. There are objects...and these objects are connected with the rich relationships and structure that true domain models have. The catch comes when you look at the behavior, and you realize that there is hardly any behavior on these objects, making them little more than bags of getters and setters.
+> The basic symptom of an Anemic Domain Model is that at first blush it looks like the real thing. There are objects...and these objects are connected with the rich relationships and structure that true domain models have. The catch comes when you look at the behavior, and you realize that there is hardly any behavior on these objects, making them little more than bags of getters and setters.
 
-The fundamental horror of this anti-pattern is that it's so contrary to the basic idea of object-oriented design; which is to combine data and process together...What's worse, many people think that anemic objects are real objects, and thus completely miss the point of what object-oriented design is all about.
+> The fundamental horror of this anti-pattern is that it's so contrary to the basic idea of object-oriented design; which is to combine data and process together...What's worse, many people think that anemic objects are real objects, and thus completely miss the point of what object-oriented design is all about.
 
 Admittedly, many generic software patterns promote this style of separation, like the Service/Repository pattern. In this case, the naming convention for the various players follow forms like TaskService or AccountRepository.
 
