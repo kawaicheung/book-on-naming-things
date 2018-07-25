@@ -41,7 +41,7 @@ I also use `Overwrite` instead of, say, `Override` because I like to avoid names
 
 `ReplaceUsers()` could work just as well. It's not a bad choice and there are days I might favor it, but it feels a touch subtler to me than `Overwrite`. Given the choice, I lean toward stronger words initially for clarity, then scale back later on the harshness over time if it doesn't feel right.
 
-When I can't find that perfect verb, I'll often google synonyms. A quick search for alternatives to Replace and Overwrite gives me options like Change, Alter, Displace, Reimburse, Substitute, Swap, Upgrade, Improve, or Modernize.  None of these feels nearly as good and some feel entirely strange. 
+When I can't find that perfect verb, I'll look up synonyms. A quick Google search for alternatives to Replace and Overwrite gives me options like Change, Alter, Displace, Reimburse, Substitute, Swap, Upgrade, Improve, or Modernize.  None of these feels nearly as good and some feel entirely strange. 
 
 The reverse is true too -- when I feel like a name is right but I'm not completely sure, searching for synonyms helps me confirm the one I've picked is, at the very least, pretty good for now.
 
@@ -61,6 +61,9 @@ Second, if I can't find a method name that covers enough of the essential parts 
 In this case, however, I'd prefer to leave the method intact. It's not worth trading the succinctness of a single function that handles updating a project's memberships as a unit of work for a series of smaller, separated functions just because they might be more perfectly named. I'll live with the comment and move on to more important work.
 
 ---
+
+This seems like a whole lot of thinking for something seemingly inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid part of the code writing process. Like any skill, at first it feels unnatural and cumbersome; Later, it just becomes a way of thinking and you get fast at it. Your code reads more expressively -- it's hardly inconsequential at all.
+
 
 Aside from Update, Get, Create and Delete are unsurprisingly among the next most commonly used verbs applied to a method. At first glance, it seems like there would be less uncertainty with those words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're clearly building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words should undergo some scrutiny.
 
