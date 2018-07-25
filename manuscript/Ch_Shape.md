@@ -142,3 +142,10 @@ foreach (var tz in system_time_zones)
     }
 
 I like this more. While, on it’s own, tz isn’t that much more descriptive than s, within the entire method, it’s more clear the name references an individual time zone than s does.
+
+--- (maybe applies to past few sections -- shape, and the one before that on sentences/phrases “hr_manager” vs. “should_send_email”) --
+
+When we edit names, it’s important to not look at names in isolation. That habit can drive naming decisions that don’t actually benefit the overall readability or scannability of the surrounding code.
+
+Instead, look at the larger context that these names live in. Find out what’s making a section of code difficult to understand and solve that specific problem. When editing prose, we read whole sentences and paragraphs to get a sense of readability and style. It’s the same in code-writing.
+
