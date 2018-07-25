@@ -1,4 +1,7 @@
-Introduction.md
-Verbs.md
-Nouns.md
-Shape.md
+Ch_Introduction.md
+Ch_Verbs.md
+Ch_Nouns.md
+Ch_Shape.md
+Ch_PatternHypnosis.md
+Ch_BeingTerse.md
+Ch_Refactoring.md
