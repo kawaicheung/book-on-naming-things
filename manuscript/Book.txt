@@ -7,7 +7,10 @@ Ch_Shape.md
 Part_GoodHabits.md
 Ch_BeingTerse.md
 Ch_MemorableNames.md
+Ch_UglyNames.md
 Ch_Refactoring.md
 Part_AntiPatterns.md
 Ch_PatternHypnosis.md
+Ch_BadAbstractions.md
+Ch_DescriptionHierarchy.md
 Ch_PrincipleDogma.md

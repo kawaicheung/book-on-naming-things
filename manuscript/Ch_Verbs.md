@@ -1,4 +1,4 @@
-## Verbs
+# Verbs
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
@@ -113,6 +113,6 @@ Ruby on Rails creator David Heinemeier Hansson reserves the term Incinerate in B
 [Perhaps add a list of better verbs instead of Create, Update, Get, Delete]
 
 Update: Assign,Add,Merge
-Get: Extract (Extract email from text in DD add-item emails first line)
+Get: Extract (Extract email from text in DD add-item emails first line), Convert
 Create: Generate...
 Delete: Remove,Incinerate,Destroy
