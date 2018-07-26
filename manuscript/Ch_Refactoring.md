@@ -7,7 +7,10 @@ In my view, refactoring and renaming go hand-in-hand: I often complete a series 
 Here’s a working method on a project that I revisited recently (I’ve removed some of the bits that aren’t helpful to the discussion).  We’ll dive into the details later, so for now, just take a minute to scan the method. 
 
 ```C#
-public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string first_name, string last_name)
+public static string GetAvatarHtmlWithInitialsFallback(
+	string avatar_url, 
+	string first_name, 
+	string last_name)
 {
   StringBuilder avatar_html = new StringBuilder();
 
@@ -15,7 +18,8 @@ public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string
    
   if (string.IsNullOrEmpty(first_name) && string.IsNullOrEmpty(last_name))
   {
-    avatar_html.Append(string.Format("<span title=\"no-user\">?</span>", first_initial, last_initial));
+    avatar_html.Append(string.Format("<span title=\"no-user\">?</span>", 
+      first_initial, last_initial));
   }
   else if (string.IsNullOrEmpty(avatar_url))
   {
@@ -34,7 +38,7 @@ public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string
 
 	string hex_color = getHexColorFromInitials(first_initial, last_initial);
 
-	avatar_html.Append(string.Format("<span title=\"{2} {3}\" style=\"background-color:{4}\">{0}{1}</span>", 
+	avatar_html.Append(string.Format(@"<span title=\"{2} {3}\" style=\"background-color:{4}\">{0}{1}</span>", 
     first_initial, last_initial, first_name, last_name, hex_color));
     }
     else
