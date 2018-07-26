@@ -1,4 +1,4 @@
-# Verbs
+## Verbs
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
