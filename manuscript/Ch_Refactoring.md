@@ -58,7 +58,7 @@ In this case, I know it ended that way -  I wrote it. Here’s how I go about im
 
 Now, for the quick summary. GetAvatarHtmlWithInitialsFallback is a static method that live in a static class that takes in a few details about a particular person and returns a string of HTML to display that person’s avatar.
 
-I begin my renaming session by attacking the first eye sore that pops out. For me, it’s the repetition of logic in the first_initial and last_initial assignments. 
+I begin my renaming session by attacking the first eye sore that pops out. For me, it’s that ugly repetition of logic in the first_initial and last_initial assignments. 
 
 ```C#
 var first_initial = string.Empty;
@@ -124,7 +124,7 @@ public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string
 
 Next, I work on the bits of logic evaluated within the conditionals. They aren’t particularly nasty lines of code, but when the conditional logic has multiple branches, the shape of the conditional quickly becomes dizzying. Replacing all the evaluations with a meaningful name ("Introduce Explaining Variable") makes it easier to read and helps corral the shape. So, I go to work on each one.
 
-I create a variable called no_name and assign it to string.IsNullOrEmpty(first_name) && string.IsNullOrEmpty(last_name).  I then create a variable called no_avatar and assign it to string.IsNullOrEmpty(avatar_url).  I move these variables up to the very top of the method. This pass leaves me with the following:
+I create a variable called `no_name` and assign it to `string.IsNullOrEmpty(first_name)` && `string.IsNullOrEmpty(last_name)`.  I then create a variable called no_avatar and assign it to string.IsNullOrEmpty(avatar_url).  I move these variables up to the very top of the method. This pass leaves me with the following:
 
 ```C#
 public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string first_name, string last_name)
