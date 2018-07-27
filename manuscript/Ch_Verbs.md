@@ -1,6 +1,6 @@
 ## Verbs 
 
-In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with another, more meaningful, choice. Let's take a look at a few examples.
+In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with more meaningful choices. Let's take a look at a few examples.
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
@@ -23,7 +23,7 @@ That's better. But, comments tend to easily outdate themselves. If there's a way
 public void OverwriteUsers(List<Users> users) { … }
 ```
 
-Better. This feels less ambiguous. The method name has a bit more weight to it. _Overwrite_ clearly means the old users aren't sticking around.
+Another step better. This feels less ambiguous. The method name has a bit more weight to it. _Overwrite_ clearly means the old users aren't sticking around.
 
 Here's another way to judge how the name feels. If I were to pass in an empty list into `UpdateUsers()`, what would it feel like? 
 
@@ -45,7 +45,7 @@ I use `Overwrite` instead of, say, `Override` because I like to avoid names that
 
 When I can't find that perfect word right away, I'll look up synonyms to the words that feel close. A quick Google search for alternatives to _Replace_ and _Overwrite_ gives me options like _Change_, _Alter_, _Displace_, _Reimburse_, _Substitute_, _Swap_, _Upgrade_, _Improve_, or _Modernize._  None of these feels nearly as good. Some feel entirely strange. 
 
-The reverse is true too -- when I feel like a name is right but I'm not completely sure, searching for synonyms helps me confirm the one I've picked is, at the very least, pretty good for now.
+The reverse is true too --- when I feel like a name is right but I'm not completely sure, searching for synonyms helps me confirm the one I've picked is, at the very least, pretty good for now.
 
 `OverwriteUsers()` still doesn't clarify something about the implementation, though. 
 
