@@ -72,38 +72,44 @@ A> This example _seems_ like a whole lot of thinking for something inconsequenti
 
 Let's talk about the other common programming verbs: `Get`, `Create` and `Delete`. At first glance, it seems like there would be less uncertainty with these words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words can be improved.
 
-For example, I have a couple of overloaded methods in a PeopleService class named GetPeople() that return a list of people based on differing inputs.
+For example, I have a couple of overloaded methods in a `PeopleService` class named `GetPeople()`. Both return a list of `Person` objects based on different inputs.
 
+```C#
 public List<Person> GetPeople(int[] ids) { … }
-public List<Person> GetPeople(string first_name_match, string last_name_match) { … }
 
-On the positive side, it's nice to have these methods named identically. It reduces the number of method names in the class which, in turn, tightens the shape of the class. However, the latter implementation of GetPeople() is really more of a search -- I'm not guaranteed any result back. SearchPeople() conveys the meaning more easily.
+public List<Person> GetPeople(string first_name_like, string last_name_like) { … }
+```
 
-In addition, there likely won't be many use cases for a method like this other than as a search feature. By using the Search verb here, and assuming we've named other related components along the stack similarly, the workflow from the UI to backend will read more cohesively. This is well worth adding an additional method name to the service class.
+It's nice to have these methods named identically. It reduces the overall number of method names in a class which, in turn, tightens the shape of the class. However, the latter implementation of `GetPeople()`, which does a match against first and last names, doesn't quite describe the method as accurately. For one thing, we're not guaranteed any result back. Instead, something like `SearchPeople()` conveys the meaning more appropriately.
 
-[Search UI] => [POST] /app/search => [Search() controller action] => GetPeople() 
-[Search UI] => [POST] /app/search => [Search() controller action] => SearchPeople()
+In addition, there likely won't be many use cases for a method like this other than as a search feature. By using the _Search_ verb here (and assuming we've named other related components along the stack similarly), the workflow from the UI to backend will read more cohesively. That's well worth adding an additional method name to the service class.
 
+A> [POST] `/app/search` => `Search()` controller action => `PeopleService.GetPeople()`
+A> [POST] `/app/search` => `Search()` controller action => `PeopleService.SearchPeople()`
 
-Let's look at another example. I have a method that will return a unique API key for a given user. I could come up with something like CreateAPIKey(). But, GenerateAPIKey() conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than some replayable set of steps. It hints at the implementation detail even if I don't need it right away.
+Let's look at another example. I have a method that will return a unique API key for a given user. I could come up with something like `CreateAPIKey()`. But, `GenerateAPIKey()` conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than some replayable set of steps. It hints at the implementation detail even if I don't need it right away.
 
 Later on, I may want to introduce a way to revoke and issue a new key as follows:
 
+```C#
 public string RegenerateAPIKey() 
 {
-   RevokeAPIKey();
-   return GenerateAPIKey();
+  RevokeAPIKey();
+  return GenerateAPIKey();
 }
+```
 
-If, instead, I had settled for the more generic Create, my penchant for consistent naming would drive me to a corresponding method like this:
+If, instead, I had settled for the more generic `Create`, my penchant for consistent naming would drive me to a corresponding method like this:
 
+```C#
 public string RecreateAPIKey() 
 {
-   RevokeAPIKey();
-   return CreateAPIKey();
+  RevokeAPIKey();
+  return CreateAPIKey();
 }
+```
 
-RecreateAPIKey() makes me think, incorrectly, that an already-used API key will be reinstated. RegenerateAPIKey() makes me think, correctly, that the new API key isn't being revived from the ashes.
+`RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
 
 Delete is a loaded term. On the surface, we know it means something like “get rid of this thing and never let me see it again.” And, that's generally good enough for users. But, programmatically, this could mean a number of things. I might be placing a flag on a record in a database, removing a relationship between items to prevent access, or, actually hard deleting the record for good.
 
