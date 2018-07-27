@@ -48,14 +48,9 @@ Good code-writing is not a far reach from good prose-writing. We can make our li
 
 [Software developers are more diverse than ever -- it's no longer just ‘science geeks'. The culture of development is changing (open source too). Need to emphasize human communication more than ever.]
 
-```C#
-public int Count 
-{
-  get 
-  {
-    return 1;
-  }
-}
-```
 
+### What this book is not...
+
+* Recipe / Rules
+* Consistency -- All names should have this form... --- rather it's about creating more readability (use these and APPLY them consistently)
 
