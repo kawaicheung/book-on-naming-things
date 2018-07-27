@@ -49,7 +49,7 @@ The reverse is true too --- when I feel like a name is right but I'm not complet
 
 `OverwriteUsers()` still doesn't clarify something about the implementation, though. 
 
-Under the hood, I know that users are linked to projects via `Membership`records. Memberships hold additional bits of information relevant to a user's project access -- perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, `OverwriteMemberships()` becomes an even more accurate name. 
+Under the hood, I know that users are linked to projects via `Membership` records. Memberships hold additional bits of information relevant to a user's project access -- perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, `OverwriteMemberships()` becomes an even more accurate name. 
 
 But, what does `OverwriteMemberships()` do for users who both have a membership currently and are in the passed-in list? As it stands, it sounds like their membership will be removed and re-created, thereby erasing any current information tied to their membership. 
 
@@ -70,26 +70,38 @@ In this case, I'd prefer to leave the method intact. It's not worth trading away
 
 A> This example _seems_ like a whole lot of thinking for something inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid, and instinctual part of the code writing process. You get faster at it. While the name of any one method won't determine whether a suite of automated tests passes or fails, a codebase that's full of expressive and thoughtful names will make your development more enjoyable. 
 
+### Other common verb-traps
+
 Let's talk about the other common programming verbs: `Get`, `Create` and `Delete`. At first glance, it seems like there would be less uncertainty with these words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words can be improved.
+
+### Get
 
 For example, I have a couple of overloaded methods in a `PeopleService` class named `GetPeople()`. Both return a list of `Person` objects based on different inputs.
 
 ```C#
 public List<Person> GetPeople(int[] ids) { … }
+```
 
+```C#
 public List<Person> GetPeople(string first_name_like, string last_name_like) { … }
 ```
 
-It's nice to have these methods named identically. It reduces the overall number of method names in a class which, in turn, tightens the shape of the class. However, the latter implementation of `GetPeople()`, which does a match against first and last names, doesn't quite describe the method as accurately. For one thing, we're not guaranteed any result back. Instead, something like `SearchPeople()` conveys the meaning more appropriately.
+It's nice to have these methods named identically. It reduces the overall number of method names in a class which, in turn, tightens the shape of the class. 
 
-In addition, there likely won't be many use cases for a method like this other than as a search feature. By using the _Search_ verb here (and assuming we've named other related components along the stack similarly), the workflow from the UI to backend will read more cohesively. That's well worth adding an additional method name to the service class.
+The second implementation of `GetPeople()` does a match against first and last names. We're also not guaranteed any result back. Something like `SearchPeople()` conveys the meaning more appropriately.
 
-A> [POST] `/app/search` => `Search()` controller action => `PeopleService.GetPeople()`
-A> [POST] `/app/search` => `Search()` controller action => `PeopleService.SearchPeople()`
+In addition, there likely aren't any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
 
-Let's look at another example. I have a method that will return a unique API key for a given user. I could come up with something like `CreateAPIKey()`. But, `GenerateAPIKey()` conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than some replayable set of steps. It hints at the implementation detail even if I don't need it right away.
+A> [POST] `/app/search` &larr; `PeopleController.Search()` &larr; `PeopleService.GetPeople()`
+A> [POST] `/app/search` &larr; `PeopleController.Search()` &larr; `PeopleService.SearchPeople()`
 
-Later on, I may want to introduce a way to revoke and issue a new key as follows:
+### Create
+
+Now, let's look at a creation example. I've written a method that returns a unique API key for a given user. For this method, I could come up with a name like `CreateAPIKey()`. But, the word _create_ doesn't tell me a whole lot about _how_ the key is created. Is it pulled from some list of available keys in a database? Is it randomly generated? Is it somehow derived from other data a user owns?
+
+In my case, the key is generated using a random GUID. So, instead, the name `GenerateAPIKey()`conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than a replayable set of steps. It hints at the implementation detail just enough.
+
+Why is this important? Suppose that later on, I may want to introduce a way to revoke and issue a new. I might have a complementary method whose implementation looks like this:
 
 ```C#
 public string RegenerateAPIKey() 
@@ -99,7 +111,7 @@ public string RegenerateAPIKey()
 }
 ```
 
-If, instead, I had settled for the more generic `Create`, my penchant for consistent naming would drive me to a corresponding method like this:
+If, instead, I had settled for the more generic `Create`, a consistently named sibling method might look like this:
 
 ```C#
 public string RecreateAPIKey() 
@@ -111,15 +123,25 @@ public string RecreateAPIKey()
 
 `RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
 
-Delete is a loaded term. On the surface, we know it means something like “get rid of this thing and never let me see it again.” And, that's generally good enough for users. But, programmatically, this could mean a number of things. I might be placing a flag on a record in a database, removing a relationship between items to prevent access, or, actually hard deleting the record for good.
+### Delete 
 
-When I use the term Delete as part of a method name, I usually don't care about the implementation -- I only care about the meaning in the scope of the class I'm working in. In a method like Delete(int project_id) on a ProjectsController class, I only care that executing this  method means the project is no longer accessible by the user. Whether aspects of the project still remain behind-the-scenes is irrelevant.
+Now let's consider `Delete`. It's, indeed, a loaded term. On the surface, we know it means something like “get rid of this thing and never let me see it again.” And, that's generally good enough for users. But, programmatically, this could mean a number of things. I might be placing a flag on a record in a database, removing a relationship between items to prevent access, or, actually hard deleting the record for good.
 
-I make an exception when a method does perform a true, irreversible delete on data that's not easily recreatable -- when I'm not softly removing, dropping, clearing, hiding, or deactivating, but in fact, I'm permanently destroying something, for good.
+When I use the term `Delete` as part of a method name, I _usually_ don't care about the implementation --- I only care about the meaning in the scope of the class I'm working in. In a method like `Delete(int project_id)` on a `ProjectsController` class, I only care that executing this method means a user can no longer access it. Whether aspects of the project still remain intact behind-the-scenes is irrelevant.
+
+However, I think it's prudent to make an exception when a method does perform a _true, irreversible hard-delete on data that's not easily recreatable_ --- when I'm not softly removing, dropping, clearing, hiding, or deactivating, but in fact, I'm permanently destroying something, for good.
 
 Choosing such a term is difficult. Eradicate? Destroy? Burn?
 
 Ruby on Rails creator David Heinemeier Hansson reserves the term Incinerate in Basecamp to separate a normal, soft delete, from the sweaty-palms kind of delete.  It's become part of the technical lexicon for the development team.  “When we talk about incineration within the app, it means this one, specific thing.”
+
+
+
+
+_Some would argue that I'm detailing implementation...._
+
+
+
 
 [Perhaps add a list of better verbs instead of Create, Update, Get, Delete]
 
