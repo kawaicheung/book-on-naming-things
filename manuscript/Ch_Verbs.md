@@ -1,5 +1,4 @@
 ## Verbs 
-
 In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with more meaningful choices. Let's take a look at a few examples.
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
@@ -71,17 +70,14 @@ In this case, I'd prefer to leave the method intact. It's not worth trading away
 A> This example _seems_ like a whole lot of thinking for something inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid, and instinctual part of the code writing process. You get faster at it. While the name of any one method won't determine whether a suite of automated tests passes or fails, a codebase that's full of expressive and thoughtful names will make your development more enjoyable. 
 
 ### Other common verb-traps
-
 Let's talk about the other common programming verbs: `Get`, `Create` and `Delete`. At first glance, it seems like there would be less uncertainty with these words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words can be improved.
 
 ### Get
-
 For example, I have a couple of overloaded methods in a `PeopleService` class named `GetPeople()`. Both return a list of `Person` objects based on different inputs.
 
 ```C#
 public List<Person> GetPeople(int[] ids) { … }
 ```
-
 ```C#
 public List<Person> GetPeople(string first_name_like, string last_name_like) { … }
 ```
@@ -96,7 +92,6 @@ A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.GetPeo
 A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.SearchPeople()`
 
 ### Create
-
 Now, let's look at a creation example. I've written a method that returns a unique API key for a given user. For this method, I could come up with a name like `CreateAPIKey()`. But, the word _create_ doesn't tell me a whole lot about _how_ the key is created. Is it pulled from some list of available keys in a database? Is it randomly generated? Is it somehow derived from other data a user owns?
 
 In my case, the key is generated using a random GUID. So, instead, the name `GenerateAPIKey()`conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than a replayable set of steps. It hints at the implementation detail just enough.
