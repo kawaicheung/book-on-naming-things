@@ -107,9 +107,9 @@ How exactly do you _get emails_ from a piece of text? Instead, the method is rea
 
 ```C#
 string comment = "Hey bill@microsoft.com, can I get a raise?";
-#leanpub-start-insert
+# leanpub-start-insert
 List<string> emails_in_comment = comment.ExtractAnyEmails();
-#leanpub-end-insert
+# leanpub-end-insert
 ```
 
 I think it's a considerable improvement.
