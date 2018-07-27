@@ -4,6 +4,7 @@ Part_CodeGrammar.md
 Ch_Verbs.md
 Ch_Nouns.md
 Ch_Shape.md
+Ch_Flow.md
 Part_GoodHabits.md
 Ch_BeingTerse.md
 Ch_MemorableNames.md

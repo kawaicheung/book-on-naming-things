@@ -1,4 +1,6 @@
-## Verbs
+## Verbs 
+
+In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with another, more meaningful, choice. Let's take a look at a few examples.
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
@@ -6,66 +8,69 @@ I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 public void UpdateUsers(List<Users> users) { … }
 ```
 
-The name seems straightforward enough. It should take a list of users and grant them access to a given project. But, what does it do to the users who aren't in the list that currently have access? Will it remove them, leaving access to only the ones I've passed in? Or, will it keep them around? A method named this way doesn't tell me enough. I have to look inside and see what's going on.
+The name seems straightforward enough. The method should take a list of users and grant them access to the given project. But, let's scrutinize it a bit more. What does the method do to the users that currently have access who aren't in the passed-in list? Will it remove them, leaving access to only the ones I've passed in? Or, will it keep them around, adding additional users from the list? A method named this way doesn't tell me for sure. I have to look inside and see what's going on. 
 
-Once I've wrapped my head around the story (it turns out that existing users not in the list *are* removed), I start with a short comment on the method so that I don't have to investigate it again, a month from now, when I'll likely have the same question.
+Once I've wrapped my head around the story (it turns out that existing users not in the list *are* removed), I start with a comment on the method so that I don't have to investigate it again, a month from now, when I'll likely have the same question.
 
 ```C#
-// Overwrites this project's assigned users with the passed-in users list
+// Overwrites project's assigned users with the passed-in users list
 public void UpdateUsers(List<Users> users) { … }
 ```
 
-But, I don't get a huge bang for the buck on the comment. I've spent a lot of words just to say something that I can impart directly into the name. So, I replace the comment with a better name.
+That's better. But, comments tend to easily outdate themselves. If there's a way I can impart that same meaning into the name, I should. The word _overwrite_ is the key to the comment. The method isn't just updating users, it's potentially removing users. _Overwrite_ describes that idea more clearly. Let's see how it looks.
 
 ```C#
 public void OverwriteUsers(List<Users> users) { … }
 ```
 
-Better. There's far less ambiguity with what's going to happen to this project's users after the method runs. **Overwrite** clearly means the old users aren't sticking around. 
+Better. This feels less ambiguous. The method name has a bit more weight to it. _Overwrite_ clearly means the old users aren't sticking around.
 
-Here's another way to test how the name feels. If I were to pass in an empty list or null into `UpdateUsers()`, what would happen? 
+Here's another way to judge how the name feels. If I were to pass in an empty list into `UpdateUsers()`, what would it feel like? 
 
 ```C#
-myProject.UpdateUsers(null);
+myProject.UpdateUsers(new List<Users>());
 ```
 
 Again, I'd likely expect all user access removed. But, I wouldn't be entirely shocked if the method left the project's users intact. If I were to pass the same argument to...
 
 ```C#
-myProject.OverwriteUsers(null);
+myProject.OverwriteUsers(new List<Users>());
 ```
 
 ...I'd expect it to do some serious damage. That's just the feeling I want to convey.
 
-I also use `Overwrite` instead of, say, `Override` because I like to avoid names that have other reserved meanings. In this case, `override` is a modifier used in many languages to extend or modify the implementation of an inherited method. It's best to stay away from using names that have a prescribed meaning in the language already.
+I use `Overwrite` instead of, say, `Override` because I like to avoid names that have other reserved meanings. In this case, `override` is a modifier used in many languages to extend or modify the implementation of an inherited method. It's best to stay away from using names that have a prescribed meaning in the language already.
 
-`ReplaceUsers()` could work just as well. It's not a bad choice and there are days I might favor it, but it feels a touch subtler to me than `Overwrite`. Given the choice, I lean toward stronger words initially for clarity, then scale back later on the harshness over time if it doesn't feel right.
+`ReplaceUsers()` could work just as well here. There are days I might favor it, but it feels a touch subtler to me than `Overwrite`. Given the choice, I lean toward stronger words initially for clarity, then scale back later on the harshness over time if it doesn't feel right.
 
-When I can't find that perfect verb, I'll look up synonyms. A quick Google search for alternatives to Replace and Overwrite gives me options like Change, Alter, Displace, Reimburse, Substitute, Swap, Upgrade, Improve, or Modernize.  None of these feels nearly as good and some feel entirely strange. 
+When I can't find that perfect word right away, I'll look up synonyms to the words that feel close. A quick Google search for alternatives to _Replace_ and _Overwrite_ gives me options like _Change_, _Alter_, _Displace_, _Reimburse_, _Substitute_, _Swap_, _Upgrade_, _Improve_, or _Modernize._  None of these feels nearly as good. Some feel entirely strange. 
 
 The reverse is true too -- when I feel like a name is right but I'm not completely sure, searching for synonyms helps me confirm the one I've picked is, at the very least, pretty good for now.
 
-OverwriteUsers() still doesn't clarify something though. Under the hood, I know that users are linked to projects via Membership records. Memberships hold additional bits of information relevant to a user's project access -- perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, OverwriteMemberships() becomes an even more expressive name. 
+`OverwriteUsers()` still doesn't clarify something about the implementation, though. 
 
-But, what does OverwriteMemberships() do for users who both have membership currently and are in the passed-in list? As it stands, it sounds like their Membership will be removed and re-created, thereby erasing the additional bits of information tied to it.
+Under the hood, I know that users are linked to projects via `Membership`records. Memberships hold additional bits of information relevant to a user's project access -- perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, `OverwriteMemberships()` becomes an even more accurate name. 
 
-Another peek inside the method reveals that, in fact, the code is being delicate with existing memberships. All existing memberships who will continue to have access will stay intact rather than be removed and re-created. There might be a better name to express this additional nuance, like UpsertMemberships() or SyncMemberships(). I don't have the perfect answer here, but this exercise tells us a couple of things.
+But, what does `OverwriteMemberships()` do for users who both have a membership currently and are in the passed-in list? As it stands, it sounds like their membership will be removed and re-created, thereby erasing any current information tied to their membership. 
+
+Another peek inside the method reveals that - in fact - the code is delicate with existing memberships. All existing memberships who will continue to have access will stay intact rather than be removed and recreated. There might be a better name to express this additional nuance, like `UpsertMemberships()` or `SyncMemberships()`. 
+
+I don't have the perfect answer here, but this exercise tells us a couple of things.
 
 First, it's hard to pack every subtlety of a method's implementation into its name. Instead, I do my best to get the most important aspects of the implementation into the name. A comment helps with context around any extra nuance.
 
+```C#
 // Will keep current memberships in users list intact
 public void OverwriteMemberships(List<Users> users) { … }
+```
 
-Second, if I can't find a method name that covers enough of the essential parts of what it does, this could be a sign that it's doing too much. Perhaps I need to break up the method into smaller ones so that each one's intent can be more clearly wrapped in a name.
+Second, if I can't find a method name that covers enough of the essential parts of what it does, this could be a sign that the method is doing too much. Do I need to break up the method into smaller ones so that each one's intent can be more clearly wrapped in a name?
 
-In this case, however, I'd prefer to leave the method intact. It's not worth trading the succinctness of a single function that handles updating a project's memberships as a unit of work for a series of smaller, separated functions just because they might be more perfectly named. I'll live with the comment and move on to more important work.
+In this case, I'd prefer to leave the method intact. It's not worth trading away the succinctness of a single function that handles updating a project's memberships as a unit of work for a series of smaller, separated functions just because they might be more perfectly named. I'll live with the comment and move on to more important work.
 
----
+A> This example _seems_ like a whole lot of thinking for something inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid, and instinctual part of the code writing process. You get faster at it. While the name of any one method won't determine whether a suite of automated tests passes or fails, a codebase that's full of expressive and thoughtful names will make your development more enjoyable. 
 
-This seems like a whole lot of thinking for something seemingly inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid part of the code writing process. Like any skill, at first it feels unnatural and cumbersome; Later, it just becomes a way of thinking and you get fast at it. Your code reads more expressively -- it's hardly inconsequential at all.
-
-
-Aside from Update, Get, Create and Delete are unsurprisingly among the next most commonly used verbs applied to a method. At first glance, it seems like there would be less uncertainty with those words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're clearly building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words should undergo some scrutiny.
+Let's talk about the other common programming verbs: `Get`, `Create` and `Delete`. At first glance, it seems like there would be less uncertainty with these words. If we're getting something, we're retrieving it from somewhere without manipulating it. If we create something, we're building something new. If we're deleting something, we're surely getting rid of it in some permanent fashion. But, even these words can be improved.
 
 For example, I have a couple of overloaded methods in a PeopleService class named GetPeople() that return a list of people based on differing inputs.
 
