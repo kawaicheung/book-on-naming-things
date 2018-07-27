@@ -1,6 +1,8 @@
 ## Verbs
 
-In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with more meaningful choices. Let's take a look at a few examples.
+In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with choices that tell us more about the actions without having to dig into their implementations. Let's take a look at a few examples.
+
+### Update
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
@@ -49,11 +51,11 @@ The reverse is true too --- when I feel like a name is right but I'm not complet
 
 `OverwriteUsers()` still doesn't clarify something about the implementation, though. 
 
-Under the hood, I know that users are linked to projects via `Membership` records. Memberships hold additional bits of information relevant to a user's project access -- perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, `OverwriteMemberships()` becomes an even more accurate name. 
+Under the hood, I know that users are linked to projects via `Membership` records. Memberships hold additional bits of information relevant to a user's project access--perhaps the date access was granted, their particular role on the project, or some notification settings tied to that membership. Knowing this, `OverwriteMemberships()` becomes an even more accurate name. 
 
 But, what does `OverwriteMemberships()` do for users who both have a membership currently and are in the passed-in list? As it stands, it sounds like their membership will be removed and re-created, thereby erasing any current information tied to their membership. 
 
-Another peek inside the method reveals that - in fact - the code is delicate with existing memberships. All existing memberships who will continue to have access will stay intact rather than be removed and recreated. There might be a better name to express this additional nuance, like `UpsertMemberships()` or `SyncMemberships()`. 
+Another peek inside the method reveals that--in fact--the code is delicate with existing memberships. All existing memberships who will continue to have access will stay intact rather than be removed and recreated. There might be a better name to express this additional nuance, like `UpsertMemberships()` or `SyncMemberships()`. 
 
 I don't have the perfect answer here, but this exercise tells us a couple of things.
 
@@ -89,10 +91,28 @@ It's nice to have these methods named identically. It reduces the overall number
 
 The second implementation of `GetPeople()` does a match against first and last names. We're also not guaranteed any result back. Something like `SearchPeople()` conveys the meaning more appropriately.
 
-In addition, there likely aren't any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
+In addition, there likely won't be any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
 
 A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.GetPeople()`
 A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.SearchPeople()`
+
+Here's another case where `Get` can be improved. I've written an extension method off of the `String` class which pulls out all email addresses for the given string with some magical regular expressions. I use this to be able to notify users if they are mentioned in a user's comment. Calling this method `GetEmails()` is confusing. It doesn't quite make sense in context:
+
+```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+List<string> emails_in_comment = comment.GetEmails();
+```
+
+How exactly do you _get emails_ from a piece of text? Instead, the method is really _extracting_ emails. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
+
+```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+#leanpub-start-insert
+List<string> emails_in_comment = comment.ExtractAnyEmails();
+#leanpub-end-insert
+```
+
+I think it's a considerable improvement.
 
 ### Create
 
@@ -142,13 +162,22 @@ In each of the examples above, my revised names attempt to describe a method's i
 
 But, one of the tricks of good method naming is to expose _as much_ detail as is useful. The more knowledge we ascertain from the name of a method, the faster we get at choosing the right methods to use or adding additional ones to fulfill the task-at-hand.
 
-For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better descriptor than `CreateAPIKey()`.  However, would I do better with a name like `GenerateAPIKeyUsingRandomizedGuid()`? If there were other API generation mechanisms at play that required alternative methods, then perhaps, yes. In my case, at least at present time, there isn't.
+For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better descriptor than `CreateAPIKey()`.  However, would I do better with a name like `GenerateAPIKeyUsingRandomizedGuid()`? If there were other API generation mechanisms at play that required alternative methods, and the mechanism mattered outside of the method itself, then absolutely. In my case--at least at present time--there isn't.
 
-In the end, exposing the appropriate level of detail is more art than science. Undoubtedly, as a codebase evolves, what's "appropriate" will also change. Naming -- like coding itself -- requires constant upkeep. We're never done with naming so long as the product is still evolving.
+In the end, exposing the appropriate level of detail is more art than science. Undoubtedly, as a codebase evolves, what's "appropriate" will also change. Naming--like coding itself--requires constant upkeep. We're never done with naming so long as the product is still evolving.
 
-### Alternative verbs
+### Alternative verb ideas
+
+In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. This list is not comprehensive, but hopefully inspires you to more informative names.
 
 
+|Verb   |Replacement                                          |Scenario|
+|-------|------------------------------------------------|-----------|
+|Get    |Responds with information about the resource    |Yes        |
+|POST   |Creates a sub-resource of the resource POSTed to|No         |
+|PUT    |Creates or updates the resource being PUT to    |Yes        |
+|DELETE |DELETES the resource                            |Yes        |
+|HEAD   |Gets metadata about the resource                |Yes        |
 
 [Perhaps add a list of better verbs instead of Create, Update, Get, Delete]
 
