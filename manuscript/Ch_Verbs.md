@@ -107,9 +107,7 @@ How exactly do you _get emails_ from a piece of text? Instead, the method is rea
 
 ```C#
 string comment = "Hey bill@microsoft.com, can I get a raise?";
-# leanpub-start-insert
 List<string> emails_in_comment = comment.ExtractAnyEmails();
-# leanpub-end-insert
 ```
 
 I think it's a considerable improvement.
@@ -154,7 +152,7 @@ Choosing such a word is difficult. It should have even more cautionary weight th
 
 David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term _Incinerate_ in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type.  By doing so, it's become part of the technical lexicon for the Basecamp development team. “When we talk about incineration within the app, it means this one, specific thing.”[^dhh1] _Destroy_ or _Eradicate_ could also work. 
 
-[^dhh1]: [On Writing Software Well #6: Actually deleting data, not just pretending to](https://www.youtube.com/watch?v=AoxoPfilKqE])
+[^dhh1]: [On Writing Software Well #6: Actually deleting data, not just pretending to](https://www.youtube.com/watch?v=AoxoPfilKqE]) https://www.youtube.com/watch?v=AoxoPfilKqE
 
 ### Exposing the appropriate level of implementation detail
 
@@ -171,17 +169,14 @@ In the end, exposing the appropriate level of detail is more art than science. U
 In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. This list is not comprehensive, but hopefully inspires you to more informative names.
 
 
-|Verb   |Replacement                                          |Scenario|
-|-------|------------------------------------------------|-----------|
-|Get    |Responds with information about the resource    |Yes        |
-|POST   |Creates a sub-resource of the resource POSTed to|No         |
-|PUT    |Creates or updates the resource being PUT to    |Yes        |
-|DELETE |DELETES the resource                            |Yes        |
-|HEAD   |Gets metadata about the resource                |Yes        |
+|Verb   |Replacement     |Example                        |
+|-------|----------------|-------------------------------|
+|Create |Generate   	 |GenerateAPIKey()				 |
+|Get    |Extract         |string.ExtractAnyEmails()	     |
+|Get    |Convert         |date.ConvertToShortDate()		 |
+|Update |Overwrite       | 								 |
+|Update |Replace 		 |								 |
+|Update |Merge	 		 |								 |
+|Delete |Remove	 		 |								 |
+|Delete |Incinerate	 	 |								 |
 
-[Perhaps add a list of better verbs instead of Create, Update, Get, Delete]
-
-Update: Assign,Add,Merge
-Get: Extract (Extract email from text in DD add-item emails first line), Convert
-Create: Generate...
-Delete: Remove,Incinerate,Destroy
