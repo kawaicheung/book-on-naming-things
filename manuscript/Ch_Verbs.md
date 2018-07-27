@@ -92,8 +92,8 @@ The second implementation of `GetPeople()` does a match against first and last n
 
 In addition, there likely aren't any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
 
-A> [POST] `/app/search` &larr; `PeopleController.Search()` &larr; `PeopleService.GetPeople()`
-A> [POST] `/app/search` &larr; `PeopleController.Search()` &larr; `PeopleService.SearchPeople()`
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.GetPeople()`
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.SearchPeople()`
 
 ### Create
 
@@ -127,13 +127,15 @@ public string RecreateAPIKey()
 
 Now let's consider `Delete`. It's, indeed, a loaded term. On the surface, we know it means something like “get rid of this thing and never let me see it again.” And, that's generally good enough for users. But, programmatically, this could mean a number of things. I might be placing a flag on a record in a database, removing a relationship between items to prevent access, or, actually hard deleting the record for good.
 
-When I use the term `Delete` as part of a method name, I _usually_ don't care about the implementation --- I only care about the meaning in the scope of the class I'm working in. In a method like `Delete(int project_id)` on a `ProjectsController` class, I only care that executing this method means a user can no longer access it. Whether aspects of the project still remain intact behind-the-scenes is irrelevant.
+When I use the word `Delete` as part of a method name, I _usually_ don't care about the implementation --- I only care about the meaning in the scope of the class I'm working in. In a method like `Delete(int project_id)` on a `ProjectsController` class, I only care that executing this method means a user can no longer access it. Whether aspects of the project still remain intact behind-the-scenes is irrelevant.
 
 However, I think it's prudent to make an exception when a method does perform a _true, irreversible hard-delete on data that's not easily recreatable_ --- when I'm not softly removing, dropping, clearing, hiding, or deactivating, but in fact, I'm permanently destroying something, for good.
 
-Choosing such a term is difficult. Eradicate? Destroy? Burn?
+Choosing such a word is difficult. It should have even more cautionary weight than _Delete_. 
 
-Ruby on Rails creator David Heinemeier Hansson reserves the term Incinerate in Basecamp to separate a normal, soft delete, from the sweaty-palms kind of delete.  It's become part of the technical lexicon for the development team.  “When we talk about incineration within the app, it means this one, specific thing.”
+David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term _Incinerate_ in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type.  By doing so, it's become part of the technical lexicon for the Basecamp development team. “When we talk about incineration within the app, it means this one, specific thing.”[^dhh1] _Destroy_ or _Eradicate_ could also work. 
+
+[^dhh1]: [https://www.youtube.com/watch?v=AoxoPfilKqE](On Writing Software Well #6: Actually deleting data, not just pretending to)
 
 
 
