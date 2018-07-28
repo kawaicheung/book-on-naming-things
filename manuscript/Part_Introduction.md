@@ -1,7 +1,10 @@
 # Introduction
 
-This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book involve code that is far less than perfect -- realistic code you've probably written yourself or inherited from others.
+This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 
+Through renaming classes, methods, and properties of imperfect code, you'll see how we can improve upon it immediately. I believe iteratively improving names over time, much like iteratively refactoring code over time, is the only practical way to maintain a viable codebase.
+
+While this book is specifically dedicated to naming, naturally, other programming concepts will occasionally surface. For instance, naming properties in a bloated class in a certain way might expose an opportunity to create a new class. Or, naming a method accurately (if in an ugly way) might reveal that the method is doing too much. Sprinkled throughout this book are other programming principles, but all through the lens of naming things.
 
 ## Why does naming matter?
 
