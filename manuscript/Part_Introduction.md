@@ -1,5 +1,8 @@
 # Introduction
 
+This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book involve code that is far less than perfect -- realistic code you've probably written yourself or inherited from others.
+
+
 ## Why does naming matter?
 
 If you've picked up this book already, I probably don't have to convince you why naming things well is a critical aspect of good software writing. But, you may need to convince your manager or other stakeholders who might not reap its immediate benefits. This section might not fully convince them either, but we can both say we tried our best.
@@ -18,9 +21,9 @@ But, good naming is another way to make your code less susceptible to human erro
 
 ### A safe entry-way into refactoring
 
-There was a time in programming where you would have to find and replace any references to objects if they were renamed. It was a tedious and dangerous task. Nowadays, renaming can be done quickly and accurately in most languages (especially typesafe ones) -- most development environments offer some sort of renaming tool that will update all references to the updated construct automatically. 
+Renaming exisiting constructs is the simplest kind of refactoring -- the focus is purely on how to describe what's already in place in a more digestible way. It's often the first step I take to any larger refactoring because it both improves readability and exposes painpoints without disturbing any mechanics. Renaming confusing names before you dive further into a refactoring can clarify exactly how to approach that refactoring, or confirm whether it's even worthwhile.
 
-This makes renaming variables, methods, classes, and other constructs is an easy and productive first step toward any larger code refactoring. Renaming confusing names before you dive into the actual refactoring can clarify exactly how to approach a refactoring, or confirm whether a larger update is even needed.
+Besides, nowadays, renaming is incredibly quick. There was a time in programming where you would have to find and replace any references to objects if they were renamed. It was a tedious and dangerous task. Nowadays, renaming can be done quickly and accurately in most languages (especially typesafe ones) -- most development environments offer some sort of renaming tool that will update all references to the updated construct automatically. 
 
 ### Better communication with everyone in your organization
 

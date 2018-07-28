@@ -1,6 +1,6 @@
-## Shape
+## Shape (#ch_shape)
 
-Thus far, we’ve talked about what good, descriptive names. But, descriptive names aren’t always good. This is especially true of variables scoped to a small amount of code. For example, consider this simple for loop:
+Thus far, we’ve talked about what good, descriptive names look like. But, descriptive names aren’t necessarily _good_. This is especially true of variables scoped to a small amount of code. For example, consider this simple for loop:
 
 ```C#
 for (int i=0; i < players.length; i++)
@@ -17,6 +17,7 @@ Let’s talk about the indexing variable i. Judging this variable’s clarity so
 But, since i is instantiated at the beginning of the for loop, we know that i only exists within the context of the loop -- it’s scope is small. It doesn’t leave a big footprint. In the context of the loop, it’s clear how i is used.
 But, suppose we wanted the variable to express itself more clearly. What might a more meaningful replacement name be? Well, it’s job is to hold the current index of the Players list, so cur_index_of_players_list could work:
 
+```C#
 for (int cur_index_of_players_list=0; cur_index_of_players_list < players.length; cur_index_of_players_list++)
 {
    If (players[cur_index_of_players_list].Activated)
@@ -24,6 +25,7 @@ for (int cur_index_of_players_list=0; cur_index_of_players_list < players.length
      usedPlayers.Add(players);
    }
 }
+```
 
 Undoubtedly, the name, in and of itself, is clearer. With no surrounding code, I know what cur_index_of_players_list represents. I don’t get that same benefit from i. 
 

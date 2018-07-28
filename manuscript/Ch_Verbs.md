@@ -146,37 +146,45 @@ Now let's consider `Delete`. It's, indeed, a loaded term. On the surface, we kno
 
 When I use the word `Delete` as part of a method name, I _usually_ don't care about the implementation --- I only care about the meaning in the scope of the class I'm working in. In a method like `Delete(int project_id)` on a `ProjectsController` class, I only care that executing this method means a user can no longer access it. Whether aspects of the project still remain intact behind-the-scenes is irrelevant.
 
-However, I think it's prudent to make an exception when a method does perform a _true, irreversible hard-delete on data that's not easily recreatable_ --- when I'm not softly removing, dropping, clearing, hiding, or deactivating, but in fact, I'm permanently destroying something, for good.
+However, I think it's prudent to make an exception when a method does perform a _true, irreversible hard-delete on data that's not easily recreatable_ --- when I'm not softly removing, dropping, clearing, hiding, or deactivating, but in fact, I'm permanently destroying something, for good. [Why? We'll use it with care. Another level of defense.]
 
 Choosing such a word is difficult. It should have even more cautionary weight than _Delete_. 
 
 David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term _Incinerate_ in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type.  By doing so, it's become part of the technical lexicon for the Basecamp development team. “When we talk about incineration within the app, it means this one, specific thing.”[^dhh1] _Destroy_ or _Eradicate_ could also work. 
 
-[^dhh1]: [On Writing Software Well #6: Actually deleting data, not just pretending to](https://www.youtube.com/watch?v=AoxoPfilKqE]) https://www.youtube.com/watch?v=AoxoPfilKqE
+[^dhh1]: On Writing Software Well #6: Actually deleting data, not just pretending to https://www.youtube.com/watch?v=AoxoPfilKqE]
 
 ### Exposing the appropriate level of implementation detail
 
 In each of the examples above, my revised names attempt to describe a method's implementation more clearly. Some would argue that I'm committing a cardinal programming sin -- one of the fruits of encapsulating logic in methods is to _hide_ the details of the implementation. How dare I try to expose them more!
 
-But, one of the tricks of good method naming is to expose _as much_ detail as is useful. The more knowledge we ascertain from the name of a method, the faster we get at choosing the right methods to use or adding additional ones to fulfill the task-at-hand.
+But, one of the tricks of good method naming is to expose _as much_ detail as is useful. The more knowledge we ascertain from the name of a method, the faster we get at choosing the right methods to use or deciding to add additional ones to fulfill the task-at-hand.
 
-For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better descriptor than `CreateAPIKey()`.  However, would I do better with a name like `GenerateAPIKeyUsingRandomizedGuid()`? If there were other API generation mechanisms at play that required alternative methods, and the mechanism mattered outside of the method itself, then absolutely. In my case--at least at present time--there isn't.
+For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better choice than `CreateAPIKey()` because it describes _how_ an API key is created with a little more detail that might be useful to the implementor.  
+
+I certainly could've carried the name even further. However, would a name like `GenerateAPIKeyUsingRandomizedGuid()` be better? If there were other API generation mechanisms at play that required alternative methods, and the mechanism mattered outside of the method itself, then absolutely. In my case, there wasn't.
+
+A name like `GenerateAPIKeyUsingRandomizedGuid()` also presents a couple more issues:
+
+1. It's long, and long names can reak havoc on the overall shape of code. By the way, we'll talk about long names and [code shape](#ch_shape) later -- including one case where I believe they actually would be beneficial.
+
+2. It's fragile. If, at any point, I decide to change _how_ the API key is generated, I'd have to remember to change the name as well to avoid misleading the implementor.
 
 In the end, exposing the appropriate level of detail is more art than science. Undoubtedly, as a codebase evolves, what's "appropriate" will also change. Naming--like coding itself--requires constant upkeep. We're never done with naming so long as the product is still evolving.
 
 ### Alternative verb ideas
 
-In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. This list is not comprehensive, but hopefully inspires you to more informative names.
+In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. Hopefully, this list inspires you to think of more informative method names.
 
 
-|Verb   |Replacement     |Example                        |
-|-------|----------------|-------------------------------|
-|Create |Generate   	 |GenerateAPIKey()				 |
-|Get    |Extract         |string.ExtractAnyEmails()	     |
-|Get    |Convert         |date.ConvertToShortDate()		 |
-|Update |Overwrite       | 								 |
-|Update |Replace 		 |								 |
-|Update |Merge	 		 |								 |
-|Delete |Remove	 		 |								 |
-|Delete |Incinerate	 	 |								 |
+|Verb   |Replacement     |Use case                                  |Example                               |
+|-------|----------------|------------------------------------------|--------------------------------------|
+|Create |Generate   	 |Creating something with randomness.		|GenerateAPIKey()				   	   |
+|Get    |Extract, Expose |Exposing something that already exists. 	|string.ExtractAnyEmails()	   		   |
+|Get    |Convert         |Getting a manipulation of an object.		|date.ConvertToShortDate()			   |
+|Update |Overwrite       | 										    |									   |
+|Update |Replace 		 |								            |									   |
+|Update |Merge	 		 |								            |									   |
+|Delete |Remove	 		 |										    |									   |
+|Delete |Incinerate	 	 |For hard or permanent deletes.	    	|project.Incinerate()				   |
 
