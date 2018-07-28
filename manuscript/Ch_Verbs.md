@@ -176,7 +176,7 @@ In the end, exposing the appropriate level of detail is more art than science. U
 
 In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. Hopefully, this list inspires you to think of more informative method names.
 
-
+{width="95%"}
 |Verb   |Replacement     |Use case                                  |Example                               |
 |-------|----------------|------------------------------------------|--------------------------------------|
 |Create |Generate   	 |Creating something with randomness.		|GenerateAPIKey()				   	   |
