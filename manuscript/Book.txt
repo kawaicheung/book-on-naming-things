@@ -1,8 +1,8 @@
 Part_Preface.md
 Part_Introduction.md
-Part_CodeGrammar.md
-Ch_Verbs.md
-Ch_Nouns.md
+Part_CodingAsWriting.md
+Ch_MethodsAsVerbs.md
+Ch_ObjectsAsNouns.md
 Ch_Shape.md
 Ch_Flow.md
 Part_GoodHabits.md

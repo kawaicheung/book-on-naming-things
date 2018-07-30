@@ -1,6 +1,6 @@
-## Verbs
+## Methods as Verbs
 
-In code, the words we use to describe actions usually boil down to the usual suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with choices that tell us more about the actions without having to dig into their implementations. Let's take a look at a few examples.
+In code, the words we use to describe methods usually boil down to a few commonsuspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with choices that tell us more about the actions without having to dig into their implementations. Let's take a look at a few examples.
 
 ### Update
 
