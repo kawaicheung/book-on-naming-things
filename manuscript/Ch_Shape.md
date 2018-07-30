@@ -1,4 +1,4 @@
-## Shape (#ch_shape)
+## Shape {#ch_shape}
 
 Thus far, we’ve talked about what good, descriptive names look like. But, descriptive names aren’t necessarily _good_. This is especially true of variables scoped to a small amount of code. For example, consider this simple for loop:
 
