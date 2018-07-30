@@ -1,6 +1,6 @@
-## Shape {#ch_shape}
+## Considering Shape {#ch_shape}
 
-Thus far, we’ve talked about what good, descriptive names look like. But, descriptive names aren’t necessarily _good_. This is especially true of variables scoped to a small amount of code. For example, consider this simple for loop:
+Thus far, we’ve talked about how to make names more descriptive. But, just because a name is descriptive doesn't make it necessarily _good_. For example, consider this simple `for` loop:
 
 ```C#
 for (int i=0; i < players.length; i++)
@@ -12,13 +12,16 @@ for (int i=0; i < players.length; i++)
 }
 ```
 
-Let’s talk about the indexing variable i. Judging this variable’s clarity solely on the meaning of its name, i seems like a really poor choice.
+Let’s talk about the indexing variable `i`. Judging this variable solely on the descriptiveness of its name, `i` seems like a really poor choice of a name.
 
-But, since i is instantiated at the beginning of the for loop, we know that i only exists within the context of the loop -- it’s scope is small. It doesn’t leave a big footprint. In the context of the loop, it’s clear how i is used.
-But, suppose we wanted the variable to express itself more clearly. What might a more meaningful replacement name be? Well, it’s job is to hold the current index of the Players list, so cur_index_of_players_list could work:
+But, since `i` is instantiated at the beginning of the `for` loop, we know that it only exists within the lifespan of the loop which is small to begin with. It leaves a tiny footprint. It’s clear how `i` is used by examining the code around it, even if it's name leaves something to be desired.
+
+Let's try to express its name more clearly. What might a more meaningful replacement be? If its job is to hold the current index of the `Players` list, `cur_index_of_players_list` certainly does the trick. I make the replacement:
 
 ```C#
-for (int cur_index_of_players_list=0; cur_index_of_players_list < players.length; cur_index_of_players_list++)
+for (int cur_index_of_players_list=0; 
+	cur_index_of_players_list < players.length; 
+	cur_index_of_players_list++)
 {
    If (players[cur_index_of_players_list].Activated)
    {
@@ -27,16 +30,17 @@ for (int cur_index_of_players_list=0; cur_index_of_players_list < players.length
 }
 ```
 
-Undoubtedly, the name, in and of itself, is clearer. With no surrounding code, I know what cur_index_of_players_list represents. I don’t get that same benefit from i. 
+Undoubtedly, the name -- in and of itself -- is clearer. Without looking at surrounding code, I know what `cur_index_of_players_list` represents. I don’t get that same benefit from `i`. 
 
-But, now we face other, more onerous, problems. The for loop now looks substantially more complex. We need to take longer to digest the code -- and most notably on the very first line.
+But, now we face other, more onerous problems. The `for` loop now _looks_ substantially more complex. We need more time to digest the code.
 
-While the current index is the critical anchor of a for loop, representing that index in a verbally meaningful way isn’t -- particularly in this case where the physical size of the for loop is small, and the reach of the variable is minimal.
+Additionally, while the current index is a critical anchor of a `for` loop, representing it in a verbally meaningful way isn’t. An index is common to _every_ kind of `for` loop. Instead, we should be emphasizing the variables that are the reason for this `for` loop's existence. 
 
-What matters far more here is emphasizing the right players. The stars of the show here are both the players and usedPlayers lists. They’re the ones we’re interested in reviewing and updating. Adding more description to i now brings the side attraction to the forefront. 
+The stars of the show here are really the `players` and `usedPlayers` lists. They’re the ones we’re interested in reviewing and updating. Adding more description to `i` inadvertantly brings the side attraction to the forefront. 
 
-Going back to the original version, the code’s physical shape feels more appropriate. It reads more smoothly. It’s easier to see everything that’s happening. If, for some reason, i isn’t clear to the reader, it’s not hard to re-examine the rest of the code it’s scoped to, to figure out its purpose.
+Going back to the original version, the code’s physical shape feels more appropriate. It reads more smoothly. It’s easier to see everything that’s happening. If, for some reason, `i` isn’t clear to the reader, it’s not hard to re-examine the rest of the code it’s scoped to, to figure out its purpose.
 
+```C#
 for (int i=0; i < players.length; i++)
 {
    If (players[i].Activated)
@@ -44,6 +48,7 @@ for (int i=0; i < players.length; i++)
      usedPlayers.Add(players);
    }
 }
+```
 
 Here’s another example. In this code snippet, system_time_zones represents a collection of TimeZone objects. We loop through the collection, extracting time zone information to build a list of DropDownComponents, marking the passed in time zone as selected:
 

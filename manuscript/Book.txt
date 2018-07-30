@@ -13,5 +13,6 @@ Ch_Refactoring.md
 Part_AntiPatterns.md
 Ch_PatternHypnosis.md
 Ch_BadAbstractions.md
+Ch_MaskingObscurity.md
 Ch_DescriptionHierarchy.md
 Ch_PrincipleDogma.md

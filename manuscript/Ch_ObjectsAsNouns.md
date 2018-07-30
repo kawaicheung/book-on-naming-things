@@ -6,7 +6,7 @@ In the previous chapter, we took a look at picking the right names to describe m
 
 There are nouns in the English language that have taken on designated roles in "software speak". Even if you aren't intimately familiar with their meanings, you know they exist. I'm talking about the _Handlers_, _Managers_, and _Helpers_ of the world.
 
-When we're writing code, these terms have an appeal because they fit that perfect intersection of being somewhat ambiguous, sounding fairly technical, and having a history of use cases across various languages and frameworks. If other people are using them, they must be good, right?
+These terms have an appeal because they fit that perfect intersection of being somewhat ambiguous, sounding fairly technical, and having a history of use cases across various languages and frameworks. If other people are using them, they must be good, right? The problem is they provide little useful meaning. 
 
 They are the words we use to name a class that has some collection of methods behind it, but really isn't a tangible “thing” unto itself. For example, a class isn't specifically a `Product`, but it does things to `Products`, so, `ProductManager` feels appropriate. It's just the right word to encapsulate the idea completely, but it doesn't reveal much more about why we'd want to use that class.
 
