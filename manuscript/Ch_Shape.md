@@ -44,11 +44,11 @@ The stars of the show here are the `tokens` and `usedTokens` objects. Adding mor
 Going back to the original version is a real sight for sore eyes, isn't it?
 
 ```C#
-for (int i=0; i < players.length; i++)
+for (int i=0; i < tokens.length; i++)
 {
-   If (players[i].Activated)
+   If (tokens[i].Activated)
    {
-     usedPlayers.Add(players);
+     usedTokens.Add(tokens);
    }
 }
 ```
