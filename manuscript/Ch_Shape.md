@@ -1,6 +1,10 @@
 ## Considering Shape {#ch_shape}
 
-Thus far, we’ve talked about how to make names more descriptive. But, just because a name is descriptive doesn't make it necessarily _good_. For example, consider this simple `for` loop:
+When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible -- like good architecture. But, code is utterly visual. Good code design also means code that, for lack of a more technical term, _looks nice_.
+
+I unabashedly care about good design in this sense. Code that has an aesthetic shape pleases me. I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. 
+
+Consider this simple `for` loop.
 
 ```C#
 for (int i=0; i < players.length; i++)
@@ -12,6 +16,17 @@ for (int i=0; i < players.length; i++)
 }
 ```
 
+I would consider this bit of code to have good shape. The more important variables take up more space. The trivial ones fade into the background.
+
+Consider the variable `i`. 
+
+
+
+
+
+ Thus far, we’ve talked about how to make names more descriptive. But, a descriptive name isn't always the best choice.
+
+But, just because a name is descriptive doesn't make it necessarily _good_. For example, consider this simple `for` loop:
 Let’s talk about the indexing variable `i`. Judging this variable solely on the descriptiveness of its name, `i` seems like a really poor choice of a name.
 
 But, since `i` is instantiated at the beginning of the `for` loop, we know that it only exists within the lifespan of the loop which is small to begin with. It leaves a tiny footprint. It’s clear how `i` is used by examining the code around it, even if it's name leaves something to be desired.

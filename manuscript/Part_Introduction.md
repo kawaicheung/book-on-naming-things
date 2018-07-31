@@ -1,5 +1,6 @@
 # Introduction
 
+
 This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 
 Through renaming classes, methods, and properties of imperfect code, you'll see how we can improve upon it immediately. I believe iteratively improving names over time, much like iteratively refactoring code over time, is the only practical way to maintain a viable codebase.
@@ -56,6 +57,8 @@ Good code-writing is not a far reach from good prose-writing. We can make our li
 
 
 ### What this book is not...
+[I don't know what it is about us software developers. We argue about good code vs bad code by referencing principles...]
+
 
 * Recipe / Rules
 * Consistency -- All names should have this form... --- rather it's about creating more readability (use these and APPLY them consistently)
