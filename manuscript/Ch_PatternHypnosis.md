@@ -1,8 +1,8 @@
 ## Pattern Hypnosis
 
-Unearthing patterns is one of the most fundamental mental exercises we do when we code. It gives us a sense of progress when we can trivialize a procedure that once required a lot of thought into something seemingly automatic. Similar scenarios beget patterns. And patterns beget automation. 
+Unearthing patterns is one of the most fundamental mental exercises in coding. When we can trivialize a procedure that once required a lot of thought into something seemingly automatic, we can move onto solving other problems. 
 
-On the other hand, automation hypnotizes us into a false belief that a problem is once-and-for-all solved. We end up forcing the pre-conceived solution every time we encounter the same problem without the careful examination we once gave it before we came up with the pattern. The reasoning becomes dogmatic -- it fits the pattern so this must be the way!
+On the other hand, automation can bias our thinking. We end up forcing a pre-conceived solution every time we encounter what feels like a similar problem without the careful examination we once gave it before we discovered a pattern. The reasoning becomes dogmatic -- it fits this pattern so this must be the way forward!
 
 Let's call this phenomenon "pattern hypnosis." Even the task of naming can fall prey to this pattern hypnosis. I notice I fall into the trap quite frequently when naming tables in a relational database model.
 
@@ -20,7 +20,7 @@ So, I decide to update the table name to `tbl_Memberships`.
  
 Later on, I want to add a third association to the table -- a relationship to a set of available roles. This way, I can model a particular user with an account and a level within the account (Nora has Gold status). If I'm blindly following convention, I'd name my table to something like `tbl_UsersAccountRoles`.
 
-Meanwhile, the name `tbl_Memberships still holds up. "Nora has a gold-access membership to the Acme account." 
+Meanwhile, the name `tbl_Memberships` still holds up. "Nora has a gold-access membership to the Acme account." 
 
 This kind of pattern hypnosis isn't relegated to just table naming. Object-relational mappers usually map directly to tables, so it's common to see the same name patterns appear in data transfer or business domain objects as well.  A `UserPublication` class might be better served as a `Subscription` class. `CustomerProduct` could be a `PurchaseOrder`. `PassengerFlight`? A `Booking`.
 
