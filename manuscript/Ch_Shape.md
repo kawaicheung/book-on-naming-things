@@ -1,51 +1,44 @@
 ## Considering Shape {#ch_shape}
 
-When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible -- like good architecture. But, code is utterly visual. Good code design also means code that, for lack of a more technical term, _looks nice_.
+When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible, like good architecture. But, code is utterly visual. Good design also means code that -- for lack of a more technical term -- _looks nice_.
 
-I unabashedly care about good design in this sense. Code that has an aesthetic shape pleases me. I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. 
-
-Consider this simple `for` loop.
+Good code has a certain kind of shape that you can sense. It's spaced and cut nicely. 
+I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. Consider this simple `for` loop.
 
 ```C#
-for (int i=0; i < players.length; i++)
+for (int i=0; i < tokens.length; i++)
 {
-  if (players[i].Activated)
+  if (tokens[i].Activated)
   {
-    usedPlayers.Add(players);
+    usedTokens.Add(tokens);
   }
 }
 ```
 
-I would consider this bit of code to have good shape. The more important variables take up more space. The trivial ones fade into the background.
+I would consider this bit of code to have good shape. Besides the consistent indents and spacing, the more important variables are commensurate with their size. When I read this code, it doesn't take me long to figure out that tokens are added to a `usedTokens` list if they are "activated".
 
-Consider the variable `i`. 
+But, thus far, I've championed the idea of clarity in names. If clear names are better names, than the variable `i` is a really bad one. Judging this variable solely on the descriptiveness, it seems like we could do better. We can write this `for` loop more clearly.
 
-
-
-
-
- Thus far, we’ve talked about how to make names more descriptive. But, a descriptive name isn't always the best choice.
-
-But, just because a name is descriptive doesn't make it necessarily _good_. For example, consider this simple `for` loop:
-Let’s talk about the indexing variable `i`. Judging this variable solely on the descriptiveness of its name, `i` seems like a really poor choice of a name.
-
-But, since `i` is instantiated at the beginning of the `for` loop, we know that it only exists within the lifespan of the loop which is small to begin with. It leaves a tiny footprint. It’s clear how `i` is used by examining the code around it, even if it's name leaves something to be desired.
-
-Let's try to express its name more clearly. What might a more meaningful replacement be? If its job is to hold the current index of the `Players` list, `cur_index_of_players_list` certainly does the trick. I make the replacement:
+What might a more meaningful replacement for `i` be? If its job is to hold the current index of the `tokens` array, then `cur_index_of_tokens_array` certainly does the trick. I make the replacement:
 
 ```C#
-for (int cur_index_of_players_list=0; 
-	cur_index_of_players_list < players.length; 
-	cur_index_of_players_list++)
+for (int cur_index_of_tokens_array=0; 
+	cur_index_of_tokens_array < players.length; 
+	cur_index_of_tokens_array++)
 {
-   If (players[cur_index_of_players_list].Activated)
+   If (players[cur_index_of_tokens_array].Activated)
    {
      usedPlayers.Add(players);
    }
 }
 ```
 
-Undoubtedly, the name -- in and of itself -- is clearer. Without looking at surrounding code, I know what `cur_index_of_players_list` represents. I don’t get that same benefit from `i`. 
+Consider the variable `i`. While 
+
+But, since `i` is instantiated at the beginning of the `for` loop, we know that it only exists within the lifespan of the loop which is small to begin with. It leaves a tiny footprint. It’s clear how `i` is used by examining the code around it, even if it's name leaves something to be desired.
+
+
+Undoubtedly, the name -- in and of itself -- is clearer. Without looking at surrounding code, I know what `cur_index_of_tokens_array` represents. I don’t get that same benefit from `i`. 
 
 But, now we face other, more onerous problems. The `for` loop now _looks_ substantially more complex. We need more time to digest the code.
 
