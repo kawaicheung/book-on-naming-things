@@ -17,7 +17,7 @@ for (int i=0; i < tokens.length; i++)
 
 To me, this code has good shape. The indents and spacing are consistent. Even further, the  important variables are commensurate with their size. When I read this code, it doesn't take me long to figure out that tokens are added to a `usedTokens` list if they are activated. All the code that helps me understand this isn't getting in the way.
 
-Thus far, I've championed the idea of clarity in names. If clear names are better names, than the variable `i` is a really bad one. Judging this variable solely on its descriptiveness, it seems like we could do better.
+Thus far, I've championed the idea of clarity in names. If clear names are better names, than the variable `i` here is a really bad one. Judging this variable solely on its descriptiveness, it seems like we could do better.
 
 What might a more meaningful replacement for `i` be? If its job is to hold the current index of the `tokens` array, then `curIndexOfTokenArray` certainly does the trick. Let's make the replacement:
 
@@ -33,13 +33,13 @@ for (int curIndexOfTokenArray=0;
 }
 ```
 
-There's no doubt the name is more clear. But, now we face other, more onerous problems. The whole thing just _looks_ substantially more complex. We need more time to digest it. The code's lost all of its good shape.
+There's no doubt the name is more clear. But, now we face other, more onerous problems. The whole thing just _looks_ substantially more complex. We need more time to digest it. The code has lost all of its good shape.
 
-While the current index is a critical anchor of a `for` loop, representing it in a verbally meaningful way isn’t. For one thing, an index is common to _every_ kind of `for` loop. In addition, it's scope is small -- it only exists for the duration of a few lines inside the loop. If someone were really confused about the variable name, they only need to look around a small visual radius to get familiar.
+While the current index is a critical anchor of a `for` loop, representing it in a verbally meaningful way isn’t. For one thing, an index is common to _every_ kind of `for` loop. In addition, it's scope is small -- it only exists for the duration of a few lines inside the loop. If someone were really confused about the variable name, they only need to look around a small visual radius to get refamiliarized.
 
-Instead, we should emphasize the variables that are the reason for this `for` loop's existence in the first place. 
+Instead, we should emphasize the variables that require this `for` loop's existence in the first place. 
 
-The stars of the show here are really the `tokens` and `usedTokens` objects. Adding more description to `i`  brings a stage crew member unwillingly into the spotlight. That's particularly evident in the line `if (tokens[curIndexOfTokenArray].Activated)`.  I find myself _reading_ this line of code to understand it, rather than quickly _scanning_ it.
+The stars of the show here are the `tokens` and `usedTokens` objects. Adding more description to `i`  brings a stage crew member unwillingly into the spotlight. That's particularly evident in the line `if (tokens[curIndexOfTokenArray].Activated)`.  I find myself _reading_ this line of code to understand it, rather than quickly _scanning_ it.
 
 Going back to the original version is a real sight for sore eyes, isn't it?
 
@@ -53,7 +53,7 @@ for (int i=0; i < players.length; i++)
 }
 ```
 
-Here’s another example. In this code snippet, `systemTimeZones` represents a collection of `TimeZone` objects. We loop through the collection, extracting time zone information to build a list of `DropDownComponents`, marking the passed in time zone as selected:
+Here’s another example. In this code snippet, `systemTimeZones` represents a collection of time zone objects. We loop through this collection, extracting time zone information to build a list of `DropDownComponents`, marking the passed in time zone as selected:
 
 ```C#
 public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZone)
@@ -63,14 +63,14 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 
   foreach (var systemTimeZone in systemTimeZones)
   {
-    var component = new DropDownComponent(systemTimeZone.Id, systemTimeZone.DisplayName);
+    var comp = new DropDownComponent(systemTimeZone.Id, systemTimeZone.DisplayName);
 
     if (systemTimeZone.Id == selectedTimeZone)
     {
-      component.Selected = true;
+      comp.Selected = true;
     }
 
-    result.Add(component);
+    result.Add(comp);
   }
 }
 ```
@@ -79,15 +79,15 @@ There are several constructs in this method that have similar looking names: the
 
 Scenarios like these are tricky because each name -- in isolation -- is appropriately descriptive. No single name is egregiously lengthy or over detailed. The problem, however, is when we step back and read the method as a whole.
 
-It reminds me a lot of the lines of a Dr. Suess story -- one of my two-year-old son’s favorites is _Hop On Pop_, which begins:
+It reminds me a lot of the lines of a Dr. Suess story. One of my two-year-old son’s favorites is _Hop On Pop_, which begins:
 
 > UP PUP - Pup is up. 
 > CUP PUP - Pup in cup. 
 > PUP CUP - Cup on pup.
 
-The lines of Dr. Suess, of course, are intentionally dizzying -- it’s fun to get lost in the words as my son cackles at the absurdity of its rhythm. But, reading dizzying code at 5pm isn't. For this, we need to make some name improvements.
+The lines of Dr. Suess, of course, are intentionally dizzying. It’s fun to get lost in the pattern of the words as my son cackles at the absurdity of its rhythm. But, reading dizzying code at 5pm isn't. For this, we need to make some name improvements.
 
-The most immediate, impactful name change we can make is with the `systemTimeZone` object. First, it appears four times in the method. No other similarly named construct appears more than twice. Also, because it’s scope is small (only to the `foreach` loop), we can get away with a less descriptive name without doing much harm to the reader’s understanding. 
+The most immediate, impactful name change we can make is with the `systemTimeZone` object. First, it appears four times within the method. No other similarly named construct appears more than twice. Also, because its reach is small (only scoped to the `foreach` loop), we can get away with a less descriptive name without doing much harm to the reader’s understanding. 
 
 Let’s try reducing `systemTimeZone` to something shorter, like `tz`:
 
@@ -111,9 +111,9 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 }
 ```
 
-I like this change already. Now, the details of the `foreach` loop are much easier to scan. In addition, all of the other similarly-named constructs all benefit. They feel more spread apart from each other so that the similarity in their names aren’t as distracting on the eyes.
+I like this change already. Now, the details of the `foreach` loop are much easier to scan. In addition, all of the other similarly-named constructs benefit. They feel more spread apart from each other such that the similarity in their names aren’t as distracting on the eyes.
 
-The variable `tz` is also sized appropriately. Conceptually, a small name like `tz` feels like just one element in a longer-named collection like `systemTimeZones`. These are the subtle visual cues that all lend themselves to good code shape.
+The variable `tz` is also sized appropriately. Conceptually, a small name like `tz` feels like just one element in a longer-named collection like `systemTimeZones`. These are the kinds of subtle visual cues that all lend themselves to good code shape.
 
 When we edit names, we shouldn't look at them in isolation. That habit can drive naming decisions that don’t actually benefit the overall readability or scannability of the surrounding code.
 
