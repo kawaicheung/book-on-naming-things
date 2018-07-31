@@ -179,6 +179,7 @@ In the introduction, I mentioned that this book is not a reference manual. But, 
 |Verb   |Replacement     |Use case                                  |Example                               |
 |-------|----------------|------------------------------------------|--------------------------------------|
 |Create |Generate   	 |Creating something with randomness.		|GenerateAPIKey()				   	   |
+|Create |Initialize   	 |											|								   	   |
 |Get    |Extract, Expose |Exposing something that already exists. 	|string.ExtractAnyEmails()	   		   |
 |Get    |Convert         |Getting a manipulation of an object.		|date.ConvertToShortDate()			   |
 |Update |Overwrite       | 										    |									   |

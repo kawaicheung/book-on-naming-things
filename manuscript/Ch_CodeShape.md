@@ -2,8 +2,7 @@
 
 When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible, like good architecture. But, code is utterly visual. Good design also means code that -- for lack of a more technical term -- _looks nice_.
 
-Good code has a certain kind of shape that you can sense. It's spaced and cut nicely. 
-I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. Consider this simple `for` loop.
+Good code has a certain kind of shape that you can sense. It's spaced, indented, and cut nicely. I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. Consider this simple `for` loop.
 
 ```C#
 for (int i=0; i < tokens.length; i++)
