@@ -1,4 +1,4 @@
-## Considering Shape {#ch_shape}
+## Code Shape {#ch_shape}
 
 When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible, like good architecture. But, code is utterly visual. Good design also means code that -- for lack of a more technical term -- _looks nice_.
 
@@ -89,7 +89,7 @@ The lines of Dr. Suess, of course, are intentionally dizzying -- it’s fun to g
 
 The most immediate, impactful name change we can make is with the `systemTimeZone` object. First, it appears four times in the method. No other similarly named construct appears more than twice. Also, because it’s scope is small (only to the `foreach` loop), we can get away with a less descriptive name without doing much harm to the reader’s understanding. 
 
-Let’s try reducing `systemTimeZone` to something really barebones, like s:
+Let’s try reducing `systemTimeZone` to something shorter, like `tz`:
 
 ```C#
 public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZone)
@@ -97,11 +97,11 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
   var result  = new List<DropDownComponent>();
   var systemTimeZones = TimeZoneInfo.GetSystemTimeZones();
 
-  foreach (var s in systemTimeZones)
+  foreach (var tz in systemTimeZones)
   {
-    var component = new DropDownComponent(s.Id, s.DisplayName);
+    var component = new DropDownComponent(tz.Id, tz.DisplayName);
 
-    if (s.Id == selectedTimeZone)
+    if (tz.Id == selectedTimeZone)
     {
       component.Selected = true;
     }
@@ -111,7 +111,9 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 }
 ```
 
-I like this change already. Now, the details of the `foreach` loop are easier to scan. In addition, all of the other similarly-named constructs all benefit. They feel more spread apart from each other so that the similarity in their names aren’t as distracting on the eyes.
+I like this change already. Now, the details of the `foreach` loop are much easier to scan. In addition, all of the other similarly-named constructs all benefit. They feel more spread apart from each other so that the similarity in their names aren’t as distracting on the eyes.
+
+The variable `tz` is also sized appropriately. Conceptually, a small name like `tz` feels like just one element in a longer-named collection like `systemTimeZones`. These are the subtle visual cues that all lend themselves to good code shape.
 
 When we edit names, we shouldn't look at them in isolation. That habit can drive naming decisions that don’t actually benefit the overall readability or scannability of the surrounding code.
 
