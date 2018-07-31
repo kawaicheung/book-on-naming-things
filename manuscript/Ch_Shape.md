@@ -113,10 +113,9 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 
 I like this change already. Now, the details of the `foreach` loop are easier to scan. In addition, all of the other similarly-named constructs all benefit. They feel more spread apart from each other so that the similarity in their names aren’t as distracting on the eyes.
 
+When we edit names, we shouldn't look at them in isolation. That habit can drive naming decisions that don’t actually benefit the overall readability or scannability of the surrounding code.
 
---- (maybe applies to past few sections -- shape, and the one before that on sentences/phrases “hr_manager” vs. “should_send_email”) --
+Instead, look at the context in which these names live. Find out what’s making a section of code difficult to read and solve the larger problem. It might be a more descriptive variable name, but it might also be a terse one. Let the full context drive those decisions.
 
-When we edit names, it’s important to not look at names in isolation. That habit can drive naming decisions that don’t actually benefit the overall readability or scannability of the surrounding code.
-
-Instead, look at the larger context that these names live in. Find out what’s making a section of code difficult to understand and solve that specific problem. When editing prose, we read whole sentences and paragraphs to get a sense of readability and style. It’s the same in code-writing.
+When editing prose, we read whole sentences and paragraphs to get a sense of readability and style. It’s the same in code-writing.
 
