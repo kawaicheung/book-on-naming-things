@@ -1,15 +1,13 @@
 # Preface
 
-I don’t like calling what I do programming. It sounds like I spend my days plugging in some series of commands from an instruction manual to get something to work -- like I would if I were setting up the air conditioning schedule in my apartment. Coding is only marginally better. But, the name only details part of my job -- creating some technical instruction that a compiler can interpret into machine code.
+At some point in my software writing career, things got really complicated.
 
-Writing code? OK, that’s closer. I don’t code solely for the machine, I write code so that other code writers also understand what I’m telling the compiler to do. Humans need much more quality time with written code to get to that understanding than a compiler does. Still, it’s missing something. 
+When I first started writing "full-stack" applications, I did so with delightfully simple architectures. At first, I wrote web pages that called their own methods which hit a database directly. Later on, I worked with MVC frameworks to better separate presentation from data and logic. After that, I was introduced to the idea of decoupling services from the application entirely. Then came injecting dependencies and inversion of control to make my applications more viable for automated testing.
 
-I’ve landed on this: I write software. Just like someone else might write a book or play, I write software. I wouldn’t say Hemingway wrote English -- he wrote novels. In the same way, I don’t write code, I write software.
+Meanwhile, a similar pattern of complexity began to develop on the front-end. Today, a single web application can feel like a monstrosity of misdirections, re-routing, and configuration to do, roughly, what I was able to do twenty years ago -- show something of value to the user.
 
-Writing software is a long leap from programming. It means that I care about what other “normal” writers care about -- style, clarity, tone, and telling a good story. There is a whole lot of qualitative judgment when it comes to well-written software.
+Many more people are entering the software development industry today. That's a _wonderful_ thing. But, I can only shutter at the weight of knowledge a new developer is asked to carry from day one. I don't think learning everything about how today's complex applications are built is healthy. Instead, there are fundamentals -- ways of thinking -- about programming, agnostic to today's programmatic flavors-of-the-day, that are far more important to get right first.
 
-But, this is kind of a foreign idea. Our industry champions metrics like line counts, Big(O) complexity, and test coverage -- things we can quantify. But, it’s hard to measure code aesthetics.  How can we definitively say one software writer’s approach is more well-written than anothers’? 
+One of these skills is naming things well. That is the sole focus of this book.
 
-Judging good software writing is heavily subjective. So, I decided, as any pragmatic software writer might, to tackle just a sliver of that subject: Naming things. There are clearly good names, and there are clearly bad names, and there is a whole lot of gray area in between. This book tries to differentiate between the two and offer some strong opinions for the vast middle.
-
-You might very well disagree with my opinions. But, having the debate is worthwhile in and of itself. Getting us software writers to think critically about the names we give things is a big step to better, more enjoyable software reading.
+Naming is a skill every developer needs. The day we don't care about naming is the day the robots have entirely taken over and there's no more software for humans to write. Whether you're just learning to code or have been at it since the Apple logo was multi-colored, I think you'll gain something from this book.
