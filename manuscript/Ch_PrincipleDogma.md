@@ -1,4 +1,4 @@
-## The dogma of software principles
+# The dogma of software principles
 
 When I talk to other programmers about why code should be written in one way or another, I often get a response like “If you don’t do it this way, you violate the Single Responsibility Principle” or “Because no method should be longer than 20 lines of code.”
 

@@ -1,4 +1,4 @@
-## Making names memorable
+# Making names memorable
 
 One of the best ways to improve the digestibility of a codebase is to make names memorable. Here’s an example. 
 

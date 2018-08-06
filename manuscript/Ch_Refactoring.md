@@ -1,4 +1,4 @@
-## Refactoring as an exercise in naming
+# Refactoring as an exercise in naming
 
 If you read books about programming, I’ll bet you have Martin Fowler’s Refactoring book sitting on your bookshelf somewhere. It’s the veritable _Joy of Cooking_ of classic refactoring recipes. When you take a look at his extensive list of refactorings, many of them are - at the core - exercises in renaming. "Introduce Explaining Variable", "Replace Magic Number with Symbolic Constant," and "Rename Method" are some of the obvious ones. But, nearly all of them have some aspect where a well-considered name plays a key role in the success of the refactoring.
 

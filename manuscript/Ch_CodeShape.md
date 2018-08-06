@@ -1,4 +1,4 @@
-## Code Shape {#ch_shape}
+# Code Shape {#ch_shape}
 
 When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible, like good architecture. But, code is utterly visual. Good design also means code that -- for lack of a more technical term -- _looks nice_.
 
@@ -109,7 +109,7 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 
     result.Add(component);
   }
-  
+
   return result;
 }
 ```

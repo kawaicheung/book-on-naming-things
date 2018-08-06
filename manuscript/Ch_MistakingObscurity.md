@@ -1,3 +1,3 @@
-## Masking Obscurity for Elegance
+# Masking Obscurity for Elegance
 
 Trying to get too cute rather than just saying "ContractOrTemplate" for now...

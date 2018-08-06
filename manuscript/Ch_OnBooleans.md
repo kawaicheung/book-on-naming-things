@@ -1,4 +1,4 @@
-## On naming booleans
+# On naming booleans
 
 A programming language _reads_ most like traditional language when we're writing at the most fundamental level -- with booleans and logic operators. A statement like `if (published && editable)` can be read pretty much as its written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
 

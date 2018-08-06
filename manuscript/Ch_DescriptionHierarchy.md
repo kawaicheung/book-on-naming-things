@@ -1,4 +1,4 @@
-## Description hierarchy
+# Description hierarchy
 
 I would venture to guess that native English speakers (like myself), and in particular, programmers raised in the United States (like myself), have a harder time with naming things well than most. That’s because we tend to measure and categorize things in ridiculously odd ways. It’s just not odd to us because we’re so accustomed to it.
 
