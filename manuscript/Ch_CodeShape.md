@@ -71,6 +71,8 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 
     result.Add(comp);
   }
+
+  return result;
 }
 ```
 
@@ -107,6 +109,8 @@ public List<DropDownComponent> BuildTimeZonesDropDownList(string selectedTimeZon
 
     result.Add(component);
   }
+  
+  return result;
 }
 ```
 
