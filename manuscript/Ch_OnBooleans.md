@@ -2,7 +2,7 @@
 
 A programming language _reads_ most like traditional language when we're writing at the most fundamental level -- with booleans and logic operators. A statement like `if (published && editable)` can be read pretty much as its written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
 
-Yet, we can easily convolute these statements into readability nightmares when the booleans involved are poorly named or logical operators aren't edited down into the simpest forms. 
+Yet, we can easily convolute these statements into readability nightmares when the booleans involved are poorly named or logical operators aren't edited down into the simpest forms.
 
 The simple statement above has the same meaning as `if (!(unpublished || !editable))`. But, the mess of nested scopes, misdirections, and negations make it impossible to deduce this right away. It's the kind of statement I often see in code that still works and passes tests. It's just developed the cruft common to code that's been handled hastily a few times without someone taking the time to unravel it.
 
