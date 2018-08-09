@@ -55,3 +55,6 @@ vs
 if (user && avatar & initials)
 else if (initials & !avatar & !user)
 else
+
+
+unless vs. if not -- Not just about COMPACTNESS but about readability.

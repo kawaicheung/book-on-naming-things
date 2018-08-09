@@ -1,5 +1,4 @@
-# Introduction
-
+# Why naming matters.
 
 This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 
@@ -62,4 +61,46 @@ Good code-writing is not a far reach from good prose-writing. We can make our li
 
 * Recipe / Rules
 * Consistency -- All names should have this form... --- rather it's about creating more readability (use these and APPLY them consistently)
+
+
+## Coding as writing
+
+In code, objects and methods create actions. Actions, when stitched together in a certain way, shape larger components. Components then become the building blocks for the entire application. 
+
+Coding sounds an awful lot like writing, doesn't it? Nouns and verbs create sentences, sentences shape paragraphs, paragraphs build chapters, and so forth.
+
+This section approaches better naming by thinking about it in the way we'd think about writing good prose. Is the name of an object clear and unambiguous? While the individual words feel right, does the entire line read coherently?
+
+
+## DHH Rails 2014 keynote:
+
+
+Forensics, much more like reading literature than a 'hard science'.
+
+Discovering Laws of Programming -> "Law of Demeter" . Lull into belief that what we do is 'science'.
+
+PseudoScience.
+
+We are all insecure about parts of our codebases.
+
+TDD -> 
+
+Engineering/Computer Science lens...makes 'laws' and 'rules' more important.
+
+Programming information systems...  METRICS. BOOM. 
+
+"Just because somethig is easy to measure doesnt mean its important"
+
+Science is clear objective truth.
+
+Software engineering is a hard-hat you wear occasionally. Performance testing for example.
+
+"Software writer"
+
+CLARITY OF THE CODEBASE ABOVE ALL ELSE.
+
+There's no one formula -- "I'll know it when i see it." "Develop an eye."
+
+
+Writing code is just a 'draft'.
 
