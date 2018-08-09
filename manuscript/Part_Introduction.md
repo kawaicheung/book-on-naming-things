@@ -1,4 +1,24 @@
-# Why naming matters.
+# Why naming matters
+
+About six months into writing this book, I stumbled upon a keynote speech given by David Heinemeier Hansson at the RailsConf 2014. I decided to take a break from writing and see what he had to say.
+
+In a strange twist of coincidence, the gist of his talk mirrored what I've long thought about programming -- at least the kind of programming a lot of us do. In his usual direct, somewhat abrasive way, he tore down the idea of programming information systems as _computer science_ or _engineering_. Rather, it is much more about _writing_.
+
+A goal of all software writing of this kind is clarity. We are trying to write code that can be understood by our colleagues and by ourselves when we come back to it sometime later. But, according to David, there is a constant force that pushes software writing back to hard disciplines like science and engineering. Because of this, writing clearly takes a back seat to other measurable metrics like test coverage and principles like the Law of Demeter. Clarity is king -- well, so long as the other hard laws that govern programming are met.
+
+David's argues that programming styles that strictly follow the hard science approach, like test-driven development, doesn't lead to clearer, more readable code. But, we are easily convinced by others that such styles are the only "professional" ways to program.
+
+---
+
+Consider me part of David's camp. Then, this book is a counterweight to all the hard-thinking -- we will talk about how to "write" better code...writing as prose, not a hard science.
+
+Every so often, we take on the role of a true engineer, but more often, we should see ourselves as writers. Writing
+
+
+
+
+
+
 
 This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 

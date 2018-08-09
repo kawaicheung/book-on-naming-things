@@ -2,7 +2,7 @@
 
 At some point in my software writing career, things got really complicated.
 
-When I first started writing full-stack applications, I did so with delightfully simple architectures. At first, I wrote web pages that called their own methods which would hit a database directly. Later on, I worked with MVC frameworks to better separate presentation from data and logic. After that, I was introduced to the idea of decoupling services from the application entirely. Then came injecting dependencies and inversion of control to make my applications more readily testable.
+When I first started writing full-stack applications, I did so with delightfully simple architectures. At first, I wrote web pages that called their own methods which would hit a database directly. Later on, I graduated to MVC frameworks to better separate presentation from data and logic. After that, I was introduced to the idea of decoupling services from the application entirely. Then came injecting dependencies and inversion of control to make my applications more readily testable. 
 
 Meanwhile, a similar pattern of complexity began to develop on the front-end. Today, a single web application can feel like a monstrosity of misdirections, re-routing, and configuration to do, roughly, what I was able to do twenty years ago -- show something of value to the user.
 
