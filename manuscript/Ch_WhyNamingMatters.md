@@ -1,23 +1,16 @@
 # Why naming matters
 
-About six months into writing this book, I stumbled upon a keynote speech given by David Heinemeier Hansson at the RailsConf 2014. I decided to take a break from writing and see what he had to say.
+One of the main goals of good software writing should be clarity. We write code that eventually needs to be understood by someone else, even if that someone else is us a few months from now. Clear code makes figuring out the programmer's original intent less daunting.
 
-In a strange twist of coincidence, the gist of his talk mirrored what I've long thought about programming -- at least the kind of programming a lot of us do. In his usual direct, somewhat abrasive way, he tore down the idea of programming information systems as _computer science_ or _engineering_. Rather, it is much more about _writing_.
+But, there are other goals we strive for. Sometimes, by their very nature, these goals pull us away from clarity. We choose them to gain something at the cost of some amount of misdirection and obfuscation. But, we reason that the tradeoff is worth it. This is where the heated debates begin.
 
-A goal of all software writing of this kind is clarity. We are trying to write code that can be understood by our colleagues and by ourselves when we come back to it sometime later. But, according to David, there is a constant force that pushes software writing back to hard disciplines like science and engineering. Because of this, writing clearly takes a back seat to other measurable metrics like test coverage and principles like the Law of Demeter. Clarity is king -- well, so long as the other hard laws that govern programming are met.
+In a keynote speech at RailsConf 2014, David Heinemeier Hansson argues that many of these goals aren't worth trading away clarity. We blindly overvalue their worth because we are taught that writing code is, first and foremost, a _science_. We are, first and foremost, _engineers_.
 
-David's argues that programming styles that strictly follow the hard science approach, like test-driven development, doesn't lead to clearer, more readable code. But, we are easily convinced by others that such styles are the only "professional" ways to program.
+This leads us to dogmatic reasoning. If you aren't writing tests first, you aren't writing professional code. Test coverage and other quantifiable metrics dictate the quality of your codebase. Good coding is governed by hard rules like the SOLID principles or the Law of Demeter.
+
+Hansson argues that the kind of programming we do -- building information systems maintained over time -- is rarely science. We are far closer to _writers_  than we are to _scientists_. The principle goal of all good code is clarity -- and clarity isn't a metric achieved by following a set of laws.
 
 ---
-
-Consider me part of David's camp. Then, this book is a counterweight to all the hard-thinking -- we will talk about how to "write" better code...writing as prose, not a hard science.
-
-Every so often, we take on the role of a true engineer, but more often, we should see ourselves as writers. Writing
-
-
-
-
-
 
 
 This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 

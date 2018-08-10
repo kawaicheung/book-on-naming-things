@@ -1,5 +1,5 @@
 Part_Preface.md
-Part_Introduction.md
+Ch_WhyNamingMatters.md
 Ch_MethodsAsVerbs.md
 Ch_ObjectsAsNouns.md
 Ch_CodeShape.md
