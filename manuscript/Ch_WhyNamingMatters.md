@@ -8,18 +8,13 @@ In a keynote speech at RailsConf 2014, David Heinemeier Hansson argues that many
 
 This leads us to dogmatic reasoning. If you aren't writing tests first, you aren't writing professional code. Test coverage and other quantifiable metrics dictate the quality of your codebase. Good coding is governed by hard rules like the SOLID principles or the Law of Demeter.
 
-Hansson argues that the kind of programming we do -- building information systems maintained over time -- is rarely science. We are far closer to _writers_  than we are to _scientists_. The principle goal of all good code is clarity -- and clarity isn't a metric achieved by following a set of laws.
+Hansson argues that the kind of programming we do -- building information systems maintained over time by multiple people -- is rarely science. We are far closer to _writers_ than we are to _scientists_. The principle goal of all good code is clarity -- and clarity isn't a metric achieved by following a set of laws.
 
----
+One way to consistently promote clarity is by naming things well. This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 
-
-This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
-
-Through renaming classes, methods, and properties of imperfect code, you'll see how we can improve upon it immediately. I believe iteratively improving names over time, much like iteratively refactoring code over time, is the only practical way to maintain a viable codebase.
+Through renaming classes, methods, and properties of imperfect code, you'll see how we can improve upon it immediately. I believe iteratively improving names over time, much like iteratively refactoring code over time, is the only practical way to maintain a clear codebase.
 
 While this book is specifically dedicated to naming, naturally, other programming concepts will occasionally surface. For instance, naming properties in a bloated class in a certain way might expose an opportunity to create a new class. Or, naming a method accurately (if in an ugly way) might reveal that the method is doing too much. Sprinkled throughout this book are other programming principles, but all through the lens of naming things.
-
-## Why does naming matter?
 
 If you've picked up this book already, I probably don't have to convince you why naming things well is a critical aspect of good software writing. But, you may need to convince your manager or other stakeholders who might not reap its immediate benefits. This section might not fully convince them either, but we can both say we tried our best.
 
@@ -67,53 +62,4 @@ Good code-writing is not a far reach from good prose-writing. We can make our li
 
 [Software developers are more diverse than ever -- it's no longer just ‘science geeks'. The culture of development is changing (open source too). Need to emphasize human communication more than ever.]
 
-
-### What this book is not...
-[I don't know what it is about us software developers. We argue about good code vs bad code by referencing principles...]
-
-
-* Recipe / Rules
-* Consistency -- All names should have this form... --- rather it's about creating more readability (use these and APPLY them consistently)
-
-
-## Coding as writing
-
-In code, objects and methods create actions. Actions, when stitched together in a certain way, shape larger components. Components then become the building blocks for the entire application. 
-
-Coding sounds an awful lot like writing, doesn't it? Nouns and verbs create sentences, sentences shape paragraphs, paragraphs build chapters, and so forth.
-
-This section approaches better naming by thinking about it in the way we'd think about writing good prose. Is the name of an object clear and unambiguous? While the individual words feel right, does the entire line read coherently?
-
-
-## DHH Rails 2014 keynote:
-
-
-Forensics, much more like reading literature than a 'hard science'.
-
-Discovering Laws of Programming -> "Law of Demeter" . Lull into belief that what we do is 'science'.
-
-PseudoScience.
-
-We are all insecure about parts of our codebases.
-
-TDD -> 
-
-Engineering/Computer Science lens...makes 'laws' and 'rules' more important.
-
-Programming information systems...  METRICS. BOOM. 
-
-"Just because somethig is easy to measure doesnt mean its important"
-
-Science is clear objective truth.
-
-Software engineering is a hard-hat you wear occasionally. Performance testing for example.
-
-"Software writer"
-
-CLARITY OF THE CODEBASE ABOVE ALL ELSE.
-
-There's no one formula -- "I'll know it when i see it." "Develop an eye."
-
-
-Writing code is just a 'draft'.
 
