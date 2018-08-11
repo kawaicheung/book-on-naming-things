@@ -53,7 +53,7 @@ if (issue.IsAssigned)
 }
 ```
 
-Now, the conditional reads more fluidly -- "If the issue is assigned" rather than "If the issue's assignee is not `null`". There are other viable names I consider with the boolean like `HasAssignee` or `AssigneeExists`. But, `IsAssigned` feels slightly more appropriate to me.
+Now, the conditional reads more fluidly -- "If the issue is assigned" rather than "If the issue's assignee is not `null`". There are other viable names I consider with the boolean like `HasAssignee` or `AssigneeExists`. But, `IsAssigned` reads slightly more appropriately to me -- it focuses the attention more on the issue rather than the assignee. It also avoids some of the technical stiffness that the word `Exists` conveys. Yes, we're programmers. But, we're readers first.
 
 A few weeks later, I have a new requirement in a different part of the codebase. If the issue is not assigned to anyone and it's deleted, I want to notify the project admins of the deletion. 
 
