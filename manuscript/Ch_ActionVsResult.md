@@ -18,8 +18,9 @@ I use a service/repository architecture so there are three service methods of I 
 
 What's an appropriate name for this method? My first stab is `FlagAccountAsUserCountUpdated()`.  This describes, rather directly, what the method does.
 
-[Add the idea that 'update user' is required because they may change roles and we charge on different roles. Important because User Count isn't just directly about one number, but it's more complex...]
+[Add BACK the idea that 'update user' is required because they may change roles and we charge on different roles. ]
 
+[SyncWithBilling is more broad...more flexible in a way. but is that even important? it makes the readability of the sweeper side more tautologous. Is that better?  But, it also helps describe the reasoning for the flagging better on the 3 methods. Otherwise, the 'UpdateUserCount' approach makes the 3 methods have a tautologus thing... "yes it's being updated" And, my vote is that I'm going to be in those 3 methods more than the sweeper, so impart more MEANING on that side vs. on the side ill be looking at/updating less. ]
 
 
 Do I want to connote wh
