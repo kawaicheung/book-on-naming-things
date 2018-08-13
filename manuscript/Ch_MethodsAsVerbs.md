@@ -186,6 +186,7 @@ In the introduction, I mentioned that this book is not a reference manual. But, 
 |Update |Overwrite       | 										    |									   |
 |Update |Replace 		 |								            |									   |
 |Update |Merge	 		 |								            |									   |
+|Update |Sync	 		 |(With 3rd party)						    |									   |
 |Delete |Remove	 		 |										    |									   |
 |Delete |Incinerate	 	 |For hard or permanent deletes.	    	|project.Incinerate()				   |
 
