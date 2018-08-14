@@ -43,4 +43,24 @@ often get into this pickle of naming what happened vs the result of what ahppene
 
 lead into shouldSendEmail?
 
+
+Take, for instance, this simple bit of code:
+
+```C#
+
+bool shouldSendEmail = user.IsHRManager;
+
+...
+
+if (shouldSendEmail)
+{
+	
+}
+
+```
+
 SendAutoResponse” vs “IsOutsideOfficeHours”
+
+What ends up happening is a tautalogous statement -- If i should send the auto response, then send the auto-response. At this point of the code, the intent's been obscured. Now, at times this is a good trade. Particularly, if the logic required to derive whether an auto response is sent is complex. We're packing all of that detail away from the point at which we care about it.  But, otherwise, we should keep the details of "what" in place. "IsOutsideOfficeHours" tells us what. If we're outside office hours, then send the auto-response is a more meaningful line.
+
+But, as the code morphs and the logic potentially gets more complex, that method might now be too complex to formulate the name as a 'what'. IfOutsideOfficeHoursAndNotAHolidayAndProjectHasAutoResponsesSetToOn is a bit much. That's when the result makes more sense: ShouldSendAutoResponse.
