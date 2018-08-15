@@ -2,7 +2,7 @@
 
 We're told in code to avoid premature abstractions. Wait until as late as you can before you replace a concrete concept with something abstract. I find the same truth holds with naming things.
 
-I'm working on a piece of code that processes incoming emails. One of the its responsibilities is to send a generic auto-response email back to the original sender if certain conditions are met.
+I'm working on a piece of code that processes incoming emails. One of its responsibilities is to send a generic auto-response email back to the original sender if certain conditions are met.
 
 In the first iteration of this feature, we decide to send an auto-response email only if the original email was received outside of a company's office hours. I've written another method that does this dirty work -- querying the company's work hours and comparing date ranges to the current date and time before returning a boolean to answer the question. I then call on this method to determine if an auto-response is necessary.
 
@@ -54,9 +54,11 @@ if (shouldSendAutoResponse())
 
 ```
 
-With a new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional is also tautologous. Of course we'd send an auto-response if we should...send an auto-response! When we read the conditional in isolation, we  don't know why we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. In essence, we haven't gained much of anything in comprehension. We've tucked away some logic that we likely have to open up anyways.
+With a new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional is tautologous: If we should send an auto-response, then...send an auto-response. When we read the conditional in isolation, we don't know why we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. In essence, we haven't gained much of anything in comprehension. We've just tucked away some logic that we likely will have to drill into later anyways.
 
-I find this happens a lot with these quick little extraction exercises. The natural inclination is to name the newly extracted construct (beit a method or variable) after the direct _effect_ rather than the _cause_. The _effect_ of the extracted piece of logic is that an auto-response should be sent. But, why are we sending it?
+I find this happens a lot with these quick little extraction exercises. Our natural inclination is to name the newly extracted construct (beit a method or variable) after its direct _effect_ (the outcome of the conditions being met) rather than the _cause_ (what the conditions actually mean). It's the simpler naming choice because we are staring at the effect in code while we're doing the extraction. In this case, the _effect_ of the extracted piece of logic is that an auto-response should be sent. But, why are we sending it?
+
+Also, by naming the extraction this way, it's less likely we'll reuse it somewhere else. At a glance, I wouldn't think to employ `shouldSendAutoResponse()` anywhere else besides the place in code where I want to send auto-responses.
 
 A much better name for this method would succinctly describe the cause. In this case, the cause of sending an auto-response message is because, quite simply, the office is closed.
 
@@ -75,9 +77,47 @@ if (isOfficeClosed())
 
 ```
 
---> Now more meaningful.
+The conditional now reads more meaningfully. In addition, `isOfficeClosed()` is a method I can see myself reusing far more often than `shouldSendAutoReponse()`.
 
---> Add auto-response ON +  additional stuff...at a certain point, the full meaning becomes 'shouldSendAutoResponse'...it's also so nuanced and particular, that is the BEST meaning. (whereas in the beginning, we can reuse isOfficeClosed() perhaps for other checks somewhere else...its very unlikely for us to reuse the new `shouldSendAutoResponse` for something else.
+Tautologous conditionals aren't necessarily bad, though. There are times where describing the _effect_ is the cleanest option. We can stick to this example. Suppose that we introduce a few more conditions to determine whether to send an auto-response. Namely, we let a user toggle auto-responses altogether and we also want to exclude auto-responses to emails that are flagged as spam. 
+
+```C#
+
+if (isOfficeClosed() && autoResponseEnabled && !_email.IsSpam) 
+{ 
+	sendAutoResponse(); 
+}
+
+```
+
+The conditional expressions bloats up again and it seems ripe for packaging things up. But, I have trouble finding an elegant way to do so. Is there a meaningful name that could consolidate all or some of the expression? `isOfficeClosed()`, `autoResponseEnabled`, and `!_email.IsSpam` don't appear to have any relation to one another other than determining whether we should send an auto-response.
+
+In this case, I can decide to either do nothing or name the entire expression for what it affects. I choose the latter.
+
+```C#
+
+bool isOfficeClosed()
+{
+	return isOutsideOfficeHours() || isCompanyHoliday();
+}
+
+bool shouldSendAutoResponse()
+{
+	return isOfficeClosed() && autoResponseEnabled && !_email.IsSpam;
+}
+
+...
+
+if (shouldSendAutoResponse()) 
+{ 
+	sendAutoResponse(); 
+}
+
+```
+
+The decision is certainly arguable as I've reintroduced the tautologous conditional. But, there's little chance there would be any another meaning given to `isOfficeClosed() && autoResponseEnabled && !_email.IsSpam` being true. We live with the tautologous argument to keep the statement succinct, but we're unlikely to miss an opportunity to reuse this method elsewhere. 
+
+[Can we explain this last bit better? Is the point of this and the last example clear enough?]
 
 ====
 
