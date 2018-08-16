@@ -6,7 +6,7 @@ Ch_CodeShape.md
 Ch_EditingDownNames.md
 Ch_OnBooleans.md
 Ch_Flow.md
-Ch_MeaningVsMeaning.md
+Ch_IteratingMeaning.md
 Ch_MemorableNames.md
 Ch_UglyNames.md
 Ch_Refactoring.md

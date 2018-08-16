@@ -1,36 +1,36 @@
 # Iterating meaning
 
-We're told in code to avoid premature abstractions. Wait until as late as you can before you replace a concrete concept with something abstract. I find the same truth holds with naming things.
+It's good habit to look for logic that we can extract into a method or variable. Consistently doing this infuses better meaning into our code. It makes it easier to understand our intentions later on. But, we should carefully consider how to name these extractions.
 
-I'm working on a piece of code that processes incoming emails. One of its responsibilities is to send a generic auto-response email back to the original sender if certain conditions are met.
+I'm working on a piece of code that processes incoming emails for an application. One of its responsibilities is to send a generic auto-response email back to the original sender if certain conditions are met.
 
 In the first iteration of this feature, we decide to send an auto-response email only if the original email was received outside of a company's office hours. I've written another method that does this dirty work -- querying the company's work hours and comparing date ranges to the current date and time before returning a boolean to answer the question. I then call on this method to determine if an auto-response is necessary.
 
 ```C#
-bool isOutsideOfficeHours();
+bool isCurrentlyOutsideOfficeHours();
 
 ...
 
-if (isOutsideOfficeHours()) 
+if (isCurrentlyOutsideOfficeHours()) 
 { 
 	sendAutoResponse(); 
 }
 
 ```
 
-I choose the name `isOutsideOfficeHours()` because that's precisely what the method is doing. The conditional statement also reads pretty coherently: If we're outside office hours, then send an auto response.
+With a method name like `isCurrentlyOutsideOfficeHours()`, the conditional statement  reads pretty coherently: If it's currently outside office hours, then send an auto-response.
 
-A little while later, we receive some complaints from our customers that some folks aren't receiving an auto-response on company holidays. This makes sense. Up until now, we haven't been tracking company holidays, so any emails sent on those days during normal office hours are still seen as being within office hours for that day.
+A little while later, we receive some complaints from our customers that  people aren't always receiving an auto-response on company holidays. This makes sense. Up until now, we haven't been tracking company holidays, so any emails sent on those days during normal office hours are still seen as being within office hours for that day.
 
 So, we decide to allow a company to log holidays. Back under the hood, I add another method to check whether today is a holiday, and adjust my auto-response logic accordingly.
 
 ```C#
-bool isOutsideOfficeHours();
+bool isCurrentlyOutsideOfficeHours();
 bool isCompanyHoliday();
 
 ...
 
-if (isOutsideOfficeHours() || isCompanyHoliday()) 
+if (isCurrentlyOutsideOfficeHours() || isCompanyHoliday()) 
 { 
 	sendAutoResponse(); 
 }
@@ -54,11 +54,15 @@ if (shouldSendAutoResponse())
 
 ```
 
-With a new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional is tautologous: If we should send an auto-response, then...send an auto-response. When we read the conditional in isolation, we don't know why we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. In essence, we haven't gained much of anything in comprehension. We've just tucked away some logic that we likely will have to drill into later anyways.
+With the new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional is tautologous: If we should send an auto-response, then...send an auto-response. 
 
-I find this happens a lot with these quick little extraction exercises. Our natural inclination is to name the newly extracted construct (beit a method or variable) after its direct _effect_ (the outcome of the conditions being met) rather than the _cause_ (what the conditions actually mean). It's the simpler naming choice because we are staring at the effect in code while we're doing the extraction. In this case, the _effect_ of the extracted piece of logic is that an auto-response should be sent. But, why are we sending it?
+When we read the conditional in isolation, we don't know why we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. In essence, we haven't gained much of anything in comprehension. We've just tucked away some logic that we likely will have to drill into later anyways.
 
-Also, by naming the extraction this way, it's less likely we'll reuse it somewhere else. At a glance, I wouldn't think to employ `shouldSendAutoResponse()` anywhere else besides the place in code where I want to send auto-responses.
+I find this happens a lot with these quick little extraction exercises. Our natural inclination is to name the newly extracted construct (beit a method or variable) after the outcome of the conditions being met rather than what the conditions actually mean. In other words, we name the method after the effect rather than the cause.
+
+It's a simpler naming choice because we are staring at the effect in code while we're doing the extraction. In this case, the _effect_ of the extracted piece of logic is that an auto-response should be sent. But, why are we sending it?
+
+Also, by naming the extraction this way, it's less likely we'll reuse it somewhere else. At a glance, we wouldn't think to employ `shouldSendAutoResponse()` anywhere else besides the place in code where we want to send auto-responses. If we named the method after what's _causing_ the sending of the auto-response, we better our chances of reusing it later.
 
 A much better name for this method would succinctly describe the cause. In this case, the cause of sending an auto-response message is because, quite simply, the office is closed.
 
@@ -77,9 +81,11 @@ if (isOfficeClosed())
 
 ```
 
-The conditional now reads more meaningfully. In addition, `isOfficeClosed()` is a method I can see myself reusing far more often than `shouldSendAutoReponse()`.
+The conditional now reads more meaningfully. In addition, `isOfficeClosed()` reads as a method that has far more potential applications than `shouldSendAutoReponse()` does.
 
-Tautologous conditionals aren't necessarily bad, though. There are times where describing the _effect_ is the cleanest option. We can stick to this example. Suppose that we introduce a few more conditions to determine whether to send an auto-response. Namely, we let a user toggle auto-responses altogether and we also want to exclude auto-responses to emails that are flagged as spam. 
+Tautologous conditionals aren't necessarily bad, though. There are times where describing the _effect_ is the cleanest option. We'll continue with this example. 
+
+Suppose that we introduce a few more conditions to determine whether to send an auto-response. Namely, we let a user toggle auto-responses altogether and we also want to exclude auto-responses to emails that are flagged as spam. 
 
 ```C#
 
@@ -90,7 +96,7 @@ if (isOfficeClosed() && autoResponseEnabled && !_email.IsSpam)
 
 ```
 
-The conditional expressions bloats up again and it seems ripe for packaging things up. But, I have trouble finding an elegant way to do so. Is there a meaningful name that could consolidate all or some of the expression? `isOfficeClosed()`, `autoResponseEnabled`, and `!_email.IsSpam` don't appear to have any relation to one another other than determining whether we should send an auto-response.
+The conditional expressions bloats up again and it seems ripe for packaging things up. But, I have trouble finding an elegant way to do so. Is there a meaningful name that could consolidate all or some of the expression? `isOfficeClosed()`, `autoResponseEnabled`, and `!_email.IsSpam` don't appear to have any relationship to one another other than determining whether we should send an auto-response.
 
 In this case, I can decide to either do nothing or name the entire expression for what it affects. I choose the latter.
 
@@ -115,9 +121,9 @@ if (shouldSendAutoResponse())
 
 ```
 
-The decision is certainly arguable as I've reintroduced the tautologous conditional. But, there's little chance there would be any another meaning given to `isOfficeClosed() && autoResponseEnabled && !_email.IsSpam` being true. We live with the tautologous argument to keep the statement succinct, but we're unlikely to miss an opportunity to reuse this method elsewhere. 
+The decision is certainly arguable as I've reintroduced the tautologous conditional. But, there's little chance there would be any another meaning given to `isOfficeClosed() && autoResponseEnabled && !_email.IsSpam` being true. We live with the tautologous argument to keep the statement succinct, and we're also unlikely to miss an opportunity to reuse this method elsewhere.
 
-[Can we explain this last bit better? Is the point of this and the last example clear enough?]
+This brings up an important general idea we see throughout all programming concepts. We make tradeoffs depending on how a section of code evolves. When I can find an apt name for the _cause_, I choose it. When I can't, I can reason naming an extraction for its _effect_ is still better than not extracting it at all. In the end, the goal is to continually renaming things to produce the most coherency given each situation.
 
 ====
 
