@@ -58,7 +58,7 @@ With the new method extracted, the conditional, once again, feels tidy. But, now
 
 When we read the conditional in isolation, we don't know why we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. In essence, we haven't gained much of anything in comprehension. We've just tucked away some logic that we likely will have to drill into later anyways.
 
-I find this happens a lot with these quick little extraction exercises. Our natural inclination is to name the newly extracted construct (beit a method or variable) after the outcome of the conditions being met rather than what the conditions actually mean. In other words, we name the method after the effect rather than the cause.
+I find this happens a lot with these quick little extraction exercises. Our natural inclination is to name the newly extracted construct (beit a method or variable) after the outcome of the conditions being met rather than what the conditions actually mean. In other words, we name the method after the _effect_ rather than the _cause_.
 
 It's a simpler naming choice because we are staring at the effect in code while we're doing the extraction. In this case, the _effect_ of the extracted piece of logic is that an auto-response should be sent. But, why are we sending it?
 
