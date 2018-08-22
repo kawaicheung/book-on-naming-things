@@ -1,16 +1,6 @@
 # Why naming matters
 
-One of the main goals of good software writing should be clarity. We write code that someone else must understand, even if that someone else is us a few months from now. Clear code makes figuring out the programmer's original intent less daunting.
-
-But, there are other goals we simultaneously strive for. Sometimes, by their very nature, these goals pull us away from clarity. We add some amount of misdirection and obfuscation for the benefit of something else. We reason that the tradeoff is worth it. This is where the heated debates begin.
-
-In a keynote speech at RailsConf 2014, David Heinemeier Hansson argues that many of these goals aren't worth the trade for clarity.
-
-The primary example he gives is test-driven development. In this approach, we design constructs around tests first. Test coverage, and other quantifiable metrics, govern what makes for quality code. Hansson vehemently argues that TDD bends the design of your code in such a convoluted way that the benefits aren't worth the trade-off.
-
-On a higher level, it is because writing software is still seen through the lens of _computer science_ and _engineering_ that we blindly follow laws, principles, and metrics as the path toward better code.
-
-Hansson argues that the kind of programming we do -- building information systems maintained over time by multiple people -- is rarely science. We are far closer to _writers_ than we are to _scientists_. And so, the principle goal of all good code is clarity -- and clarity isn't a metric achieved by following a set of laws.
+One of the main goals of good software writing is clarity. We write code that someone else must understand, even if that someone else is us a few months from now. Clear code makes figuring out the programmer's original intent less daunting.
 
 If clarity is the end goal, then naming things well is the primary path. It is a skill that's essential no matter where you are in the stack or what kind of programming you do. If you name things well, you write clearer code. It's a skill set that will never become outdated over time (and if it does, it would mean the robots have officially taken everything over anyways).
 
@@ -55,5 +45,11 @@ Good code-writing is not a far reach from good prose-writing. We can make our li
 This is a book about how to name constructs in code better. It is _not_ a book about writing perfect, pristine code itself. In fact, most of the examples in this book show code that is far less than perfect -- realistic code you've probably written yourself or inherited from others. 
 
 Through renaming classes, methods, and properties of imperfect code, you'll see how we can improve upon it immediately. I believe iteratively improving names over time, much like iteratively refactoring code over time, is an essential practice to maintain a clear codebase.
+
+### The promise
+
+The promise of naming well isn't bug-free code or code that's infinitely scalable. Naming well improves a niche of the development process -- specifically, our ability as code readers to more quickly, more enjoyably, and less strenuously map code into a mental model. In that sense, I don't want to wrongly sell the value of naming things well. Ultimately, a well-named codebase can be full of errors just like a codebase with hundreds of tests still might miss catching large areas of potential bugs. But that's not the proposition.
+
+Naming things well is about making code more delightful to read. Delight isn't something easily quantifiable -- it's sometimes achieved through sheer pragmatism. Other times, it's a combination of things foreign to most programmatic talk like style and aesthetics. In the end, by making code more delightful, all the other promises of good programming habits are more achievable because we've made code that's more enjoyable to work with.
 
 
