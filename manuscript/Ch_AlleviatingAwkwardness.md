@@ -1,4 +1,4 @@
-## Alleviating awkwardness
+# Alleviating awkwardness
 
 I'm working on a feature addition to how someone can cancel their account in DoneDone. Up until now, if you wanted to cancel the account, it's immediate.
 
@@ -18,7 +18,7 @@ public void CancelAccount(int account_id, bool cancel_at_period_end);
 
 ```
 
-Since there are only two cancellation options, I choose the simplest parameter type -- a boolean. I could decide to use something more robust -- say, an `enum` -- but I stick with a boolean for now.
+Since there are only two cancellation options, I choose the simplest parameter type -- a boolean. I could decide to use something more robust -- say, an `enum` -- but I stick with a boolean for now.[Maybe omit this so you can bring up enum later on freshly.]
 
 After I've implemented the new code to handle the update, I now update all existing references to this method that handle immediate cancellations.
 

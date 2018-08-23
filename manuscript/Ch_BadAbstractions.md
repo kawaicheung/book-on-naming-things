@@ -1,4 +1,4 @@
-## Bad abstractions
+# Bad abstractions
 
 As I shape code, I usually start with something concrete before gradually iterating toward something more abstract. After all, that's how software best grows to accommodate new features over time. Proper abstractions need to be made at the right pace. Abstract too slowly and it will be the feature creep that steers the ship. Abstract too soon and the boat will soon be sinking under its own weight.
 
