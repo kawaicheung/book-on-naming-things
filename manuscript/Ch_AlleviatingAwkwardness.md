@@ -34,7 +34,7 @@ However, a few things feel awkward to me about this line of code.
 
 At a glance, it's hard to tell what the passed-in `false` parameter means. Having just written the updates, it makes sense to me now, but it won't to someone else. They'll have to look at the method signature and, perhaps even drill into the method to be sure. 
 
-I feel compelled to add the comment above each call to `CancelAccount()` for clarity.  It also helps differentiate between the new code I'll be adding to handle the additional option of canceling at the end of the period.
+I feel compelled to add the comment above each call to `CancelAccount()` for clarity.  It also helps differentiate between the new code I'll be adding later to handle the additional option of canceling at the end of the period.
 
 ```C#
 
@@ -43,9 +43,9 @@ _billing_repository.CancelAccount(account_id, false);
 
 ```
 
-Better. But the method call still feels strange. It's odd to me that the standard cancellation case (canceling immediately) accepts the `false` parameter. Passing in `false` for the default feels odd -- it's as if I have to suppress something to perform the default action.
+Better. But the method call still feels strange. The standard cancellation case (canceling immediately) accepts the `false` parameter. Passing in `false` as the default just feels odd -- it's as if I have to suppress something to perform the default action.
 
-I can get around this pretty quickly though. Since I'm working with a boolean parameter, I can simply flip the name of the option around so that the standard case passes in `true` and update my code accordingly. I swap the `cancel_at_period_end` parameter, with `cancel_now`. And Voila!
+I can get around this pretty quickly though. Since I'm working with a boolean parameter, I can simply flip the name of the option around so that the standard case passes in `true` and update my code accordingly. I swap the `cancel_at_period_end` parameter, with `cancel_now`. And voilà!
 
 ```C#
 
