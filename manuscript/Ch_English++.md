@@ -8,7 +8,7 @@ Just as important to the fluidity of code is how it mimics the rules of phrases 
 
 The first catch is that code also comes with its own unique set of rules. For instance, English doesn't use parentheses, curly brackets, or periods the way we do in code. 
 
-`document.Write(\"Hello World\");` certainly reads more fluidly than `d.w(\"Hello World\");` but not as fluidly as "Write \"Hello World\" to the document." As programmers, however, we've assimilated to code's unique rules -- to the point where we might actually intuit the meaning of `document.Write(\"Hello World\");` even faster than the sentence "Write \"Hello World\" to the document."
+`document.Write("Hello World");` certainly reads more fluidly than `d.w("Hello World");` but not as fluidly as "Write "Hello World" to the document." As programmers, however, we've assimilated to code's unique rules -- to the point where we might actually intuit the meaning of `document.Write("Hello World");` even faster than the sentence "Write "Hello World" to the document."
 
 So, when we write readable code, we have to take readability with a grain of salt. Optimal readability happens when we can balance these two worlds.
 
