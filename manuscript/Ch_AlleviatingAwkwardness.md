@@ -108,3 +108,5 @@ void CancelAccount(int account_id, bool cancel_at_period_end)
 ```
 
 The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods out should make finding and updating their implementations easier down the road.
+
+A> Notes: This is really a form of the Single-Responsibility Principle at the method level, or a simplified strategy pattern at the method level -- scales much better over time if we really do have new "Cancel" implementations.
