@@ -9,38 +9,30 @@ However, some want to cancel at the end of their annual term, several months ear
 There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to a `CancelAccount()` repository method. Here's what it looks like currently:
 
 ```C#
-
 public void CancelAccount(int account_id);
-
 ```
 
 I need to pass this extra important bit of information in. Since there are now two cancellation options, I choose the simplest parameter type that fills the need -- a boolean. Now, I can pass in `true` to handle this new special case.
 
 ```C#
-
 public void CancelAccount(int account_id, bool cancel_at_period_end);
-
 ```
 
 After I've implemented the new code to handle the update, I now update all existing references to this method that handle immediate cancellations. 
 
 ```C#
-
 _billing_repository.CancelAccount(account_id, false);
-
 ```
 
-However, a few things feel awkward to me about this line of code.
+However, something feels awkward to me about this line of code.
 
-At a glance, it's hard to tell what the passed-in `false` parameter means. Having just written the updates, it makes sense to me now, but it won't to someone else. They'll have to look at the method signature and, perhaps even drill into the method to be sure. 
+At a glance, it's hard to tell what the passed-in `false` parameter means. Having just written the updates, it makes sense to me now, but it won't to someone else. They'll have to look at the method signature and perhaps even drill into the method to be sure. 
 
 I feel compelled to add the comment above each call to `CancelAccount()` for clarity.  It also helps differentiate between the new code I'll be adding later to handle the additional option of canceling at the end of the period.
 
 ```C#
-
 // Cancel the account immediately...
 _billing_repository.CancelAccount(account_id, false);
-
 ```
 
 Better. But the method call still feels strange. The standard cancellation case (canceling immediately) accepts the `false` parameter. Passing in `false` as the default just feels odd -- it's as if I have to suppress something to perform the default action.
@@ -48,21 +40,17 @@ Better. But the method call still feels strange. The standard cancellation case 
 I can get around this pretty quickly though. Since I'm working with a boolean parameter, I can simply flip the name of the option around so that the standard case passes in `true` and update my code accordingly. I swap the `cancel_at_period_end` parameter, with `cancel_now`. And voilà!
 
 ```C#
-
 public void CancelAccount(int account_id, bool cancel_now);
-
 ```
 
 ```C#
-
 // Cancel the account immediately...
 _billing_repository.CancelAccount(account_id, true);
-
 ```
 
 Now, the default case passes in `true`. But, I've introduced a more onerous problem. By simply reading the `CancelAccount()` method signature, I can't quite tell what passing in `false` would do. What would it mean for `cancel_now` to be `false`? Would it cancel in a day? In a month? At the end of the period? 
 
-At this point, I've exhausted my options with the boolean parameter. While it enables both options, it doesn't have the right fit for the concept I'm describing.
+At this point, I've exhausted my options with the boolean parameter. While it allows for both options, the options aren't clear from the method signature.
 
 I often find this is the case with booleans when the concept it describes is binary but the options aren't strict _opposites_. That's the case here -- the natural opposite of `cancel_now` isn't `cancel_at_period_end` in the way the natural opposite of `open` is `closed`.
 
@@ -71,8 +59,8 @@ To improve, I could try an `enum` instead.
 ```C#
 enum CancelationType 
 {
-	NOW,
-	AT_PERIOD_END
+  NOW,
+  AT_PERIOD_END
 }
 
 ...
@@ -94,18 +82,29 @@ Weighing this factor in, an even more readable approach is to directly convey th
 ```C#
 public void CancelAccountNow(int account_id);
 public void CancelAccountAtPeriodEnd(int account_id);
-
 ```
 
 With this update, now both the standard and unique cancelation implementations read as informatively:
 
 ```C#
 _billing_repository.CancelAccountNow(account_id);
-
 _billing_repository.CancelAccountAtPeriodEnd(account_id);
-
 ```
 
----------
+I also get some additional benefits from this approach. Breaking the method out into two methods allows me to separate the implementations of each. In the original approach, I'd have to do something like this:
 
--- Basically a different version of the pattern of having 'strategies' instead of a series of cases -- but this is just a boolean so it could go either way on what feels better -- in this case the odd boolean naming )
+```C#
+void CancelAccount(int account_id, bool cancel_at_period_end)
+{
+  if (cancel_at_period_end)
+  {
+    // Implementation for canceling at period end
+  }
+  else
+  {
+    // Implementation for canceling immediately
+  }
+}
+```
+
+The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods out should make finding and updating their implementations easier down the road.
