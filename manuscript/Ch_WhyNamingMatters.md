@@ -1,10 +1,8 @@
 # Why naming matters
 
-One of the main goals of good software writing is clarity. We write code that someone else must understand. That "someone else" might even be us a few months from now. Clear code makes it easier to figure out the programmer's original intent.
+One of the goals of good software writing is clarity. We write code that someone else must understand. That "someone else" might even be us a few months from now. Clear code makes it easier to figure out the programmer's original intent.
 
 If clarity is the end goal, then naming things well is its primary path; essential no matter where you are in the stack, what language you use, or how nicely you think the code is otherwise written. If you name things well, you write clearer code. 
-
-Here are a few other reasons to invest the time in naming things well.
 
 ### Reduced human error
 
