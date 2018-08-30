@@ -1,6 +1,5 @@
 Part_Preface.md
 Ch_WhyNamingMatters.md
-Ch_English++.md
 Ch_MethodsAsVerbs.md
 Ch_ObjectsAsNouns.md
 Ch_CodeShape.md
@@ -12,6 +11,7 @@ Ch_IteratingMeaning.md
 Ch_MemorableNames.md
 Ch_UglyNames.md
 Ch_Refactoring.md
+Ch_English++.md
 Ch_PatternHypnosis.md
 Ch_BadAbstractions.md
 Ch_MaskingObscurity.md
