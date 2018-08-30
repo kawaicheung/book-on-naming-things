@@ -1,22 +1,20 @@
 # On naming booleans
 
-A programming language _reads_ most like traditional language when we're writing at the most fundamental level -- with booleans and logic operators. A statement like `if (published && editable)` can be read pretty much as it's written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
+A programming language _reads_ most like traditional language when we're writing at the most fundamental level using booleans and logic operators. A statement like `if (published && editable)` can be read pretty much as it's written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
 
 Yet, we can easily convolute these statements when the booleans involved are poorly named or logical operators aren't edited down into their simpest forms.
 
-The simple statement above is analagous to `if (!(unpublished || !editable))`. But, the mess of nested scopes, misdirections, and negations make it impossible to deduce this right away. It's the kind of statement that still works and passes tests, but has developed the cruft common to code that's been manipulated a few times without someone taking the time to unravel it.
+The simple statement above is analagous to `if (!(unpublished || !editable))`. But, the mess of nested scopes, misdirections, and negations make it nearly impossible to deduce this right away. It's the kind of statement that still works and passes tests, but has developed the cruft common to code that's been manipulated a few times without someone taking the time to unravel it.
 
 You can tell a boolean's name is hurting by reading how it's used in context. "If it's not either unpublished or not editable" reads more like a crafty lawyer's statement than a straightforward piece of writing.
-
-----
 
 Introducing the right booleans to an object can significantly improve how code reads. Take this example -- I have an `Issue` object with an optional `Assignee` that represents the `Person` assigned the issue. There are other properties of `Issue` but I'll omit those here.
 
 ```C#
 class Issue
 {
-	...
-	Person Assignee { get; set; }
+  ...
+  Person Assignee { get; set; }
 }
 ```
 
@@ -34,33 +32,32 @@ I can improve how this code reads by introducing a boolean property on the `Issu
 ```C#
 class Issue
 {
-	...
-	Person Assignee { get; set; }
+  ...
+  Person Assignee { get; set; }
 
-	bool IsAssigned 
-	{
-		get
-		{
-			return Assignee != null;
-		}
-	}
+  bool IsAssigned 
+  {
+    get
+    {
+      return Assignee != null;
+    }
+  }
 }
 ```
 ```C#
 if (issue.IsAssigned)
 {
-	sendNotificationTo(issue.Assignee);
+  sendNotificationTo(issue.Assignee);
 }
 ```
-
-Now, the conditional reads more fluidly -- "If the issue is assigned" rather than "If the issue's assignee is not `null`". There are other viable names I consider with the boolean like `HasAssignee` or `AssigneeExists`. But, `IsAssigned` reads slightly more appropriately to me -- it focuses the attention more on the issue rather than the assignee. It also avoids some of the technical stiffness that the word `Exists` conveys. Yes, we're programmers. But, we're readers first.
+Now, the conditional reads more fluidly -- "If the issue is assigned" rather than "If the issue's assignee is not `null`". There are other viable names I consider with the boolean like `HasAssignee` or `AssigneeExists`. But, `IsAssigned` reads slightly more appropriately to me; It focuses the attention on the issue rather than the assignee. It also avoids some of the technical stiffness that the word `Exists` conveys. Yes, we're programmers. But, we're readers first.
 
 A few weeks later, I have a new requirement in a different part of the codebase. If the issue is not assigned to anyone and it's deleted, I want to notify the project admins of the deletion. 
 
 ```C#
 if (!issue.IsAssigned)
 {
-	sendAlertTo(projectManager);
+  sendAlertTo(projectManager);
 }
 ``` 
 
