@@ -1,4 +1,5 @@
 Part_Preface.md
+Ch_TheHardThing.md
 Ch_WhyNamingMatters.md
 Ch_English++.md
 Ch_MethodsAsVerbs.md
