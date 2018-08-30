@@ -52,5 +52,6 @@ One of the hardest parts about explaining coding concepts is choosing the right 
 
 I wanted to approach this book a bit differently. Naming things well is not about coming up with perfect, pristine names -- it's about making existing code clearer whether or not the code itself is in good shape to begin with. Sometimes, already bad code forces us to name things a certain way even if that way initially feels wrong.  
 
-I believe iteratively improving names over time, much like iteratively refactoring code over time, is an essential practice to maintain a clear codebase.
+In this book, we'll look at real-world examples (most coming from code I've personally maintained). There will be a mix of code written from scratch and flawed code that we can push toward better health through better naming. In all the examples, our goal is to fulfill as many of the benefits described above.
 
+Let's begin.
