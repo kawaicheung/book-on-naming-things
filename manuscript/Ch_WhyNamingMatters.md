@@ -36,15 +36,13 @@ The ultimate long-term indicator of a well-written codebase is its maintainabili
 
 Digestible code enables developers to update logic more readily because it's easier to read. And, few practices make for digestible code better than good naming. When these two forces merge, high-level architectural planning and low-level practices, we maximize maintainability.
 
-### Delight
+### Delightful code
 
 Designers use the term “delight” a lot when describing how they want their users to react to their designs. Yet, I've never heard someone say “that code was a delight to read.” Why not? After all, we look at our code for much longer stretches than the average user hangs around an app.
 
 Good writing makes the experience of consuming information more enjoyable. Imagine if a lengthy legal document were written by Hemingway himself -- unadorned with all the usual trappings of “legalese.” Maybe we'd actually read them rather than have a lawyer tell us that “all this means is X, Y, and Z.”
 
-Good code-writing is not a far reach from good prose-writing. We can make our lines more delightful by the way we implement functionality and by the way we name things. A codebase that's already well-written has a much greater chance of staying that way; one that's poorly written will most likely continue to get worse over time.
-
-Delight isn't something easily quantifiable -- it's sometimes achieved through sheer pragmatism. Other times, it's a combination of things foreign to most programmatic talk like style and aesthetics. In the end, by making code more delightful, all the other promises of good programming habits are more achievable because we've made code that's more enjoyable to work with.
+Good code-writing is similar to good prose-writing. A codebase that's well-written is more delightful to read. If it's more delightful to read, a programmer has more intrinsic motivation to work on it and keep it that way.
 
 ### The promise
 
