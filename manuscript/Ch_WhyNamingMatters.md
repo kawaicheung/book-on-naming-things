@@ -1,28 +1,50 @@
 # Why naming matters
 
-One of the goals of good software writing is clarity. We write code that someone else must understand. That "someone else" might even be us a few months from now. Clear code makes it easier to figure out the programmer's original intent.
+One of the goals of good software writing is clarity. Clear code makes it easier for someone else to figure out a programmer's original intent. That "someone else" might even be us a few months from now.
 
 If clarity is the end goal, then naming things well is its primary path; essential no matter where you are in the stack, what language you use, or how nicely you think the code is otherwise written. If you name things well, you write clearer code. 
 
 ### Reduced human error
 
-The usual discussions around creating bug-free code revolve around quantitative ideas. Have you written tests? How many have you written? What's your code coverage? We're hypnotized into believing that good code is code that meets a certain metric.
+There are many well-documented cases of medical errors causing death or injury that were easily preventable. Often, the error was due to poor handwriting on a prescription or confusing labeling on a medical device. We can put the blame on the pharmacist or medical assistant for misreading things, or we can fix the problem by the way wew write and present information.  
+In the same fashion, many easily preventable bugs are due to poor naming. The more clear, accurate, and memorable the names of our constructs are, the harder it is to misuse them.
 
-But, well-tested code can also be hard to digest. If a method is named ambiguously, a developer might use it incorrectly. And, if we happened to not cover that case, they've introduced a bug. This makes fundamentals like good encapsulation, rigid access modifiers, and adhering to other first principles essential.
+When I present this argument, the usual rebuttal is that testing will solve this. Did you write a test for it? Why didn't QA catch this? 
 
-But, good naming is another way to make your code less susceptible to human error. The more clear, accurate, and memorable the names of your constructs are, the harder it is to mistake the intent of these constructs.
+But, code that's well-tested doesn't equate to code that's easy to understand. If a method is named ambiguously, we might use it incorrectly. And, if we happened to not cover that case, we've now introduced a bug. If we have covered that case, we've wasted time and energy that could've been saved if things were named more clearly.
 
-### A first-step into refactoring
+### The power of renaming
 
-Renaming existing constructs is the simplest kind of refactoring. It's often the first step we take to any larger refactoring because it both improves readability and exposes painpoints without disturbing any mechanics. Renaming bad names before you dive further into a refactoring can clarify exactly how to approach that refactoring, or confirm whether a deeper dive is even necessary.
+While naming a new construct is important, in practice, we _rename existing constructs_ far more often. 
 
-Besides, nowadays, renaming is incredibly quick. There was a time where you would have to find and replace any references to objects if they were renamed. It was a tedious and error-prone task. Nowadays, renaming can be done quickly and accurately in most languages (especially typesafe ones) since most development environments offer some sort of renaming tool that will rename all references to the updated construct automatically. 
+Ironically, I find this more difficult to do the more intimate I am with a codebase. When I'm _so_ familiar with code, I don't read names in a purely literal way anymore. I've become so accustomed to the names I've chosen that I automatically know what they refer to even if their literal meaning is misleading. I've become blinded by my own understanding.
+
+Renaming is often better done by someone who hasn't been working with the code intimately. When I inherit an unfamiliar codebase, I start the process of understanding it by _reading_ it. As I step through the code to confirm my understanding, I'll go back and rename things that were initially confusing. 
+
+Renaming is also the first step I take in any refactoring because it can expose painpoints without disturbing any mechanics. Here's an egregiously simple example:
+```C#
+int three = 3;
+int four = 5;
+
+assert.IsTrue(three + four == 7); // Why isn't this passing?
+```
+The names of these variables mislead us into believing the assertion should work. The bug is obvious, but we can expose it without affecting any of the code's mechanics with renaming the variable `four` correctly.
+
+```C#
+int three = 3;
+int five = 5;
+
+assert.IsTrue(three + five == 7); // Of course this won't pass!
+```
+Renaming bad names before I dive further into a refactoring can clarify exactly how I should approach that refactoring, or confirm whether a deeper dive is even necessary.
+
+Nowadays, renaming can be done quickly and accurately in most type-safe compiled languages since most development environments offer some sort of renaming tool that allow you to automatically rename all references to a specific construct. 
 
 ### Better organizational communication
 
-Good naming helps improve the communication of a larger team. For instance, if I were building internal software to track the organizational aspects of law firm, I'd want the names of elements of my software system to be as closely aligned to the words law professionals use in their profession. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Clients` instead of `Customers`. `Attorneys` and `Paralegals` instead of `Employees`.
+Good naming also helps improve the communication of a larger team. For instance, if I were building internal software to track the organizational aspects of law firm, I'd want the names of elements of my software system to be as closely aligned to the words law professionals use in their profession. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Clients` instead of `Customers`. `Attorneys` and `Paralegals` instead of `Employees`.
 
-Business concepts can also dictate the kind of structures introduced in a codebase. If I were building a patient management system for a medical clinic, I might start with a concept like `List<Patient>` to describe a doctor's patient list. But, I've come to find that doctors don't call these things patient lists, they call them panels. Doctors often talk about how full their panels are or when new openings in their panel will open up.
+Business concepts can also dictate the kind of structures introduced in a codebase. If I were building a patient management system for a medical clinic, I might start with a concept like `List<Patient>` to describe a doctor's patient list. But, I've come to find that doctors don't call these things patient lists, they call them panels. Doctors talk about how full their panels are or when new openings in their panel will open up.
 
 Knowing this, I'd opt to create a `Panel` class which would house the `List<Patient>` collection and any other attributes specific to a doctor's panel. I might also start with a method like `Panel.Add(Patient p)`. But, doctors usually talk about patients _subscribing_ to a panel. So, `Panel.Subscribe(Patient p)` is the more fluent approach.
 
