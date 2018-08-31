@@ -12,7 +12,7 @@ In the same fashion, many easily preventable bugs are due to poor naming. The mo
 
 When I present this argument, the usual rebuttal is that testing will solve this. Did you write a test for it? Why didn't QA catch this? 
 
-But, code that's well-tested doesn't equate to code that's easy to understand. If a method is named ambiguously, we might use it incorrectly. And, if we happened to not cover that case, we've now introduced a bug. If we have covered that case, we've wasted time and energy that could've been saved if things were named more clearly.
+But, code that's well-tested doesn't equate to code that's easy to understand. If a method is named ambiguously, we might use it incorrectly. And, if we happened to not cover that case, we've now introduced a bug. If we have covered that case, we've wasted time and energy that could've been spent elsewhere.
 
 ### The power of renaming
 
