@@ -6,7 +6,8 @@ If clarity is the end goal, then naming things well is its primary path; essenti
 
 ### Reduced human error
 
-There are many well-documented cases of medical errors causing death or injury that were easily preventable. Often, the error was due to poor handwriting on a prescription or confusing labeling on a medical device. We can put the blame on the pharmacist or medical assistant for misreading things, or we can fix the problem by the way wew write and present information.  
+There are many well-documented cases of medical errors causing death or injury that were easily preventable. Often, the error was due to poor handwriting on a prescription or confusing labeling on a medical device. We can put the blame on the pharmacist or medical assistant for misreading things, or we can fix the problem by the way we write and present information.
+
 In the same fashion, many easily preventable bugs are due to poor naming. The more clear, accurate, and memorable the names of our constructs are, the harder it is to misuse them.
 
 When I present this argument, the usual rebuttal is that testing will solve this. Did you write a test for it? Why didn't QA catch this? 
