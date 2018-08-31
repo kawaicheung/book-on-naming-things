@@ -16,19 +16,21 @@ But, code that's well-tested doesn't equate to code that's easy to understand. I
 
 ### The power of renaming
 
-While naming a new construct is important, in practice, we _rename existing constructs_ far more often. 
+While naming a new construct is important, in practice, we _rename_ existing constructs far more often. 
 
-Ironically, I find this more difficult to do the more intimate I am with a codebase. When I'm _so_ familiar with code, I don't read names in a purely literal way anymore. I've become so accustomed to the names I've chosen that I automatically know what they refer to even if their literal meaning is misleading. I've become blinded by my own understanding.
+Ironically, I find this more difficult to do the more familiar I am with a codebase. When I'm _so_ familiar with code, I don't read it in a purely literal way anymore. I've become so accustomed to the names I've chosen that I automatically know what they refer to even if their literal meaning is misleading. I've become blinded by my own understanding.
 
-Renaming is often better done by someone who hasn't been working with the code intimately. When I inherit an unfamiliar codebase, I start the process of understanding it by _reading_ it. As I step through the code to confirm my understanding, I'll go back and rename things that were initially confusing. 
+Renaming is often better done by someone who hasn't been working with the code intimately. When I inherit an unfamiliar codebase, I start the process of understanding it by reading it literally. As I step through the code to confirm my understanding, I'll go back and rename things that were initially confusing. 
 
 Renaming is also the first step I take in any refactoring because it can expose painpoints without disturbing any mechanics. Here's an egregiously simple example:
+
 ```C#
 int three = 3;
 int four = 5;
 
 assert.IsTrue(three + four == 7); // Why isn't this passing?
 ```
+
 The names of these variables mislead us into believing the assertion should work. The bug is obvious, but we can expose it without affecting any of the code's mechanics with renaming the variable `four` correctly.
 
 ```C#
@@ -37,6 +39,7 @@ int five = 5;
 
 assert.IsTrue(three + five == 7); // Of course this won't pass!
 ```
+
 Renaming bad names before I dive further into a refactoring can clarify exactly how I should approach that refactoring, or confirm whether a deeper dive is even necessary.
 
 Nowadays, renaming can be done quickly and accurately in most type-safe compiled languages since most development environments offer some sort of renaming tool that allow you to automatically rename all references to a specific construct. 
