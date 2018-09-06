@@ -152,6 +152,9 @@ Choosing such a word is difficult. It should have even more cautionary weight th
 
 David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term _Incinerate_ in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type.  By doing so, it's become part of the technical lexicon for the Basecamp development team. “When we talk about incineration within the app, it means this one, specific thing.”[^dhh1] _Destroy_ or _Eradicate_ could also work. 
 
+
+[Contrast to a word like "Remove" which feels softer -- as if you can bring it back if you had to. Use "Remove" for things that could easily be brought back (or recreated from scratch if need be). I would be nervous to name a method "RemoveUser" that deletes all user data but OK with "RemoveUser" if it untied a user from an account which can easily be re-attached (assuming other things don't blow away with it)]
+
 [^dhh1]: [On Writing Software Well #6: Actually deleting data, not just pretending to](https://www.youtube.com/watch?v=AoxoPfilKqE)
 
 ## Exposing the appropriate level of implementation detail
