@@ -70,6 +70,12 @@ Good code-writing is similar to good prose-writing. A codebase that's well-writt
 
 ### The promise
 
+The tricky thing about reading a book on programming is that the book usually focuses on a very specific aspect of programming. When we're coding _for real_, many aspects of programming reveal themselves simultaneously. Like authoring other things, the process of authoring software is circuitous. On the other hand, a book about code uses examples tailor-made to fit the narrative. The argument is usually heavily biased toward that narrative. It's up to us to catalog and consider those examples when we're coding something real.
+
+A book like this is particularly difficult for that reason. Naming things weaves its way through all other aspects of programming -- refactoring, considering what objects should exist, and so forth.
+
+---
+
 One of the hardest parts about explaining coding concepts is choosing the right examples.  A simple example might not do justice to the reason a concept is worthwhile. A too-complex example might not be practical to explain in just a few pages. Examples can be _too_ contrived -- they fit an idea a little too perfectly, when most of programming is trying to negotiate round pegs into square holes.
 
 I wanted to approach this book a bit differently. Naming things well is not about coming up with perfect, pristine names -- it's about making existing code clearer whether or not the code itself is in good shape to begin with. Sometimes, already bad code forces us to name things a certain way even if that way initially feels wrong.  
