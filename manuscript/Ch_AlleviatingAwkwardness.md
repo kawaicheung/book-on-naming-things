@@ -4,7 +4,7 @@ Sometimes, the name of a parameter feels awkward not because of the name itself,
 
 I'm working on a feature addition to canceling accounts in DoneDone. Up until now, if you wanted to cancel the account, it's immediate and irreversible. That works for the vast majority of customers.
 
-However, some want to cancel at the end of their annual term, several months earlier. Rather than require them to remember to cancel the account in a few months, they'd like the option to automatically cancel the account before the term's end to avoid being charged another year. I start implementing the solution.
+However, some customers want to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the option to automatically cancel the account before the term's end to avoid being charged another year. I start implementing the solution.
 
 There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to a `CancelAccount()` repository method. Here's what it looks like currently:
 
