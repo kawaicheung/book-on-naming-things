@@ -35,4 +35,6 @@ Naming of constructor... at first
         minutes_until_expired vs. expires_on_in_min -- latter suggests the 'thing that's beign checked', not the 'question' we care about. subtle.
         
         
-        Show: IsOverAPIRateLimit() method so we can see the readability.
+        Show: IsOverAPIRateLimit() method so we can see the readability. Explain the context...moving the details out of the rate limit attribute into a service method...
+        
+      But now IsOverAPIRateLimit() is a weird name since we are also incrementing the counter if we're ok. so really it should be something like "IsAPIRequestUnderRateLimit()" tells we're considering this check as a request... is it single-repsonsbility? questionsable but its SO tightly coupled that i say its ok.
