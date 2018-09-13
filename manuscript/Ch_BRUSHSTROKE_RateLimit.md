@@ -39,4 +39,49 @@ Show: IsOverAPIRateLimit() method so we can see the readability. Explain the con
 
 But now IsOverAPIRateLimit() is a weird name since we are also incrementing the counter if we're ok. so really it should be something like "IsAPIRequestOverRateLimit()" tells we're considering this check as a request... is it single-repsonsbility? questionsable but its SO tightly coupled that i say its ok. it's ostensibly doing what it says -- checking this current api request is under the rate limit. the imp has a couple things going on -- a get of the rate limit object and a setting, but that's all in the details of hte imp. it's a 'single question' for the requester.
 
+public bool IsAPIRequestOverRateLimit(int account_id, int max_requests, int time_period_in_min)
+        {
+            var rate_limit_info = _accounts.GetAPIRateLimitInfo(account_id);
+
+            if (rate_limit_info == null || rate_limit_info.Expired) //not there or already expired
+            {
+                _accounts.SetAPIRateLimitInfo(account_id, new APIRateLimitInfo(time_period_in_min));
+                return false;
+            }
+
+            if (max_requests > rate_limit_info.NumberOfRequests)
+            {
+                rate_limit_info.NumberOfRequests++;
+                _accounts.SetAPIRateLimitInfo(account_id, rate_limit_info);
+                return false;
+            }
+
+            // If we reach here, we are over the rate limit...
+            return true;
+        }
+        
+
+
 well shit...need to expose the 'retry-after'...so move this to "APIRequestMustWaitXSeconds"??
+
+
+  public int APIRequestWaitPeriodInSeconds(int account_id, int max_requests, int time_period_in_min)
+        {
+            var rate_limit_info = _accounts.GetAPIRateLimitInfo(account_id);
+
+            if (rate_limit_info == null || rate_limit_info.Expired) //not there or already expired
+            {
+                _accounts.SetAPIRateLimitInfo(account_id, new APIRateLimitInfo(time_period_in_min));
+                return 0;
+            }
+
+            if (max_requests > rate_limit_info.NumberOfRequests)
+            {
+                rate_limit_info.NumberOfRequests++;
+                _accounts.SetAPIRateLimitInfo(account_id, rate_limit_info);
+                return 0;
+            }
+
+            // If we reach here, we are over the rate limit...
+            return rate_limit_info.ExpiresInSeconds;
+        }
