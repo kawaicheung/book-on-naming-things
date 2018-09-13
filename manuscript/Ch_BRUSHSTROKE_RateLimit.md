@@ -33,3 +33,6 @@ Naming of constructor... at first
         the 'date' is of importance since we're erecting this thing. when using, date should vanish...
         
         minutes_until_expired vs. expires_on_in_min -- latter suggests the 'thing that's beign checked', not the 'question' we care about. subtle.
+        
+        
+        Show: IsOverAPIRateLimit() method so we can see the readability.
