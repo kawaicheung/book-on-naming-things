@@ -27,14 +27,14 @@ Naming of constructor... at first
         }
         
         
-        Checks for "Expires"...
-        
-        Naming things to inform how we really care to use them...what bit of info the implementer really cares about and shouldnt care about even tho while building this thing, 
-        the 'date' is of importance since we're erecting this thing. when using, date should vanish...
-        
-        minutes_until_expired vs. expires_on_in_min -- latter suggests the 'thing that's beign checked', not the 'question' we care about. subtle.
-        
-        
-        Show: IsOverAPIRateLimit() method so we can see the readability. Explain the context...moving the details out of the rate limit attribute into a service method...
-        
-      But now IsOverAPIRateLimit() is a weird name since we are also incrementing the counter if we're ok. so really it should be something like "IsAPIRequestUnderRateLimit()" tells we're considering this check as a request... is it single-repsonsbility? questionsable but its SO tightly coupled that i say its ok.
+Checks for "Expires"...
+
+Naming things to inform how we really care to use them...what bit of info the implementer really cares about and shouldnt care about even tho while building this thing, 
+the 'date' is of importance since we're erecting this thing. when using, date should vanish...
+
+minutes_until_expired vs. expires_on_in_min -- latter suggests the 'thing that's beign checked', not the 'question' we care about. subtle.
+
+
+Show: IsOverAPIRateLimit() method so we can see the readability. Explain the context...moving the details out of the rate limit attribute into a service method...
+
+But now IsOverAPIRateLimit() is a weird name since we are also incrementing the counter if we're ok. so really it should be something like "IsAPIRequestUnderRateLimit()" tells we're considering this check as a request... is it single-repsonsbility? questionsable but its SO tightly coupled that i say its ok. it's ostensibly doing what it says -- checking this current api request is under the rate limit. the imp has a couple things going on -- a get of the rate limit object and a setting, but that's all in the details of hte imp. it's a 'single question' for the requester.
