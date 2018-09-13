@@ -16,3 +16,4 @@ Ch_PatternHypnosis.md
 Ch_BadAbstractions.md
 Ch_MaskingObscurity.md
 Ch_PrincipleDogma.md
+Ch_ProgrammingAsAnArt.md
