@@ -4,7 +4,7 @@ The programming industry is full of heated arguments. We are passionate about ou
 
 In my experience, there isn't a rigid process for writing software. Every individual and team I've worked on starts with a template on how best to approach coding. But, in the throes of development, processes are often scrapped, modified, or otherwise mutated. There's a constant tension between what feels natural _right now_ with what the process tells us. This goes for both processes of management (like sprints, scope, deadlines) and processes of coding (like TDD, DDD, BDD).
 
-In my opinion, the best kind of software process is fluid -- it ebbs and flows according to what feels the most natural. It flows much like writing a book might. There are moments of inspiration and moments of exasperation.
+In my opinion, the best kind of software process is fluid -- it ebbs and flows according to what feels the most natural right now. It meanders much like writing a book might. We move to the part of the code we feel most inspired by in the moment, all the while, keeping a pulse on the overall direction of the work. There will be moments of inspiration and moments of exasperation. Hard, push-through-it days and days that feel like we're running in the clouds.
 
 I tend to write my code with very small teams -- sometimes even solo. In these situations, I tend to be "all over the place" with my code. Sometimes I'm working on a larger refactoring, other times on continuing with a new feature. Progress isn't strictly linear. 
 
