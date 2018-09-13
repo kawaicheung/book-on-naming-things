@@ -1,3 +1,5 @@
+# Programing as an art
+
 The programming industry is full of heated arguments. We are passionate about our work and, more specifically, about _how_ our work should be done. In other crafts, the end result seems to matter more than the process. No one criticizes a band for the process by which a song is written. Yet, in programming, the process is intricately scrutinized.
 
 In my experience, there isn't a rigid process for writing software. Every individual and team I've worked on starts with a template on how best to approach coding. But, in the throes of development, processes are often scrapped, modified, or otherwise mutated. There's a constant tension between what feels natural _right now_ with what the process tells us. This goes for both processes of management (like sprints, scope, deadlines) and processes of coding (like TDD, DDD, BDD).
