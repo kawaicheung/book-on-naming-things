@@ -6,6 +6,4 @@ This is why I'm a big fan of renaming things. Renaming is fast. Something can be
 
 Renaming an object or method can clarify something that was previously ambiguous about it. It might expose an obvious painpoint you didn't see before. It also makes it easier for someone else to figure out what your intentions were when you wrote the code. That "someone else" might even be you a few months from now.
 
-If clarity is the end goal, then naming things well is its primary path; essential no matter where you are in the stack, what language you use, or how nicely you think the code is otherwise written. If you name things well, you write clearer code. 
-
-Renaming is the first tool I use when I want to make _any_ codebase better.
+Renaming is the first technique I use when I want to make _any_ codebase better. Let's look at how.
