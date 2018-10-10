@@ -1,4 +1,3 @@
-Ch_0_Preface.md
 Ch_1_WhyNamingMatters.md
 Ch_2_MethodsAsVerbs.md
 Ch_ObjectsAsNouns.md
