@@ -1,4 +1,5 @@
-Ch_1_WhyNamingMatters.md
+Ch_F_WhyNamingMatters.md
+Ch_F_CodeShape.md
 Ch_2_MethodsAsVerbs.md
 Ch_ObjectsAsNouns.md
 Ch_CodeShape.md
