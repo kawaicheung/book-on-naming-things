@@ -1,8 +1,10 @@
 # Code Shape {#ch_shape}
 
-When we talk about _good design_ in software, we traditionally mean something that isn't immediately visible, like good architecture. But, code is utterly visual. Good design also means code that -- for lack of a more technical term -- _looks nice_.
+_Good design_ in software usually means something that isn't immediately visible. You have to spend time digesting the code to understand how the model it creates is elegant. But, code isn't just how you describe a model. The code itself has a design.
 
-Good code has a certain kind of shape that you can sense. It's spaced, indented, and line-broken nicely. I've found that code that's shaped well is usually written well. Code that looks unorderly usually _is_ unorderly. Names can play a large role in determining this  shape as well. Consider this simple `for` loop.
+Good code design has a certain kind of _shape_ to it. It's spaced, indented, and broken nicely. Code that's shaped well usually is written well. Code that looks unorderly usually _is_ unorderly. If the programmer cared enough about how the code looked, surely they cared enough about the model it describes.
+
+Names can play a large role in determining this  shape as well. Consider this simple `for` loop.
 
 ```C#
 for (int i=0; i < tokens.length; i++)
