@@ -1,10 +1,12 @@
 # On naming booleans
 
-A programming language _reads_ most like traditional language when we're writing at the most fundamental level using booleans and logic operators. A statement like `if (published && editable)` can be read pretty much as it's written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
+A programming language feels most like traditional language at the most fundamental level -- with booleans and logic operators. So it's to our benefit to make this type of code _read_ as fluidly as possible.
 
-Yet, we can easily convolute these statements when the booleans involved are poorly named or logical operators aren't edited down into their simpest forms.
+A statement like `if (published && editable)` can be read pretty much as it's written -- "if published and editable".  Most people who've never touched a programming language would be able to comprehend code at this level of detail.
 
-The simple statement above is analagous to `if (!(unpublished || !editable))`. But, the mess of nested scopes, misdirections, and negations make it nearly impossible to deduce this right away. It's the kind of statement that still works and passes tests, but has developed the cruft common to code that's been manipulated a few times without someone taking the time to unravel it.
+Yet, we can easily convolute these statements when the booleans involved are poorly named or logical operators aren't edited down to their simpest forms.
+
+The simple statement above is identical to `if (!(unpublished || !editable))`. But, the mess of nested scopes, misdirections, and negations make it nearly impossible to deduce this right away. It's the kind of statement that still works and passes tests, but has developed the cruft common to code that's been manipulated a few times without someone taking the time to prune it.
 
 You can tell a boolean's name is hurting by reading how it's used in context. "If it's not either unpublished or not editable" reads more like a crafty lawyer's statement than a straightforward piece of writing.
 
@@ -23,7 +25,7 @@ When an issue is updated, I want to notify the assignee of the update. This requ
 ```C#
 if (issue.Assignee != null)
 {
-	sendNotificationTo(issue.Assignee);
+  sendNotificationTo(issue.Assignee);
 }
 ```
 
@@ -52,7 +54,7 @@ if (issue.IsAssigned)
 ```
 Now, the conditional reads more fluidly -- "If the issue is assigned" rather than "If the issue's assignee is not `null`". There are other viable names I consider with the boolean like `HasAssignee` or `AssigneeExists`. But, `IsAssigned` reads slightly more appropriately to me; It focuses the attention on the issue rather than the assignee. It also avoids some of the technical stiffness that the word `Exists` conveys. Yes, we're programmers. But, we're readers first.
 
-A few weeks later, I have a new requirement in a different part of the codebase. If the issue is not assigned to anyone and it's deleted, I want to notify the project admins of the deletion. 
+A few weeks later, I have a new requirement in a different part of the codebase. If the issue is not assigned to anyone and it's deleted, I want to notify the project manager of the deletion. Here's the snippet of code that alerts the project manager/
 
 ```C#
 if (!issue.IsAssigned)
@@ -66,30 +68,30 @@ I can make the conditional line better if I can get rid of the leading `!`. Just
 ```C#
 class Issue
 {
-	...
-	Person Assignee { get; set; }
+  ...
+  Person Assignee { get; set; }
 
-	bool IsAssigned 
-	{
-		get
-		{
-			return Assignee != null;
-		}
-	}
+  bool IsAssigned 
+  {
+    get
+    {
+      return Assignee != null;
+    }
+  }
 
-	bool Unassigned 
-	{
-		get
-		{
-			return !IsAssigned;
-		}
-	}
+  bool Unassigned 
+  {
+    get
+    {
+      return !IsAssigned;
+    }
+  }
 }
 ```
 ```C#
 if (issue.Unassigned)
 {
-	sendAlertTo(projectManager);
+  sendAlertTo(projectManager);
 }
 ``` 
 
@@ -97,7 +99,17 @@ Again, the conditional reads more clearly. The line `!issue.IsAssigned` requires
 
 There are other names that might work just as well. I could be persuaded to use `IsUnassigned` as it's more consistent with `IsAssigned`. But, taking the name in isolation, `IsUnassigned` reads a little oddly in the beginning compared to simply `Unassigned`. `NotAssigned` is also a good candidate -- but `Unassigned` says the same thing in one less word.
 
-Now let's take a step back. While I've improved a couple of conditional statements, it comes at the expense of adding new properties to a class. I like this tradeoff because while I've added some bulk to `Issue`, I haven't really added any additional maintenance to this class. Both properties are getters that are dependant upon the already existing `Assignee` property so there are no further modifications I need to worry about.
+Now let's take a step back. While I've improved a couple of conditional statements, it comes at the expense of adding new properties to a class. Some would argue that I've bloated the `Issue` class unnecessarily. For instance, having both an `IsAssigned` and `Unassigned` property now means there's more to maintain. 
+
+But, both properties are getters that are dependant upon the already existing `Assignee` property. These properties are all anchored off the same object -- there's nothing _more_ to maintain.
+
+Other purists might have a philosophical problem with the idea of having both a positive and negative version of the assignee's existence. They might argue that we've repeated ourselves (a coding sin!) But, I far prefer the benefit of writing more readable code than the perceived consequence of having two properties that essentially say the same thing.
+
+Finally, others might still argue against having a negative boolean like `Unassigned`. Well, certainly if we were to use this property as `!Unassigned`, but this is where developer discretion needs to take place. Besides, not all negative booleans are "bad". 
+
+Would you rather say `!won` or simply `lost`? `!Active` or `Canceled`? There are words we can use that, underneath, mean the negative of the preferred outcome but aren't thought of as "not something". Ultimately, it depends on how we use them in context.
+
+
 
 
 ---
