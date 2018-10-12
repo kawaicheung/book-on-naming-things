@@ -1,12 +1,10 @@
-# Alleviating awkwardness
-
-Sometimes, the name of a parameter feels awkward not because of the name itself, but how it dictates we use the method. Here's an example where I start with a seemingly sensible parameter addition but work my way to a more readable solution.
+# Breaking methods apart
 
 I'm working on a feature addition to canceling accounts in DoneDone. Up until now, if you wanted to cancel the account, it's immediate and irreversible. That works for the vast majority of customers.
 
 However, some customers want to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
 
-There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to a `CancelAccount()` repository method. Here's what it looks like currently:
+There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to the current `CancelAccount()` repository method. Here's what it looks like at the moment:
 
 ```C#
 public void CancelAccount(int account_id);
@@ -35,7 +33,7 @@ I feel compelled to add the comment above each call to `CancelAccount()` for cla
 _billing_repository.CancelAccount(account_id, false);
 ```
 
-Better. But the method call still feels strange. The standard cancellation case (canceling immediately) accepts the `false` parameter. Passing in `false` as the default just feels odd -- it's as if I have to suppress something to perform the default action.
+Better. But the method call still feels strange. The standard cancellation case (canceling immediately) accepts the `false` parameter. Passing in `false` as the default just feels odd -- I have to suppress something to perform the default action.
 
 I can get around this pretty quickly though. Since I'm working with a boolean parameter, I can simply flip the name of the option around so that the standard case passes in `true` and update my code accordingly. I swap the `cancel_at_period_end` parameter, with `cancel_now`. And voilà!
 
@@ -91,7 +89,7 @@ _billing_repository.CancelAccountNow(account_id);
 _billing_repository.CancelAccountAtPeriodEnd(account_id);
 ```
 
-I also get some additional benefits from this approach. Breaking the method out into two methods allows me to separate the implementations of each. In the original approach, I'd have to do something like this:
+I also get an additional benefit from this approach. Breaking the method out into two methods allows me to separate the implementations of each. In the original approach, I'd have to do something like this:
 
 ```C#
 void CancelAccount(int account_id, bool cancel_at_period_end)
@@ -107,4 +105,5 @@ void CancelAccount(int account_id, bool cancel_at_period_end)
 }
 ```
 
-The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods out should make finding and updating their implementations easier down the road.
+The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods apart not only clarify their use, but will make finding and updating their implementations easier down the road.
+
