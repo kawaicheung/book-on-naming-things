@@ -1,6 +1,11 @@
-====
+# Choose the Well-Worn Path
 
-ANOTHER EXAMPLE:
+
+Title idea: You have a 50/50 choice in names, one can talk about the concept one way (FlagAsUserUpdated) or the other way (FlagAsSyncWithBillingSystem).  The "tautology" kind of... (as we saw in the previous chapter) will live on one side or the other (either in all user update methods that have this added FlagAsUserUpdated() method or in the single billing system sync with the (GetALlForFlaggedAsNeedingSync). So which way?
+
+Cater to the path you'll likely "see" it the most... (there are more cases where the user is updated than we are syncing, plus more modifications are likely made in those methods SLASH they play a role to the core of the app more than this one-off billing system sync so name it where its most obvious from THAT STANDPOINT -- e.g. FlagAsNeedingBillingSync).
+
+===
 
 I recently did a major update on the billing functionality of DoneDone. While the original version billed accounts monthly based on a few pricing tiers which allowed a certain cap on users, in the latest version, accounts are billed monthlhy on a _per_ user basis.
 
