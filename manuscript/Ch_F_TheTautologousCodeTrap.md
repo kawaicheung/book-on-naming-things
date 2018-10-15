@@ -1,4 +1,4 @@
-# Avoid tautologous code
+# The Tautologous Code Trap
 
 It's good habit to look for business logic that we can extract into a method or variable. Consistently doing this infuses better meaning into our code. It makes it easier to understand our intentions later on. But, naming these extractions appropriately can be more elusive than it initially appears.
 
@@ -111,11 +111,3 @@ if (shouldSendAutoResponse())
 In this case, there's far less chance there would be any another meaning given to `isOfficeClosed() && autoResponseEnabled && !_email.IsSpam` being true. We live with the tautologous argument to keep the statement succinct, and we're also unlikely to miss an opportunity to reuse this method elsewhere.
 
 This brings up an important general idea we see throughout all programming concepts, particularly with naming. We make tradeoffs depending on how a section of code evolves. When I can find an apt name for the _cause_, I choose it. When I can't, I can convince myself that naming an extraction for its _effect_ is still better than not extracting it at all. In the end, the goal is to continually rename things to produce the most coherency given each situation.
-
-
-
-
-
-
-
-
