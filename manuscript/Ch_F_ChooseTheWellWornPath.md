@@ -1,5 +1,6 @@
 # Choose the Well-Worn Path
 
+There are times where you have a choice between two method names that are entirely distinct but seem equally appropriate. In those cases, I like to choose the name that represents the path I'm most likely to take when I stumble across the method. Here's what I mean.
 
 Title idea: You have a 50/50 choice in names, one can talk about the concept one way (FlagAsUserUpdated) or the other way (FlagAsSyncWithBillingSystem).  The "tautology" kind of... (as we saw in the previous chapter) will live on one side or the other (either in all user update methods that have this added FlagAsUserUpdated() method or in the single billing system sync with the (GetALlForFlaggedAsNeedingSync). So which way?
 
