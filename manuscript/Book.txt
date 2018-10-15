@@ -2,6 +2,7 @@ Ch_F_WhyNamingMatters.md
 Ch_F_MethodsAsVerbs.md
 Ch_F_BreakingMethodsApart.md
 Ch_F_CodeShape.md
+Ch_F_AvoidTautologousCode.md
 Ch_F_EditingDownNames.md
 Ch_ObjectsAsNouns.md
 Ch_CodeShape.md
