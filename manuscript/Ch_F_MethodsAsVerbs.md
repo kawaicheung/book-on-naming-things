@@ -183,6 +183,7 @@ In the introduction, I mentioned that this book is not a reference manual. But, 
 |Get    |Extract, Expose |Exposing something that already exists. 	|string.ExtractAnyEmails()	   		   |
 |Get    |Convert         |Getting a manipulation of an object.		|date.ConvertToShortDate()			   |
 |Get    |Filter          |Passing a list of items and returning less. |filterProjects(List<projects>, UserID)			   |
+|Get    |Decrypt         |Decrypting a token and returning a value/object |decryptRegistrationToken(string token) 
 |Update |Overwrite       | 										    |									   |
 |Update |Replace 		 |								            |									   |
 |Update |Merge	 		 |								            |									   |
