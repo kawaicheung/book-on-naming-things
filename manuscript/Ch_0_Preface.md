@@ -12,3 +12,6 @@ Instead, I believe there are fundamentals of programming, agnostic to whatever t
 
 One of these skills is naming things well. And that is the primary focus of this book.
 
+---
+
+The hard thing about naming isn't in the concept itself...it's applying it to real code working on real, inelegant problems. This book will lean toward those examples, examples in my real life coding experiences, in the apps I work on currently to show you how I solved (or at least took my best guess) at the better name.
