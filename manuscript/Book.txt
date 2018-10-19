@@ -4,5 +4,5 @@ Ch_F_MethodsAsVerbs.md
 Ch_F_BreakingMethodsApart.md
 Ch_F_MaintainingCodeShape.md
 Ch_F_TheTautologousCodeTrap.md
-Ch_F_ChooseTheWellWornPath.md
+Ch_F_LeadTheNameToTheWellWornPath.md
 Ch_F_EditingDownNames.md
