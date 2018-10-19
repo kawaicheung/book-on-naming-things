@@ -6,4 +6,5 @@ Ch_F_MaintainingCodeShape.md
 Ch_F_TheTautologousCodeTrap.md
 Ch_F_LeadTheNameToTheWellWornPath.md
 Ch_F_EditingDownNames.md
+Ch_F_Refactoring.md
 Ch_F_WhatMakesANameGoodThen.md
