@@ -19,6 +19,11 @@ But, in all my years of programming, I've never been handed a specification that
 
 I don't think this is a particularly unique phenomenon in programming. I think this is a very natural phenomenon of creating _anything_ - a story, a recipe, a song, a new invention, or an app.
 
+---
+
+When I code, I like to write freely. Big, long methods. I don't worry about DRYness initially. If I just so happen to know I'm doing something that I've done before - then yes -- I'll stop and look for where I had done this before and reuse the method. Otherwise, I continue to write freely.
+
+When I get the particular feature to work...
 
 
 
