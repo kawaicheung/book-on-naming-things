@@ -54,3 +54,5 @@ Scannability!
 
 00 END WITH THE trick is deciding what aspects of organization we want to lean on english for vs. programming. it's the art of it all.
 
+
+ALSO -- naming the root of anyting index... now /profile/index, account/index, etc. looks hard to follow on an IDE (index.aspx tabs). So, sometimes you have to think about the names that give you the best coding experience. or do u wait for IDEs to change? I wait for the latter. purity fo the names is more important. but some may disagree.
