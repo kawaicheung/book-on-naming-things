@@ -1,4 +1,18 @@
-# Breaking Organizational Rules
+# Writing the beginning before the ending
+
+There's this common paradigm in programming that I just find incredibly unnatural. For years, I've pondered my legitimacy as a _real_ programmer because of my deep ineptitude in writing code in this way.
+
+The paradigm is all about this strange idea of writing the ending before the beginning. It has most notably surfaced in a couple of ways.
+
+First, in test-driven design (TDD), which tells us to write failing tests _first_, then write the actual code to make the tests pass.
+
+Second, in general API design, which often tells us to write the interface before the implementation.
+
+In both cases, we're told to write the conclusion before we write the 
+
+
+
+
 
 There's a common thought amongst many programmers that classes ought to be of a certain size and length. No more than X number of methods per class. No more than Y number of lines in a method. Make classes or methods too large and you've sinned.
 
