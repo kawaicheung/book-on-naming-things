@@ -107,3 +107,6 @@ void CancelAccount(int account_id, bool cancel_at_period_end)
 
 The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods apart not only clarify their use, but will make finding and updating their implementations easier down the road.
 
+---
+
+Another example: UploadFiles(files, authed) vs. UploadNonAuthedFiles(files) / UploadAuthedFiles(files) all pointing to private uploadFiles... the Non-authed, authed is too important a detail to stuff in a param. should make obvious via the name. That's often a good litmus test -- "how important is taht detail"?
