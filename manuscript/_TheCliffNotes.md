@@ -1,5 +1,7 @@
 If Sivers were to write a notes page about this book, it would be like this:
 
+**Why naming matters**
+* Maybe bring back those 5ish examples from history? (WhyNamingMatters)
 
 **Tactics**
 * Code shape is important. May mean sacrificing meaning of a variable if that var is scoped to a small area and/or it isn't a 'main player'. (CodeShape)
