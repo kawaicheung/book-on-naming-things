@@ -18,6 +18,11 @@ If Sivers were to write a notes page about this book, it would be like this:
 * The beauty of booleans -- adds a cleanliness to your object model. Negative booleans not always bad if they are primarily used in that way (OnBooleans)
 * Pattern hypnosis -- the danger of a pattern is we just go to it without thinking about a better way... m:m tables. We could be missing an opportunity for clarity (PatternHypnosis)
 * Ugly lengthy names in a refactoring are a sign the method is doing too much but we shouldnt mask it with a 'vague name' (UglyNames)
+* Teaching section (TBD) 
+  * foo/bar/baz are bad. 
+  * object myObject = new Object(); is bad
+  * params same as input are bad... project.Create(string name, int type) -> can be this.Create(my_id, my_type) so people don't think names need to align.
+  
 
 **Non-naming related ideas -> Code delight. Aesthetics. **
 * Anemic domain model
