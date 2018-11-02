@@ -4,3 +4,16 @@
 0_C_OvercomingAmbiguity.md
 0_C_EmotionalNames.md
 0_C_MakingMeaningMoreImmediate.md
+0_P_Style.md
+0_C_TheTautaulogousNameTrap.md
+0_C_WellWornPath.md
+0_C_MaintainingCodeShape.md
+0_C_TheBeautyOfBooleans.md
+0_C_TheOrderOfThings.md
+0_C_Refactoring.md
+0_P_BreakingRules.md
+0_C_CopingWithConcreteness.md
+0_C_ObnoxiouslyLongNames.md
+0_C_SprinklingHumor.md
+0_C_OvercomingCodersBlock.md
+0_C_NameToTeach.md
