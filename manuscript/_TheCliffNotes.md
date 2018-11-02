@@ -10,7 +10,7 @@ If Sivers were to write a notes page about this book, it would be like this:
 * Premature abstractions -be OK with the concreteness of a name. It's ok to say exactly what it does if thats what it does -- it's easy to want to get that abstraction too early because that's how we are taught to code. But, it's not worth the cost of understanding the system as it currently exists. Programmers tend to have to 'cope' with concreteness because were always taught its something bad -- that abstractions are always the direction to head. (BadAbstractions)
 * Edit down names - get rid of words that aren't useful or are unnecssarily embellishing. Only worth embellishing if it distinguishes it from something else in the code. (EditingDownNames)
 * Sometimes a method name can go one of two directions -- choose the one where you're more likely to read the method from. (LeadTheNameToTheWellWornPath)
-* Don't use confusing vague verbs (MethodsAsVerbs)
+* Don't use confusing vague verbs - power of strong verbs... parlay about how verbs themselves provide all the color of a sentence in normal language. (MethodsAsVerbs)
 * Use a strong verb to 'scare' the programmer -- Incinerate (MethodsAsVerbs)
 * One or two other ideas from this chapter to be split out? (MethodsAsVerbs)
 * Avoid method names that are tautologous -- they require you to go into the code because the extracted bit is named for when it should be called. (TheTautologousCodeTrap)
