@@ -1,6 +1,7 @@
 If Sivers were to write a notes page about this book, it would be like this:
 
 **Why naming matters**
+* The basics of naming: Clarity. Constantly has to morph to the changes being  made to the codebase.
 * Maybe bring back those 5ish examples from history? (WhyNamingMatters)
 
 **Tactics**
