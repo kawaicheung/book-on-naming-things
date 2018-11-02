@@ -27,7 +27,7 @@ If Sivers were to write a notes page about this book, it would be like this:
 
 **Non-naming related ideas -> Code delight. Aesthetics. **
 * Anemic domain model
-* Static helper class as a good placeholder til you find a home
+* Static helper class as a good placeholder til you find a home - similar to how you might write someting in normal language. you have an idea to add to the story but you don't know exctly where the thing belongs. Instead of grinding to a halt, you jot a sidenote down....these static methods are just sidenotes that you'll roll into the story of your architecture at the irght time without halting progress. (Coder'sBlock????)
 * Ordering things in a method (same param order, validation check, use, etc. in a method) (OrderingThingsInMethods.md)
 
 **Final thoughts**
