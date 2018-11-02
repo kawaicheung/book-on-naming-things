@@ -7,7 +7,7 @@ If Sivers were to write a notes page about this book, it would be like this:
 **Tactics**
 * Code shape is important. May mean sacrificing meaning of a variable if that var is scoped to a small area and/or it isn't a 'main player'. (CodeShape)
 * Breaking a method apart and impart meaning into the name itself rather than into a more obscure variable. Makes the use of that method far more clear, even though it may mean more methods. Also more of a single-responsibility principle + less confusing params. That's a good overall tradeoff. (BreakingMethodsApart)
-* Premature abstractions -be OK with the concreteness of a name. It's ok to say exactly what it does if thats what it does -- it's easy to want to get that abstraction too early because that's how we are taught to code. But, it's not worth the cost of understanding the system as it currently exists. (BadAbstractions)
+* Premature abstractions -be OK with the concreteness of a name. It's ok to say exactly what it does if thats what it does -- it's easy to want to get that abstraction too early because that's how we are taught to code. But, it's not worth the cost of understanding the system as it currently exists. Programmers tend to have to 'cope' with concreteness because were always taught its something bad -- that abstractions are always the direction to head. (BadAbstractions)
 * Edit down names - get rid of words that aren't useful or are unnecssarily embellishing. Only worth embellishing if it distinguishes it from something else in the code. (EditingDownNames)
 * Sometimes a method name can go one of two directions -- choose the one where you're more likely to read the method from. (LeadTheNameToTheWellWornPath)
 * Don't use confusing vague verbs (MethodsAsVerbs)
