@@ -16,7 +16,7 @@ If Sivers were to write a notes page about this book, it would be like this:
 * Avoid method names that are tautologous -- they require you to go into the code because the extracted bit is named for when it should be called. (TheTautologousCodeTrap)
 * Memorable names - to avoid the mundanness of a pattern and to help jog your memory of what something is better. (MemorableNames)
 * Naming objects/projections. What do manager, helper mean anyway? (ObjectsAsNouns)
-* The beauty of booleans -- adds a cleanliness to your object model. Negative booleans not always bad if they are primarily used in that way (OnBooleans)
+* The beauty of booleans -- adds a cleanliness to your object model. Great way to clean up != null and other small logic checks. Negative booleans not always bad if they are primarily used in that way (OnBooleans)
 * Pattern hypnosis -- the danger of a pattern is we just go to it without thinking about a better way... m:m tables. We could be missing an opportunity for clarity (PatternHypnosis)
 * Ugly lengthy names in a refactoring are a sign the method is doing too much but we shouldnt mask it with a 'vague name' (UglyNames)
 * Teaching section (TBD) 
