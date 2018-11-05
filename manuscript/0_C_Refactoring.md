@@ -157,7 +157,7 @@ public static string GetAvatarHtmlWithInitialsFallback(string avatar_url, string
 }
 ```
 
-You might object to the negative form of these booleans. But, I name these variables `not_user` and `not_avatar` here because I only plan on evaluating against the negative form. The line `if (no_user) { … }` much more readable than, say, `if (!has_user) { … }`.  The former reads like plain English whereas the latter requires the annoying mental switch (if not has user → if no user).
+You might object to the negative form of these booleans. But, I name these variables `not_user` and `not_avatar` here because I only plan on evaluating against the negative form. The line `if (no_user) { … }` much more readable than, say, `if (!has_user) { … }`.  The former reads like plain English whereas the latter requires the annoying mental switch (if not has user to if no user).
 
 On the other hand, if there were any chance I would use the inverse of the booleans for a check (like `!not_user` or `!not_avatar`) I’d certainly opt to name them positively to avoid a double-negative. But, in the scope of this method, the situation doesn't come about.
 
