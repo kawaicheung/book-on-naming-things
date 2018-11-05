@@ -4,7 +4,7 @@
 0_C_TheresAWordForThat.md
 0_C_OvercomingAmbiguity.md
 0_C_EmotionalNames.md
-0_C_MakingMeaningMoreImmediate.md
+0_C_TheImmediacyOfMethodNames.md
 
 0_C_TheTautaulogousNameTrap.md
 0_C_WellWornPath.md
