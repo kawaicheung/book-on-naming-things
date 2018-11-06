@@ -1,1 +1,1 @@
-## Overcoming ambiguity
+## Clarity
