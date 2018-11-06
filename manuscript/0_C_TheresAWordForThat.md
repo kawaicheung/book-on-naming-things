@@ -1,8 +1,10 @@
 ## There's a Word for That
 
-In code, the words we use to describe methods usually boil down to a few common suspects. We `Create`, `Get`, `Update`, or `Delete` things. But, we can often substitute these verbs with choices that tell us more about the actions without having to dig into their implementations. Let's take a look at a few examples.
+Sometimes, the hardest part about writing prose is finding that perfect word. The one that entirely alters the feeling of a sentence. The one that describes exactly what we're trying to say. 
 
-### Update
+We should scrutinize the words we use to name methods the same way. The difference between two word choices won't have an effect on the compiler's ability to understand our code. A poor word choice won't fail an automated test. But these are all the more reasons to pay close attention to the nouns and verbs we use to describe methods.
+
+Here's an example.
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
