@@ -1,5 +1,7 @@
 ## Immediacy
 
+The beauty of names is that they are immediate. For instance, when you read the name of a method, it introduces you to what that method does without requiring any additional context. Take advantage of this. Look for opportunities where you can impart more meaning directly into the name rather than into one of its parameters. Take this example.
+
 I'm working on a feature addition to canceling accounts in DoneDone. Up until now, if you wanted to cancel the account, it's immediate and irreversible. That works for the vast majority of customers.
 
 However, some customers want to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
