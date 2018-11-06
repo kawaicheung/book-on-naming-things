@@ -1,4 +1,4 @@
-0_C_WhyDoesNamingMatter.md
+0_P_WhyDoesNamingMatter.md
 0_P_Words.md
 0_C_EditingDownNames.md
 0_C_TheresAWordForThat.md
@@ -18,4 +18,4 @@
 0_C_SprinklingHumor.md
 0_C_OvercomingCodersBlock.md
 0_C_NameToTeach.md
-0_C_WhatMakesANameGood.md
+0_P_WhatMakesANameGood.md
