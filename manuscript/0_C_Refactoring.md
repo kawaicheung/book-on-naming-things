@@ -1,4 +1,4 @@
-# Refactoring Through Renaming
+## Refactoring Through Renaming
 
 If you read books about programming, I’ll bet you have Martin Fowler’s _Refactoring_ book sitting on your bookshelf somewhere. It’s the veritable _Joy of Cooking_ of classic refactoring recipes. When you take a look at his extensive list of refactorings, many of them are - at the core - exercises in renaming. 
 

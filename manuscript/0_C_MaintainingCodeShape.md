@@ -1,4 +1,4 @@
-# Maintaining Code Shape
+## Maintaining Code Shape
 
 _Good design_ in software usually means something that isn't immediately visible. You have to spend time digesting the code to grasp why the model it describes is elegant. 
 
