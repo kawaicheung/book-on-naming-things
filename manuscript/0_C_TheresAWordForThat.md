@@ -74,3 +74,64 @@ In this case, I'd prefer to leave the method intact. It's not worth trading away
 
 A> This example _seems_ like a whole lot of thinking for something inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid, and instinctual part of the code writing process. You get faster at it. While the name of any one method won't determine whether a suite of automated tests passes or fails, a codebase that's full of expressive and thoughtful names will make your development more enjoyable. 
 
+------
+
+Here's another example. I have a couple of overloaded methods in a `PeopleService` class named `GetPeople()`. Both return a list of `Person` objects based on different inputs.
+ ```C#
+public List<Person> GetPeople(int[] ids) { … }
+```
+```C#
+public List<Person> GetPeople(string first_name_like, string last_name_like) { … }
+```
+It's nice to have these methods named identically. It reduces the overall number of method names in a class which, in turn, tightens the shape of the class. 
+
+The second implementation of `GetPeople()` does a match against first and last names. We're also not guaranteed any result back. Something like `SearchPeople()` conveys the meaning more appropriately.
+
+In addition, there likely won't be any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
+
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.GetPeople()`
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.SearchPeople()`
+
+Here's another case where `Get` can be improved. I've written an extension method off of the `String` class which pulls out all email addresses for the given string with some magical regular expressions. I use this to be able to notify users if they are mentioned in a user's comment. Calling this method `GetEmails()` is confusing. It doesn't quite make sense in context:
+
+```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+List<string> emails_in_comment = comment.GetEmails();
+```
+
+How exactly do you _get emails_ from a piece of text? Instead, the method is really _extracting_ emails. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
+
+ ```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+List<string> emails_in_comment = comment.ExtractAnyEmails();
+```
+
+I think it's a considerable improvement.
+
+------
+
+Now, let's look at a creation example. I've written a method that returns a unique API key for a given user. For this method, I could come up with a name like `CreateAPIKey()`. But, the word _create_ doesn't tell me a whole lot about _how_ the key is created. Is it pulled from some list of available keys in a database? Is it randomly generated? Is it somehow derived from other data a user owns?
+ 
+In my case, the key is generated using a random GUID. So, instead, the name `GenerateAPIKey()`conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than a replayable set of steps. It hints at the implementation detail just enough.
+
+Why is this important? Suppose that later on, I may want to introduce a way to revoke and issue a new. I might have a complementary method whose implementation looks like this:
+
+ ```C#
+public string RegenerateAPIKey() 
+{
+  RevokeAPIKey();
+  return GenerateAPIKey();
+}
+```
+
+If, instead, I had settled for the more generic `Create`, a consistently named sibling method might look like this:
+ 
+```C#
+public string RecreateAPIKey() 
+{
+  RevokeAPIKey();
+  return CreateAPIKey();
+}
+```
+
+ `RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
