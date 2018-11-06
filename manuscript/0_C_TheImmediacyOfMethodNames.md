@@ -1,4 +1,4 @@
-## The Immediacy of Method Names
+## Immediacy
 
 I'm working on a feature addition to canceling accounts in DoneDone. Up until now, if you wanted to cancel the account, it's immediate and irreversible. That works for the vast majority of customers.
 
