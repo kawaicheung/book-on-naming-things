@@ -2,6 +2,7 @@
 0_P_Words.md
 0_C_EditingDownNames.md
 0_C_TheresAWordForThat.md
+0_C_Detail.md
 0_C_OvercomingAmbiguity.md
 0_C_EmotionalNames.md
 0_C_TheImmediacyOfMethodNames.md
