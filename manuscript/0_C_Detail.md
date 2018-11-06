@@ -1,4 +1,4 @@
-## The App
+## The Appropriate Level of Detail
 
 In each of the examples in the previous chapter, my revised names attempt to describe a method's implementation more clearly. Some would argue that I'm committing a cardinal programming sin -- one of the fruits of encapsulating logic in methods is to _hide_ the details of the implementation. How dare I try to expose them more!
 
