@@ -1,3 +1,3 @@
-# What makes a name good?
+# What Makes a Name Good?
 
 Lorem ipsum
