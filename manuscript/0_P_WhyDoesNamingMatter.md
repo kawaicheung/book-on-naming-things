@@ -1,4 +1,4 @@
-# Why does naming matter?
+# Why Does Naming Matter?
 
 Our industry is littered with techniques on building sustainable software. But, these techniques usually come with a big caveat: They're typically large in scope. You can't just toss in a framework, pattern, or architecture onto your existing codebase like paint on a canvas -- it's intensive work. You might spend weeks on a refactoring and only then realize the result wasn't worth the effort.
 
