@@ -1,4 +1,4 @@
-## There's a Word for That
+## Actions
 
 Sometimes, the hardest part about writing prose is finding that perfect word. The one that entirely alters the feeling of a sentence. The one that describes exactly what we're trying to say. 
 
