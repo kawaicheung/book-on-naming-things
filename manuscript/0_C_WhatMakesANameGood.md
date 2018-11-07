@@ -10,6 +10,6 @@ First, a good name makes code clearer. If a method's name constantly requires us
 
 Second, a good name makes reading code more fluid. We can scan code more easily because the words flow better. Our eyes dance over the code because its shape feels natural. We can grasp what the code is saying because there's an orderliness to how (and what) constructs are named.
 
-Finally, the right names can make the exact same code more elegant and beautiful. This isn't just to tickle the fancy of the reader. Code that's elegant is more enjoyable to work with. It's also likely to _stay_ elegant. The next coder will care more about a well-written codebase (because they'll feel pride in the work, or at least, don't want to carry the shame of having destroyed it).
+Finally, the right names can make the exact same code more elegant and beautiful. This isn't just to tickle the fancy of the reader. Code that's elegant is more enjoyable to work with. It's also likely to _stay_ elegant. The next coder will care more about a well-written codebase because they'll feel pride in the work (or, at least, don't want to carry the shame of having destroyed it).
 
-Throughout this book, we'll look back on these ideas: Clarity, fluidity, and elegance. They're the qualitative tests we'll use to decide if we've improved upon a name.
+Throughout this book, we'll look back on these ideas: *Clarity*, *fluidity*, and *elegance*. They're the qualitative tests we'll use to decide if we've improved upon a name.
