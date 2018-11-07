@@ -1,6 +1,8 @@
 ## Why Does Naming Matter?
 
-We all have opinions on how to write good code. Usually, these opinions revolve around abstract concepts like frameworks, patterns, and architectures.  But, these concepts usually come with a price: They're large in scope. You can't just toss in a framework, pattern, or architecture into an existing codebase. It's _intensive_ work. It's also hard to unwind once you start. You might spend days implementing something only to realize the result wasn't nearly worth the effort.
+We all have opinions on how to write good code. Usually, these opinions revolve around abstract concepts like frameworks, patterns, and architectures.  But, these concepts usually come with a price: They're large in scope. You can't just toss in a framework into an existing codebase. It's _intensive_ work. 
+
+It's also hard to unwind once you start. You might spend days implementing something only to realize the result wasn't nearly worth the effort.
 
 This is why naming matters. Naming is fast. Naming doesn't require additional infrastructure. If a name doesn't feel right, you can change it. You can continually improve a name without being "stuck" with your original decision. The returns are equally enticing.
 
