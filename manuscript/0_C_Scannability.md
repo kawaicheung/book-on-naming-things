@@ -1,7 +1,7 @@
 
 ## Scannability
 
-In my previous example, we focused on pruning method names down to only what's essential. While this technique _usually_ improves code clarity, we need to consider the updated method names in the context of the other methods around it. Here’s an example.
+While pruning names _usually_ improves code clarity, we need to consider the updated method names in the context of the other methods around it. Here’s an example.
 
 I’m analyzing method names in a `ProjectsService` class and spot this one below. I have a hunch I could come up with a more concise name.
 
