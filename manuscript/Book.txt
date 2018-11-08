@@ -19,6 +19,7 @@
 0_C_Refactoring.md
 0_P_BreakingRules.md
 0_C_CopingWithConcreteness.md
+0_C_PatternHynposis.md
 0_C_ObnoxiouslyLongNames.md
 0_C_SprinklingHumor.md
 0_C_OvercomingCodersBlock.md
