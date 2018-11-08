@@ -16,4 +16,6 @@ A property like `InitialCreationDate` doesn’t say anything more useful than `C
 
 A method in a `Customer` class like `GetAllSubscriptions()` is appropriately named if there are other related methods like `GetArchivedSubscriptions()` or `GetExpiredSubscriptions()`.  If not, `GetSubscriptions()` is sufficient. It says all it needs to say without falsely hinting that there are other related methods to consider.
 
-When we conjure up names, adjectives like _all_ or _initial_ seem helpful at first. But, unless they provide additional meaning that the other words don’t, remove them. Each word should be there for a reason. The less words we need to describe something, the more value those descriptors will add. Treat words like currency.
+When we conjure up names, adjectives like _all_ or _initial_ seem helpful at first. But, unless they provide additional meaning that the other words don’t, remove them. Each word should be there for a reason. The less words we need to describe something, the more value those descriptors will add. 
+
+Treat words like currency.
