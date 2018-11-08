@@ -8,4 +8,4 @@ The returns are equally enticing.
 
 Renaming an object or method can clarify something that was previously ambiguous about it. A descriptive name might expose a problem you didn't see before. A good name makes it easier for someone else to figure out what your intentions were when you originally wrote the code. That someone else might even be you a few months from now. 
 
-Naming is the first thing I consider when I want to quickly improve a codebase. This is why naming matters. 
+Naming is the first thing I consider when I want to quickly improve a codebase. This is why it matters. 
