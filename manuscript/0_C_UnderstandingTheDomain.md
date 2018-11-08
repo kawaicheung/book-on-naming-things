@@ -20,14 +20,35 @@ public class Panel
 }
 ```
 
-Because medical professionals have defined a specific concept called panels, it's almost certain that there are specific attributes tied to a panel. It's not just a convenient alias to a collection of patients. As it turns out, panels aren't just assigned to doctors, but to medical assistants and health educators. We can also apply demographic data to a panel. 
+Because medical professionals have defined a specific concept called panels, it's almost certain that there are specific attributes tied to a panel -- it's not just a convenient alias to a collection of patients. 
+
+As it turns out, panels aren't just assigned to doctors, but to medical assistants and health educators. Panels also have a certain optimal number of patients (so that all clinicians generally see the same number of patients). Panels can have openings or be closed. It turns out there's a lot of other attributes tied to the concept of a panel. 
+
+```
+public class Panel
+{
+  private List<Patient> _patients;  
+  
+  private Doctor _doctor;
+  private HealthEducator _healthEducator;
+  private List<MedicalAssistant> _medicalAssistants;
+  
+  private bool hasOpening;
+  ...
+}
+```
 
 To add a patient to a panel, my first attempt at a method signature might be something like:
 
 ```
-public void Add(Patient p)
+public class Panel
 {
-  patients.Add(p);
+  ...
+
+  public void Add(Patient p)
+  {
+    patients.Add(p);
+  }
 }
 ```
 
@@ -36,11 +57,11 @@ Certainly, `Add` is clear, and it follows directly from the `Add()` method assoc
 ```
 public class Panel
 {
-  private List<Patient> _patients;  
-  
+  ...
+
   public void Subscribe(Patient p)
   {
-    _patients.Add(p);
+    patients.Add(p);
   }
 }
 ```
