@@ -70,7 +70,7 @@ if (isOfficeClosed())
   sendAutoResponse(); 
 }
 ```
-The conditional now reads more meaningfully. In addition, `isOfficeClosed()` is a method that has far more obvious applications than `shouldSendAutoReponse()` does.
+The conditional now reads more meaningfully. In addition, `isOfficeClosed()` is a method that has far more obvious applications than `shouldSendAutoReponse()` does. For instance, I could call it to determine if a chat application should be disabled on the application's help site. This has nothing to do with the auto-response feature.
 
 Tautologous conditionals aren't necessarily bad, though. There are times where describing the _effect_ is the cleanest option. We'll continue with this example. 
 
