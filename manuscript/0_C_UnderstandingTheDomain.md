@@ -4,7 +4,7 @@ The image of the recluse toiling away at code, completely isolated from the rest
 
 The best way we can encourage this is to infuse the language of the business directly into our code.
 
-If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Employees`. I don't have to make the mental mapping between what the client calls Concept X with my Concept Y.
+If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Employees`. This way, I don't have to make the mental mapping between what the client calls Concept X with what I call Concept Y.
 
 Business concepts can also dictate the kind of structures introduced in a codebase. If I were building a patient management system for a medical clinic, I might define a doctor's patient list with a structure like `List<Patient>`. 
 
