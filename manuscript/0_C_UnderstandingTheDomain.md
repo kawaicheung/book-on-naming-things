@@ -1,4 +1,4 @@
-## Understanding the Domain
+## Writing to the Domain
 
 (Need to clean up this chapter -- I combined the old intro on domain with 'pattern hynposis')
 
