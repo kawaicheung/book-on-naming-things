@@ -1,6 +1,6 @@
 ## Writing to the Domain
 
-The image of the recluse toiling away at code, completely isolated from the rest of the business is -- fortunately -- an antiquated one. People that write code today are often the same ones making business decisions, collaborating directly  with clients. This makes it even more critical that programmers understand the business reasons behind their work.
+The image of the recluse toiling away at code, completely isolated from the rest of the business is -- fortunately -- an antiquated one. People that write code today are often the same ones making business decisions or collaborating directly with clients. This makes it even more critical that programmers understand the business reasons behind their work.
 
 The best way we can encourage this is to infuse the language of the business directly into our code.
 
