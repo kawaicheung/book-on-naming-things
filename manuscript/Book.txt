@@ -4,7 +4,7 @@
 0_P_Words.md
 0_C_Pruning.md
 0_C_Scannability.md
-0_C_Actions.md
+0_C_Granularity.md
 0_C_Detail.md
 0_C_UnderstandingTheDomain.md
 0_C_OvercomingAmbiguity.md
