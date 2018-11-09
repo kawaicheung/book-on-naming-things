@@ -8,7 +8,7 @@
 0_C_Detail.md
 0_C_UnderstandingTheDomain.md
 0_C_OvercomingAmbiguity.md
-0_C_EmotionalNames.md
+0_C_BeingBlunt.md
 0_C_TheImmediacyOfMethodNames.md
 0_P_Style.md
 0_C_TheTautaulogousNameTrap.md
