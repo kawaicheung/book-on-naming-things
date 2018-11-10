@@ -17,3 +17,5 @@ David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the t
 Contrast this to a word like "Remove" which feels softer -- as if you can bring it back if you had to. Use "Remove" for things that could easily be brought back (or recreated from scratch if need be). I would be nervous to name a method "RemoveUser" that deletes all user data but OK with "RemoveUser" if it untied a user from an account which can easily be re-attached.
 
 Be blunt with your words. If something permanent is going to happen in your method, make sure your name makes that obvious. Being clear about these actions adds another layer of defense beyond testing. You can squash any potential misfortunes much earlier in the QA process with strong words. 
+
+[^dhh1]: [On Writing Software Well #6: Actually deleting data, not just pretending to](https://www.youtube.com/watch?v=AoxoPfilKqE)
