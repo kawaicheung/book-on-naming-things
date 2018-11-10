@@ -12,7 +12,9 @@ However, it's smart to make an exception when a method does perform a true, irre
 
 Choosing such a word is difficult. It should have even more cautionary weight than `Delete`.
 
-David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term `Incinerate` in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type. By doing so, it's become part of the technical lexicon for the Basecamp development team. “When we talk about incineration within the app, it means this one, specific thing.”[^dhh1] Destroy or Eradicate could also work.
+David Heinemeier Hansson (Basecamp CTO and Ruby on Rails creator) reserves the term `Incinerate` in Basecamp's codebase to distinguish the "sweaty-palms" kind of delete from the softer, "just put a flag on it" type. By doing so, it's become part of the technical lexicon for the Basecamp development team. 
+
+"When we talk about incineration within the app, it means this one, specific thing."[^dhh1] _Destroy_ or _eradicate_ might also work. Both have more gravitas than _deleteD.
 
 Contrast this to a word like "Remove" which feels softer -- as if you can bring it back if you had to. Use "Remove" for things that could easily be brought back (or recreated from scratch if need be). I would be nervous to name a method "RemoveUser" that deletes all user data but OK with "RemoveUser" if it untied a user from an account which can easily be re-attached.
 
