@@ -1,4 +1,4 @@
-# Objects as Nouns
+## Objects as Nouns
 
 In the previous chapter, we took a look at picking the right names to describe methods. Now, let's talk about naming objects.
 
@@ -28,14 +28,14 @@ I found a good example of this, taken from a David Heinemeier Hannson blog post 
 
 If you're struggling to think of a more descriptive name for a helper class, it may be a sign the class contains methods that are doing too much. Look for natural groupings of functionality, split the methods out into separate classes, and name each class appropriately. 
 
-## An homage to the static helper class
+### An homage to the static helper class
 
 Often times, I'll start with a `Helper` class when I'm not exactly sure where to park some bit of functionality. But, once that class grows to more than a few methods, I'll look back to see what can be extracted away from it. 
 
 *Can we split up a bucket of methods into smaller objects that have a more specific purpose?
 
 
-## Data, info, and other uninformative object extensions
+### Data, info, and other uninformative object extensions
 
 A set of words I often see used in domain object names (and, I admit, I often use in moments of weakness) are Data and Info.  AccountData. ProjectData. CustomerInfo. MessageInfo. Extra filler words that emphasize that the objects of these types will, indisputably, include some sort of data or info you will have an interest in!
 
