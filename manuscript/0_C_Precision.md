@@ -1,6 +1,6 @@
-## Granularity
+## Precision
 
-While removing extraneous words is important, writing better names isn't always about concision. We want each part of a name to clarify what something does. Sometimes, this requires a more descriptive verb or adjective. Here are a couple of examples.
+While removing extraneous words is important, writing better names isn't always about concision. We want each part of a name to clarify what something does. Sometimes, this requires more precise words. The usual standbys of programmatic verbs like `Get` or `Create` often leave something on the table. Here are a few examples.
 
 I've written an extension method off of the `string` class which pulls out all email addresses for the given string using some magical regular expressions, and returns them in a `List`. It's a nifty method I can use to notify anyone mentioned in a user's comment. 
 
