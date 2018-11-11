@@ -7,7 +7,6 @@
 0_C_Granularity.md
 0_C_Detail.md
 0_C_UnderstandingTheDomain.md
-0_C_OvercomingAmbiguity.md
 0_C_BeingBlunt.md
 0_C_SurfacingParameters.md
 0_C_AlternativeWords.md
