@@ -52,24 +52,22 @@ public string RecreateAPIKey()
 
  `RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
  
- 
-### Alternative verb ideas
+------
 
-In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. Hopefully, this list inspires you to think of more informative method names.
+Here's a final example. I have a couple of overloaded methods in a `PeopleService` class named `GetPeople()`. Both return a list of `Person` objects based on different inputs.
+ ```C#
+public List<Person> GetPeople(int[] ids) { … }
+```
+```C#
+public List<Person> GetPeople(string first_name_like, string last_name_like) { … }
+```
+It's nice to have these methods named identically. It reduces the overall number of method names in a class which, in turn, tightens the shape of the class. 
 
-|Verb   |Replacement     |Use case                                  |Example                               |
-|-------|----------------|------------------------------------------|--------------------------------------|
-|Create |Generate   	 |Creating something with randomness.		|GenerateAPIKey()				   	   |
-|Create |Initialize   	 |											|								   	   |
-|Get    |Extract, Expose |Exposing something that already exists. 	|string.ExtractAnyEmails()	   		   |
-|Get    |Convert         |Getting a manipulation of an object.		|date.ConvertToShortDate()			   |
-|Get    |Filter          |Passing a list of items and returning less. |filterProjects(List<projects>, UserID)			   |
-|Get    |Decrypt         |Decrypting a token and returning a value/object |decryptRegistrationToken(string token) 
-|Update |Overwrite       | 										    |									   |
-|Update |Replace 		 |								            |									   |
-|Update |Merge	 		 |								            |									   |
-|Update |Sync	 		 |(With 3rd party)						    |									   |
-|Delete |Remove	 		 |										    |									   |
-|Delete |Incinerate	 	 |For hard or permanent deletes.	    	|project.Incinerate()				   |
+The second implementation of `GetPeople()` does a match against first and last names. We're also not guaranteed any result back. Something like `SearchPeople()` conveys the meaning more appropriately.
+
+In addition, there likely won't be any use cases for a method like this _other_ than as part of a search feature. By using the word _Search_ here (and assuming we've named other related components along the stack similarly), the workflow from the interface to the backend will read more cohesively. That's well worth adding an additional method name to the service.
+
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.GetPeople()`
+A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.SearchPeople()`
  
- ### Some sort of conclusion here
+### Some sort of conclusion here
