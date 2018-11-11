@@ -1,8 +1,8 @@
-## Immediacy
+## Surfacing parameters
 
-The beauty of names is that they are immediate. For instance, when you read the name of a method, it introduces you to what that method does without requiring any additional context. Take advantage of this. Look for opportunities where you can impart more meaning directly into the name rather than into one of its parameters. Take this example.
+The beauty of names is that they are immediate. When you read the name of a method, it tells you what that method does without requiring any additional digging. Take advantage of this. Look for opportunities where you can impart more meaning directly into the name rather than into one of its parameters. Take this example.
 
-I'm working on a feature addition to canceling accounts in DoneDone. Up until now, if you wanted to cancel the account, it's immediate and irreversible. That works for the vast majority of customers.
+I'm working on a feature addition to canceling accounts. Up until now, if you wanted to cancel the account, it's instantaneous and irreversible. That works for the vast majority of customers.
 
 However, some customers want to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
 
@@ -75,7 +75,7 @@ _billing_repository.CancelAccount(account_id, CancelationType.NOW);
 
 This is an improvement. I've gotten rid of the ambiguity issues we had with the booolean parameter. It also leaves us better positioned to introduce additional cancelation types in the future.
 
-But, having worked with DoneDone since its beginning, I'd bet there won't be any new cancelation types added soon. It just doesn't feel like one of those features we'd continually augment in the near future. 
+But, having worked with this software since its beginning, I'd bet there won't be any new cancelation types added soon. It just doesn't feel like one of those features we'd continually augment in the near future. 
 
 Weighing this factor in, an even more readable approach is to directly convey the type of cancelation in the method name. I ultimately decide to create two distinct cancelation methods.
 
