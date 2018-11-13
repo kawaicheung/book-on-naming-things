@@ -1,6 +1,7 @@
 ## Overcoming Ambiguity
 
 [Quick Intro regarding Ambiguity]
+[Ambiguity can mean a major rewrite...but a more pragmatic short-term fix is to name it better. You can make a larger scale fix later but removing the ambiguity can delay it (because it's not that important and isn't hurting) or at the very least make it more identifiable later---we'll see that later with 'really long names'?
 
 Here's an example.
 
