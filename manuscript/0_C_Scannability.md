@@ -1,46 +1,42 @@
 
 ## Scannability
 
-While pruning names _usually_ improves code clarity, we need to consider the updated method names in the context of the other methods around it. Here’s an example.
+When reading code, _scannability_ is just as critical as readability. Our eyes spend as much time dancing around code scanning for patterns as they do reading the actual words. The more familiar we are with a codebase, the more we scan. 
 
-I’m analyzing method names in a `ProjectsService` class and spot this one below. I have a hunch I could come up with a more concise name.
-
-```C#
-GetAvailableProjectsForUser(int userID) {…}
-```
-
-My first instinct is to remove the word `Available`. I doubt the class exposes a method that grabs projects unavailable to the user, but for sanity’s sake, I check the rest of the class. While I’m right about that, I do see another variant:
+I’m analyzing method names in a `ProjectService` class and spot these two below. I have a hunch I could improve their names.
 
 ```C#
+GetAllAvailableProjectsForUser(int userID) {…}
 GetAdminableProjectsForUser(int userID) {…}
 ```
 
-`Adminable` is a necessary adjective -- it's a subset of all the projects a user can access. This makes me reconsider the impact of removing the word `Available` from the original method.
-
-No one would think that `GetProjectsForUser()` returns projects a user can’t access. So, `Available` truly adds nothing to our understanding of the name. But, there's another reason I'm in favor of removing it. `Available` and `Adminable` look nearly identical at a glance:
+My first instinct is to remove the word `All` from the first method. Trimming the method name to `GetAvailableProjectsForUser()` doesn't alter my understanding of what the method does. So, I make the quick edit and re-evaluate.
 
 ```C#
 GetAvailableProjectsForUser(int userID) {…}
 GetAdminableProjectsForUser(int userID) {…}
 ```
 
-We shouldn’t take this detail lightly. When reading code, _scannability_ is just as critical as readability -- we spend as much time dancing our eyes around a class scanning for patterns as we do reading the actually words. The more familiar we become with the codebase, the more we scan. Naturally, it would be an easy trap to misuse these methods down the road.
+The method names now have a more natural pattern to them. The programmer in me likes this -- it feels _elegant_. But, in practice, these methods are now much harder to scan. At a quick glance, the two methods look nearly identical. It would be an easy trap to misuse these methods down the road. 
 
-After considering the tradeoffs, I remove `Available`. I look at the two methods next to each other again. It’s an improvement.
+`Adminable` describes a subset of all the projects a user can access -- it's a necessary adjective. Take it away and the method name has lost most of its value. But, fortunately, `Available` isn't. No one would think that `GetProjectsForUser()` returns a project a user couldn’t access. 
+
+I remove `Available` as well and look at the two methods next to each other again. 
 
 ```C#
 GetProjectsForUser(int userID) {…}
 GetAdminableProjectsForUser(int userID) {…}
 ```
 
-Next, I question whether `ForUser` is a worthwhile suffix on both methods. Since the only parameter passed into these methods is labeled `userID`, it seems superfluous to add this to the method name. We could we get by without it:
+While I lose some sense of elegance, I've improved the scannability of these methods. That's a trade-off I'll take every time.
+
+Feeling good about my luck with shortenting names, I now consider whether the `ForUser` suffix is need on both methods. Since the only parameter passed into these methods is labeled `userID`, it seems superfluous to add this to the method name. Without them, the method signatures still read pretty clearly:
 
 ```C#
 GetProjects(int userID) {…}
 GetAdminableProjects(int userID) {…}
 ```
-
-This is even more succinct. But, let’s discuss what’s lost by removing the suffix.
+But, let’s discuss what’s lost by removing the suffix.
 
 First, I spot a few other methods with a similar "for-something" pattern, like `GetProjectsForAccount()` and `GetArchivedProjectsForAccount()`.  It seems arbitrary that I don’t have the same suffix pattern for the methods I’ve just edited.
 
