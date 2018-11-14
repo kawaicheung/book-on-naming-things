@@ -58,8 +58,6 @@ GetProjectsForAccount(int accountID)
 GetArchivedProjectsForAccount(int accountID)
 ```
 
-I lean toward the latter because I find the scannability of these method names more valuable than brevity. Also, while the names are more wordy, the words help me pinpoint the genesis of each method more quickly. I don't have to deduce the intent of the methods from its parameters.
-
-All told, I’ve deliberated intensely but make just one naming edit. `GetAvailableProjectsForUser()` is now `GetProjectsForUser()`. I stop short of pruning down even further because it doesn't improve the clarity of these methods, particularly in the context of similar methods around it. 
+I lean toward the latter because, once again, I find the scannability of these method names more valuable than brevity. Also, while the names are more wordy, the words help me pinpoint the genesis of each method more quickly. I don't have to deduce the intent of the methods from its parameters.
 
 Treating words like currency doesn’t mean to be as stingy as possible, it also means making the right investments. 
