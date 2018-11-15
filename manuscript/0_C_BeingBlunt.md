@@ -1,4 +1,4 @@
-## Being blunt
+## Being Blunt
 
 Many of us have trouble communicating directly. We don't want to offend. We don't want to come across as having an unwavering opinion. We try to dampen our real intentions behind a fog of words. In code, this can be  dangerous.
 
