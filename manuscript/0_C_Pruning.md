@@ -4,11 +4,11 @@ In school, writing assignments always had some sort of minimum length requiremen
 
 I understood why there was a requirement -- it gave us a general guideline for how much we should write. But, that requirement became the thing that we'd gravitate toward. “Can I get to ten pages if I increase the font size by one pixel?” was more important than “Does that additional paragraph really strengthen my argument?”.
 
-I wonder what would happen if teachers gave limits in reverse -- no more than five paragraphs, 2000 words, or ten pages. Maybe placing a maximum constraint would produced better results all the while mitigating unnecessarily long sentences and double spacing.
+I wonder what would happen if teachers gave these limits in reverse -- no more than five paragraphs, 2000 words, or ten pages. Placing a maximum constraint would focus the writer on what they're writing about, all the while mitigating unnecessarily long sentences and double spacing.
 
-Editing, in school, usually meant bloating your words. It wasn’t until I left school that I discovered that editing is the art of writing _less_ words. 
+Editing, in school, usually meant bloating your words. It wasn’t until I left school that I discovered that the true value of editing is reducing words. 
 
-When I edit my writing now, I almost always end up with something _shorter_ than what I started with. I don't aim for a word count; I aim to make each word count. Prune what's not essential.
+When I edit, I almost always end up with something _shorter_ than what I started with. I don't aim for a word count; I aim to make each word count. Prune what's not essential.
 
 Luckily, we don’t stigmatize concise code. Code brevity has always been seen as a good thing in our industry. No sane programmer would tinker with a small bit of logic just to get it to be more wordy.
 
