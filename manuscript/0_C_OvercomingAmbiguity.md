@@ -1,7 +1,8 @@
 ## Overcoming Ambiguity
 
-[Quick Intro regarding Ambiguity]
-[Ambiguity can mean a major rewrite...but a more pragmatic short-term fix is to name it better. You can make a larger scale fix later but removing the ambiguity can delay it (because it's not that important and isn't hurting) or at the very least make it more identifiable later---we'll see that later with 'really long names'?
+One of the most common symptoms of a bad method name is ambiguity. Ambiguous names are often a sign that the method is doing too much. In these cases, we might decide to refactor the method into smaller pieces.
+
+However, sometimes we don't need to make such a deep cut -- at least not now. The more pragmatic short-term fix could be in a more well-considered name. We might still decide to refactor the method later, but finding that sharper name might be enough for right now.
 
 Here's an example.
 
