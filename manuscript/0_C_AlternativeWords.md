@@ -1,6 +1,11 @@
 ## Dusting off the Thesaurus
 
-In the introduction, I mentioned that this book is not a reference manual. But, I thought it would be useful to list a bunch of synonyms I frequently use as replacements to conventional action terms. Hopefully, this list inspires you to think of more informative method names.
+You probably have a thesaurus somewhere -- you know, the one you purchased sometime in high school or college that's been sitting in a box in your closet, never opened, for years. Now's a good time to pull it out. If you don't have one, fortunately the internet solves this problem.
+
+There are so many wondefully descriptive, particular, just-right words to describe nearly every kind of scenario we face in programming. It's a shame we usually limit ourselves to the most generic kinds.  The advent of the CRUD acronym (Create, Read, Update, and Delete) might be partially to blame. But, even the acronym suggests there's something unpleasant in these words choices.
+
+This chapter is about finding those gems-of-a-name in the rough. The ones that you look back with fresh eyes the next morning with quiet satisfaction. 
+
 
 |Verb   |Replacement     |Use case                                  |Example                               |
 |-------|----------------|------------------------------------------|--------------------------------------|
