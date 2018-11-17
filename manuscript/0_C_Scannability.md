@@ -19,7 +19,9 @@ GetAvailableProjectsForUser(int userID) {…}
 GetAdminableProjectsForUser(int userID) {…}
 ```
 
-The method names now have a natural uniformity to them. They feel more elegantly named. But, here's the problem: In practice, these methods are now much harder to tell apart. When I scan these methods, they look nearly identical. It would be an easy trap to misread -- or worse -- misuse these methods. I need to differentiate them further.
+The method names now have a natural uniformity to them. Coupled together, they feel more _elegant_. Elegance is a term we sometimes like to throw around when we think we've done something good but can't really prove why.
+
+Despite the elegance, here's the problem staring me right in the face: In practice, these methods are now much harder to tell apart. When I scan these methods, they look nearly identical. It would be an easy trap to misread -- or worse -- misuse these methods. I need to differentiate them further.
 
 `Adminable` describes a subset of all the projects a user can access -- it's a necessary adjective. Take it away and the method name has lost most of its value. But, fortunately, `Available` isn't necessary. No one would think that `GetProjectsForUser()` returns projects a user couldn’t access. 
 
