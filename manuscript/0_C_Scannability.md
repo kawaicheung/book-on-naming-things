@@ -41,7 +41,7 @@ GetProjects(int userID) {…}
 GetAdminableProjects(int userID) {…}
 ```
 
-There's a problem. The class also contains two other methods with a similar "for-entity" pattern: `GetProjectsForAccount()` and `GetArchivedProjectsForAccount()`. I think about how it feels if these methods are pulled up in my development environment as code completion hints or in a method search. 
+But, there's another problem. The class also contains two other methods with a similar "for-entity" pattern: `GetProjectsForAccount()` and `GetArchivedProjectsForAccount()`. I think about how it feels if these methods are pulled up in my development environment as code completion hints or in a method search. 
 
 Removing the `ForUser` suffix makes the collection of methods even harder to read together because there's no naming consistency to latch onto.
 
