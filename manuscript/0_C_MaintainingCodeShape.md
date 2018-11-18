@@ -1,10 +1,8 @@
 ## Maintaining Code Shape
 
-_Good design_ in software usually means something that isn't immediately visible. You have to spend time digesting the code to grasp why the model it describes is elegant. 
+_Good design_ in software usually means something that isn't immediately visible. You have to spend awhile working with the code to appreciate its design. But, there's a more immediate kind of code design.
 
-But, there's a design to the code _itself_. 
-
-Good code design has a certain kind of _shape_ to it. It's spaced well. It's broken nicely. It's easy to scan.
+Good code design has a certain _shape_ to it. It's spaced well. It's broken out nicely. It's easy to scan.
 
 Variable names can play a large role in determining this shape. Consider this simple `for` loop.
 
