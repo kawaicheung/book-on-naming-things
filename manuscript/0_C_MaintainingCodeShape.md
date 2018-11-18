@@ -2,7 +2,7 @@
 
 _Good design_ in software usually means something that isn't immediately visible. You have to spend awhile working with the code to appreciate its design. But, there's a more immediate kind of code design.
 
-Good code design has a certain _shape_ to it. It's spaced well. It's broken out nicely. It's easy to scan.
+Code has a certain _shape_ to it. It's spacing. The way it's broken out. How it flows down a page.
 
 Variable names can play a large role in determining this shape. Consider this simple `for` loop.
 
