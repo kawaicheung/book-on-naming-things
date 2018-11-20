@@ -22,6 +22,7 @@
 0_P_BreakingRules.md
 0_C_CopingWithConcreteness.md
 0_C_PatternHypnosis.md
+0_C_FluentInterfaces.md
 0_C_ObnoxiouslyLongNames.md
 0_C_MakingNamesMemorable.md
 0_C_OvercomingCodersBlock.md
