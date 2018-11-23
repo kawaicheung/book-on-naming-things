@@ -1,5 +1,7 @@
 ## Being Blunt
 
+[Delete vs Incinerate vs Remove - should talk about Remove since its relevant -- RemoveTagsFromProject]
+
 Many of us have trouble communicating directly. We don't want to offend. We don't want to come across as having an unwavering opinion. We try to dampen our real intentions behind a fog of words. In code, this can be  dangerous.
 
 Consider what it means when we see a method like `Delete()`. It's a loaded term. On the surface, we know it means something like "get rid of this thing and never let me see it again." And, that's generally good enough for users. 
