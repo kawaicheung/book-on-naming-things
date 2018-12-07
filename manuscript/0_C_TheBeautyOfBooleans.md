@@ -5,6 +5,18 @@ also is vs. can --> isUpdateable vs. canUpdate (latter reads better in use becau
 
 
 Small example but can be confusing otherwise...
+ 
+```
+foreach (var status_to_upsert in statuses_to_upsert)
+{
+    if (isValidID(status_to_upsert.ID) && !workflow.AllStatuses.Any(s => s.ID == status_to_upsert.ID))
+    {
+        throw new Domain.Exceptions.InvalidInput(string.Format("The status {0} is not part of this workflow.", status_to_upsert.Name));
+    }
+}
+ ```
+  vs
+ 
 
 ```
 foreach (var status_to_upsert in statuses_to_upsert)
@@ -18,17 +30,3 @@ foreach (var status_to_upsert in statuses_to_upsert)
     }
 }
  ```
- 
- vs
- 
-```
-foreach (var status_to_upsert in statuses_to_upsert)
-{
-    if (isValidID(status_to_upsert.ID) && !workflow.AllStatuses.Any(s => s.ID == status_to_upsert.ID))
-    {
-        throw new Domain.Exceptions.InvalidInput(string.Format("The status {0} is not part of this workflow.", status_to_upsert.Name));
-    }
-}
- ```
- 
- 
