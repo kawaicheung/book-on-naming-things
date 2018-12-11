@@ -3,6 +3,12 @@
 negative bools
 also is vs. can --> isUpdateable vs. canUpdate (latter reads better in use because its not a question... if (user.CanUpdate)... means ok i can (user.IsUpdatable almost lends itself to having to say user.IsUpdateable == true)
 
+--
+
+IsWorkflowUnpublishable vs. CanUnpublishWorkflow...
+
+Former can be confused as "the workflow cannot be published". The latter more clearly states an action of "unpublishing".
+
 
 Small example but can be confusing otherwise...
  
