@@ -23,3 +23,4 @@ We've already covered a few better replacements for many overly-used terms. We a
 |Delete |Remove	 		 |										    |									   |
 |Delete |Incinerate	 	 |For hard or permanent deletes.	    	|project.Incinerate()				   |
  
+ALSO: POP (e.g. get and delete), PUSH...
