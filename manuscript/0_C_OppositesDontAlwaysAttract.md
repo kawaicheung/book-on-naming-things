@@ -1,4 +1,4 @@
-## Opposites don't always attract
+## Opposites Don't Always Attract
 
 Much of programming objects is about states. A user might be either active or inactive; A purchase order is either pending or confirmed and so forth.
 
