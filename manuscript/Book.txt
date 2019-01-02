@@ -5,6 +5,7 @@
 0_C_Pruning.md
 0_C_Scannability.md
 0_C_OvercomingAmbiguity.md
+0_C_OppositesDoneAlwaysAttract.md
 0_C_Precision.md
 0_C_BeingBlunt.md
 0_C_Detail.md
