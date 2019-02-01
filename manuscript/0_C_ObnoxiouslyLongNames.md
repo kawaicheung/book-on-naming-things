@@ -1,4 +1,4 @@
-## Obnoxiously Long Names
+## INCOMPLETE: Obnoxiously Long Names
 
 One generally agreed upon rule of thumb with names is to keep them short. Concise names are easier to scan. A codebase sprinkled with really long names feels unwieldy. 
 
