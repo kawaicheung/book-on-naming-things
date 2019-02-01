@@ -16,7 +16,6 @@
 0_C_NamingProjections.md
 0_C_TheTautaulogousNameTrap.md
 0_C_WellWornPath.md
-0_C_TheBeautyOfBooleans.md
 0_C_MaintainingCodeShape.md
 0_C_Penmanship.md
 0_C_Refactoring.md
