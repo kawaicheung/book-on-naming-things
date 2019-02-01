@@ -1,4 +1,4 @@
-## Code penmanship
+## INCOMPLETE: Code penmanship
 
 In programming, the little details make all the difference between code that looks carelessly written and error-prone versus code that looks confident and well-intentioned.
 
