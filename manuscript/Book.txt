@@ -20,7 +20,6 @@
 0_C_Penmanship.md
 0_C_Refactoring.md
 0_P_BreakingRules.md
-0_C_CopingWithConcreteness.md
 0_C_PatternHypnosis.md
 0_C_FluentInterfaces.md
 0_C_ObnoxiouslyLongNames.md
