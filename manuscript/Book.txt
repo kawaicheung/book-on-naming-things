@@ -24,6 +24,5 @@
 0_C_FluentInterfaces.md
 0_C_ObnoxiouslyLongNames.md
 0_C_MakingNamesMemorable.md
-0_C_OvercomingCodersBlock.md
 0_C_NameToTeach.md
 
