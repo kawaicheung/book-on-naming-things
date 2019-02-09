@@ -1,5 +1,13 @@
 ## Making Names Memorable
 
+EmailOfficer
+
+
+EmailLovers
+
+
+Long names
+
 As programmers, we champion convention. Conventions provide the guardrails for our code to stay on a consistent path. 
 We apply this same general practice to naming. In this way, when we're writing code, we can limit our options with names -- otherwise we might belabor over them for far too long as the deadline looms.
 
