@@ -20,7 +20,15 @@ I ended up extracting out a class to handle this latter part. It holds various m
 
 How do we name an object like this?
 
-A name like `EmailNotificationManager` is tempting. But, looking at this name in isolation, I might assume this object's job includes storing a user's email preferences as well. 
+A name like `EmailNotificationManager` is tempting. But, looking at this name in isolation, I might assume this object's job includes storing a user's email preferences. It also doesn't convey the idea that the object helps determine who should get emailed. `EmailNotificationHelper` is still too ambiguous. What, exactly, is it trying to help answer?
 
-* Often a smell to break things out.
+I close my eyes and visualize the messaging service as a real _thing_. Often, that will lead me to finding the noun that captures exactly what my non-physical object _is_.
+
+Imagine the messaging service as a dimly lit shipping center. Once an issue is created or updated, the messaging team receives word from the intercom system. One employee looks up the issue to see who's been added to it. He notes these folks on a clipboard and runs down to an assembly line of workers ready to assemble messages and haul them to the back of a truck for delivery. 
+
+But, before he gives the assembly line the list of folks to send messages to, another worker stops him with the palm of her hand. She asks to see the clipboard. One by one, she makes sure none of the folks on the list have opted-out of these message deliveries. She also adds anyone else that should be on this list but isn't. Then, she hands the clipboard back to the worker and, with a nod, tells him to move along.
+
+I imagine this person with a stern face dressed in a police uniform. And suddenly, the name `EmailNotificationOfficer` comes to mind. `Officer` conveys a kind of policing of emails -- exactly what this object's main responsibility is. It's certainly more memorable and visual than either a manager or helper. 
+
+At first, the name might feel like we're going a bit overboard. But, the more I've let the name sit, the more comfortable I am with it. As soon as I see the word _officer_, I reimagine the little visual story in my head and I know exactly what the object's reason for being is.
 
