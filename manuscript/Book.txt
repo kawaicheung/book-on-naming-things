@@ -9,8 +9,8 @@
 0_C_Precision.md
 0_C_BeingBlunt.md
 0_C_Detail.md
-0_C_AlternativeWords.md
 0_C_SurfacingParameters.md
+0_C_AlternativeWords.md
 0_P_Style.md
 0_C_UnderstandingTheDomain.md
 0_C_NamingProjections.md
