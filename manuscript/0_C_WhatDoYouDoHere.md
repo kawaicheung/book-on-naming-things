@@ -14,8 +14,11 @@ Fortunately, the English language is full of more expressive nouns. Sometimes, e
 
 In DoneDone, I've built a messaging service whose sole responsibility is to decide whom should and shouldn't receive an email based on a newly updated or created issue. The answer depends, first, on who's involved on the issue. For example, I create an issue for Aaron and also add Jason, Mustafa, and Penelope on the issue. They all should be notified.
 
-However, the other part of this determination relies on what each person has opted into. You can decide to be notified on every update (even on issues you're not directly added to), on every created issue, just the issues you're added to, or on nothing. It's the messaging service's job to figure out who should receive an email notification and package up a collection of objects to ship to an email service.
+The other part of this determination relies on what each person has opted into. You can decide to be notified on every update (even on issues you're not directly added to), on every created issue, just the issues you're added to, or on nothing. It's the messaging service's job to figure out who should receive an email notification and package up a collection of email objects to ship to an email service.
 
+I ended up extracting out a class to handle this latter part. It holds various methods helpful to the messaging service like `AllowEmail()` which accepts a user id and verifies that the user has not opted out of all emails. This method is used while looping through all the folks on a newly updated issue to sift out the ones that don't want to be bothered at all. Another property of this class is a `UsersThatAlwaysWantEmail` list. The messaging service grabs this list to ship out emails to anyone else not directly on the issue.
+
+How do we name an object like this?
 
 
 * Often a smell to break things out.
