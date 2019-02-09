@@ -15,15 +15,15 @@
 0_C_UnderstandingTheDomain.md
 0_C_NamingProjections.md
 0_C_TheTautaulogousNameTrap.md
-0_C_WellWornPath.md
 0_C_MaintainingCodeShape.md
-0_C_Penmanship.md
 0_C_Refactoring.md
+0_C_WellWornPath.md
+0_C_Penmanship.md
 0_P_BreakingRules.md
 0_C_EnglishAndSearch.md
 0_C_PatternHypnosis.md
+0_C_MakingNamesMemorable.md
 0_C_FluentInterfaces.md
 0_C_ObnoxiouslyLongNames.md
-0_C_MakingNamesMemorable.md
 0_C_NameToTeach.md
 
