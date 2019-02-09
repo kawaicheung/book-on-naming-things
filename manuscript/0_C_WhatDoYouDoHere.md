@@ -20,6 +20,7 @@ I ended up extracting out a class to handle this latter part. It holds various m
 
 How do we name an object like this?
 
+A name like `EmailNotificationManager` is tempting. But, looking at this name in isolation, I might assume this object's job includes storing a user's email preferences as well. 
 
 * Often a smell to break things out.
 
