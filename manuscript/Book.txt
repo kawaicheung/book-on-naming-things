@@ -18,6 +18,7 @@
 0_C_MaintainingCodeShape.md
 0_C_Refactoring.md
 0_C_WellWornPath.md
+0_C_TidyingUp.md
 0_C_Penmanship.md
 0_P_BreakingRules.md
 0_C_EnglishAndSearch.md
