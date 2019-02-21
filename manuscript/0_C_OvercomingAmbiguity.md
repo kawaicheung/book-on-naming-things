@@ -1,10 +1,12 @@
 ## Ambiguity
 
-One of the most common symptoms of a bad method name is ambiguity. Ambiguous names are often a sign that a method is doing too much. In these cases, you might have the urge to refactor the method into smaller pieces.
+One of the most common reasons a method name can be improved is because it's too ambiguous. Ambiguous names are often a sign that a method is doing too much. That's what made naming it difficult in the first place. 
 
-However, sometimes you don't need to make such a deep cut -- at least not *right now*. The more pragmatic fix could be in a more precise name. You might still decide to refactor later, but finding that sharper name might be enough in the interim.
+You might have the urge to refactor such a method into smaller pieces. It will certainly make naming the smaller methods easier.
 
-Here's an example.
+However, refactoring can be a large and unpredictable effort. You don't always need to make such a deep cut right away. The more pragmatic fix could be in a more precise name. You might still decide to refactor later, but finding that sharper name might be enough *right now*.
+
+Here's an example of a method I stumbled across in my own code recently. 
 
 I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 
@@ -12,7 +14,7 @@ I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 public void UpdateUsers(List<Users> users) { … }
 ```
 
-The name seems straightforward enough. The method should take a list of users and grant them access to the given project. But, what does the method do to users who currently have access but aren't in the passed-in list? Will the method remove them, leaving access to only the ones passed in? Or, will it keep them around, adding additional users from the list? A method named this way doesn't tell me for sure. I have to look inside and see what's going on. 
+At first, this name seems completely reasonable. But, as you get into the details, suddenly The method should take a list of users and grant them access to the given project. But, what does the method do to users who currently have access but aren't in the passed-in list? Will the method remove them, leaving access to only the ones passed in? Or, will it keep them around, adding additional users from the list? A method named this way doesn't tell me for sure. I have to look inside and see what's going on. 
 
 After I dig into the code, I see that existing users not in the list are removed, not spared. I start with a comment on the method to clarify what's happening.
 
