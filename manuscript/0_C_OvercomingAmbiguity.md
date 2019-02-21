@@ -1,4 +1,4 @@
-## Overcoming Ambiguity
+## Ambiguity
 
 One of the most common symptoms of a bad method name is ambiguity. Ambiguous names are often a sign that a method is doing too much. In these cases, you might have the urge to refactor the method into smaller pieces.
 
