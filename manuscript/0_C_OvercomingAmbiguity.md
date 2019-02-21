@@ -1,8 +1,8 @@
 ## Overcoming Ambiguity
 
-One of the most common symptoms of a bad method name is ambiguity. Ambiguous names are often a sign that the method is doing too much. In these cases, we might decide to refactor the method into smaller pieces.
+One of the most common symptoms of a bad method name is ambiguity. Ambiguous names are often a sign that a method is doing too much. In these cases, you might have the urge to refactor the method into smaller pieces.
 
-However, sometimes we don't need to make such a deep cut -- at least not now. The more pragmatic short-term fix could be in a more well-considered name. We might still decide to refactor the method later, but finding that sharper name might be enough for right now.
+However, sometimes you don't need to make such a deep cut -- at least not *right now*. The more pragmatic fix could be in a more precise name. You might still decide to refactor later, but finding that sharper name might be enough in the interim.
 
 Here's an example.
 
@@ -12,44 +12,42 @@ I'm staring at a method name inside a `Project` class called `UpdateUsers()`.
 public void UpdateUsers(List<Users> users) { … }
 ```
 
-The name seems straightforward enough. The method should take a list of users and grant them access to the given project. But, let's scrutinize it a bit more. What does the method do to the users that currently have access who aren't in the passed-in list? Will it remove them, leaving access to only the ones I've passed in? Or, will it keep them around, adding additional users from the list? A method named this way doesn't tell me for sure. I have to look inside and see what's going on. 
+The name seems straightforward enough. The method should take a list of users and grant them access to the given project. But, what does the method do to users who currently have access but aren't in the passed-in list? Will the method remove them, leaving access to only the ones passed in? Or, will it keep them around, adding additional users from the list? A method named this way doesn't tell me for sure. I have to look inside and see what's going on. 
 
-Once I've wrapped my head around the story (it turns out that existing users not in the list *are* removed), I start with a comment on the method so that I don't have to investigate it again, a month from now, when I'll likely have the same question.
+After I dig into the code, I see that existing users not in the list are -- in fact -- removed. I start with a comment on the method to clarify what's happening.
 
 ```C#
 // Overwrites project's assigned users with the passed-in users list
 public void UpdateUsers(List<Users> users) { … }
 ```
 
-That's better. But, comments tend to easily outdate themselves. If there's a way I can impart that same meaning into the name, I should. The word _overwrite_ is the key to the comment. The method isn't just updating users, it's potentially removing users. _Overwrite_ describes that idea more clearly. Let's see how it looks.
+That's better. But, comments tend to outdate themselves quickly. If there's a way I can impart the gist of the comment into the name, I should. The word _overwrite_ is the key to the comment. The method isn't just updating users, it could be removing users as well. _Overwrite_ describes that idea much more clearly. Let's see how it looks.
 
 ```C#
 public void OverwriteUsers(List<Users> users) { … }
 ```
 
-Another step better. This feels less ambiguous. The method name has a bit more weight to it. _Overwrite_ clearly means the old users aren't sticking around.
+Another step better. Not only does this feel less ambiguous, _overwrite_ makes me feel like I ought to use this method with caution.
 
-Here's another way to judge how the name feels. If I were to pass in an empty list into `UpdateUsers()`, what would it feel like? 
+Here's another way to judge how the name feels. How does it look like when I pass an empty list or `null` into the method?
 
 ```C#
-myProject.UpdateUsers(new List<Users>());
+myProject.UpdateUsers(null);
 ```
 
-Again, I'd likely expect all user access removed. But, I wouldn't be entirely shocked if the method left the project's users intact. If I were to pass the same argument to...
+In the original version, it feels like passing `null` wouldn't do anything to the project's users. It's as if I'm passing in nothing for the project to update. But, if I were to pass the same argument to...
 
 ```C#
-myProject.OverwriteUsers(new List<Users>());
+myProject.OverwriteUsers(null);
 ```
 
 ...I'd expect it to do some serious damage. That's just the feeling I want to convey.
 
 I use `Overwrite` instead of, say, `Override` because I like to avoid names that have other reserved meanings. In this case, `override` is a modifier used in many languages to extend or modify the implementation of an inherited method. It's best to stay away from using names that have a prescribed meaning in the language already.
 
-`ReplaceUsers()` could work just as well here. There are days I might favor it, but it feels a touch subtler to me than `Overwrite`. Given the choice, I lean toward stronger words initially for clarity, then scale back later on the harshness over time if it doesn't feel right.
+`ReplaceUsers()` could work just as well here. There are days I might favor it, but it feels a touch subtler to me than `Overwrite`. Given the choice, I lean toward stronger words for clarity.
 
 When I can't find that perfect word right away, I'll look up synonyms to the words that feel close. A quick Google search for alternatives to _Replace_ and _Overwrite_ gives me options like _Change_, _Alter_, _Displace_, _Reimburse_, _Substitute_, _Swap_, _Upgrade_, _Improve_, or _Modernize._  None of these feels nearly as good. Some feel entirely strange. 
-
-The reverse is true too --- when I feel like a name is right but I'm not completely sure, searching for synonyms helps me confirm the one I've picked is, at the very least, pretty good for now.
 
 `OverwriteUsers()` still doesn't clarify something about the implementation, though. 
 
