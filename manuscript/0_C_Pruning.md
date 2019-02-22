@@ -1,4 +1,4 @@
-## Pruning
+# Pruning
 
 In school, writing assignments always had some sort of minimum length requirement. Five paragraphs. 2000 words. Ten pages. 
 
