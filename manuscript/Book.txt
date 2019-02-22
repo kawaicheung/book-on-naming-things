@@ -1,6 +1,6 @@
 0_C_WhyDoesNamingMatter.md
 0_C_WhatMakesANameGood.md
-0_C_Pruning.md
+0_C_WordsAreCurrency.md
 0_C_MaintainingYourShape.md
 0_C_EvenBetterThanTheRealThing.md
 0_C_OvercomingAmbiguity.md
