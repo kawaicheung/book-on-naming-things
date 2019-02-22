@@ -2,17 +2,12 @@
 
 So what does a good name *look* like? As with most things in programming, it depends.
 
-A good name might be long. 
-
-It might be short. 
-
-It might stand out. 
-
-It might fade into the background. 
-
-It might be full of detail. 
-
-It might be abstract. 
+* A good name might be long. 
+* It might be short. 
+* It might stand out. 
+* It might fade into the background. 
+* It might be full of detail. 
+* It might be abstract. 
 
 Like writing prose, the quality of any particular word depends on the context of all the other words around it. 
 
