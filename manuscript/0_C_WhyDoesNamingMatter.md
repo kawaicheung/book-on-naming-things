@@ -13,3 +13,7 @@ The returns are equally enticing.
 Renaming something well can clarify what was previously ambiguous about it. A descriptive name might expose a problem you didn't see before. The right name makes it easier for someone else to figure out what your intentions were when you originally wrote the code. That someone else might even be you a few months from now. 
 
 Scrutinizing names is the first thing I do when I want to improve a codebase. This book is a small collection of examples on how I approach naming (and renaming) things.
+
+---
+
+*A quick note: All of the examples I discuss are written in Microsoft's C# language and use object-oriented principles. But, those are tangential details. Regardless of what language or style of programming you use, it's the though-process that I hope you take away from each example.*
