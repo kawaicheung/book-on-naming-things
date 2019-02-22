@@ -1,4 +1,4 @@
-## FINAL: Why Naming Matters
+# Why Naming Matters
 
 We all have opinions on how to write better code. The debates go on interminably. 
 
