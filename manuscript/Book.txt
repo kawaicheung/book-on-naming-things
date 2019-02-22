@@ -4,6 +4,7 @@
 0_C_MaintainingYourShape.md
 0_C_EvenBetterThanTheRealThing.md
 0_C_OppositesDontAlwaysAttract.md
+__THE_REST.md
 0_C_OvercomingAmbiguity.md
 0_C_Precision.md
 0_C_Scannability.md
