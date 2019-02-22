@@ -16,4 +16,4 @@ Scrutinizing names is the first thing I do when I want to improve a codebase. Th
 
 ---
 
-*A quick note: All of the examples I discuss are written in Microsoft's C# language and use object-oriented principles. But, those are tangential details. Regardless of what language or style of programming you use, it's the though-process that I hope you take away from each example.*
+***A quick note:** All of the examples I'll discuss are written in Microsoft's C# language and use object-oriented principles. But, those are tangential details. Regardless of what language or style of programming you use, it's the though-process that I hope you take away from each example.*
