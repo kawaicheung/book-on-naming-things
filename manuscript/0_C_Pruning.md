@@ -2,7 +2,7 @@
 
 In school, writing assignments always had some sort of minimum length requirement. Five paragraphs. 2000 words. Ten pages. 
 
-I understood why there was a requirement -- it gave us a general guideline for how much we should write. But, that requirement became the thing that we'd gravitate toward. “Can I get to ten pages if I increase the font size by one pixel?” was more important than “Does that additional paragraph really strengthen my argument?”.
+I understood why there was a requirement -- it gave us a general guideline for how much we should write. But, that requirement became the thing all of us gravitated toward. “Can I get to ten pages if I increase the font size by one pixel?” was more important than “Does that additional paragraph really strengthen my argument?”.
 
 I wonder what would happen if teachers gave these limits in reverse -- no more than five paragraphs, 2000 words, or ten pages. Placing a maximum constraint would focus the writer on what they're writing about, all the while mitigating unnecessarily long sentences and double spacing.
 
