@@ -1,4 +1,4 @@
-# What Makes a Name Good? 
+# What makes a name good?
 
 So what does a good name *look* like? As with most things in programming, it depends.
 
