@@ -24,7 +24,7 @@ So, what should we name an object like this?
 
 A name like `EmailNotificationManager` is tempting. But, looking at this name in isolation, I might assume this class also manages the storing of a user's email preferences. In addition, it doesn't convey the idea that the object helps determine who should get emailed. Scratch that. How about `EmailNotificationHelper`? Still too ambiguous. What, exactly, is it trying to help with?
 
-In scenarios like these, I imagine what the best physical parallel would be. Close your eyes and visualize the messaging service as a _real object_. 
+In scenarios like these, I imagine what the best physical parallel would be. Close your eyes and visualize the messaging service as a _real thing_. What would this object look like?
 
 Here's what I imagined.
 
