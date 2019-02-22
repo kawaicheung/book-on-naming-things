@@ -1,4 +1,4 @@
-# We don't need more managers
+# Even better than the real thing
 
 If you're a fan of the cult classic _Office Space_, you'll certainly remember the line in the film when the contemptuous consultant asks the agitated employee a simple--yet piercing--question.
 
