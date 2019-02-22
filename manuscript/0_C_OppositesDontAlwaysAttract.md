@@ -1,6 +1,6 @@
-## Opposites Don't Always Attract
+# Opposites don't always attract
 
-Much of programming objects is about states. A user might be either active or inactive; A purchase order is either pending or confirmed and so forth.
+Much of programming is about tracking states. A user might be either active or inactive; A purchase order is either pending or confirmed and so forth.
 
 Luckily, the English language is broad enough that most states have a meaningful opposite. For instance, if we have a piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
 
@@ -29,8 +29,5 @@ public bool CanUnpublishWorkflow();
 Now we might be onto something! Notice I still use the word "unpublish", but as a verb it's no longer ambiguous. It's clear we are checking whether this _workflow can be unpublished_ as opposed to checking whether the _workflow can't be published_.
 
 If the opposite version of a name makes your method ambiguous, instead of pushing harder on finding a different name, see if you can reword the method altogether. You might already have all the pieces you need without knowing it.
-
-
-
 
 
