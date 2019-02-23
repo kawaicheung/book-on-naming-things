@@ -8,6 +8,7 @@
 0_C_SurfacingParameters.md
 0_C_ProfessionSpeak.md
 0_C_TheTautaulogousNameTrap.md
+0_C_TidyingUp.md
 __THE_REST.md
 0_C_OvercomingAmbiguity.md
 0_C_Precision.md
@@ -18,7 +19,6 @@ __THE_REST.md
 0_C_NamingProjections.md
 0_C_Refactoring.md
 0_C_WellWornPath.md
-0_C_TidyingUp.md
 0_C_Penmanship.md
 0_P_BreakingRules.md
 0_C_EnglishAndSearch.md
