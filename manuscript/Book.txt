@@ -1,6 +1,7 @@
 0_C_WhyDoesNamingMatter.md
 0_C_WhatMakesANameGood.md
 0_C_WordsAreCurrency.md
+0_C_Scannability.md
 0_C_MaintainingCodeShape.md
 0_C_EvenBetterThanTheRealThing.md
 0_C_OppositesDontAlwaysAttract.md
@@ -10,7 +11,6 @@
 __THE_REST.md
 0_C_OvercomingAmbiguity.md
 0_C_Precision.md
-0_C_Scannability.md
 0_C_BeingBlunt.md
 0_C_Detail.md
 0_C_AlternativeWords.md
