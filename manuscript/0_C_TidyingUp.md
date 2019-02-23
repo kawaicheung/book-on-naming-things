@@ -1,4 +1,4 @@
-## Remembering to tidy up
+# Remembering to tidy up
 
 Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider names over again. 
 
