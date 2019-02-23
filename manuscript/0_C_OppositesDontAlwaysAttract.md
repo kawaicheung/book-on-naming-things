@@ -8,7 +8,7 @@ Unfortunately, we don't always have the luxury of a convenient opposite word. Ta
 
 In DoneDone, we've created a new concept called _Workflows_. A workflow defines a series of statuses that an issue can be in. We let users create workflows to tailor them to their own business processes. When a user is ready to use the workflow, it has to be _published_.
 
-A user can also -- for lack of a better verb -- _unpublish_ a workflow. The requirements for a workflow to be "unpublishable" are more than just that it's already been published; There are a few other caveats like being associated to an active project. So, I decied to wrap this logic inside of a convenient little method. My first attempt at a method name is:
+A user can also--for lack of a better verb--_unpublish_ a workflow. The requirements for a workflow to be "unpublishable" are more than just that it's already been published; There are a few other caveats as well. So, I decide to wrap this logic inside of a convenient little method. My first attempt at a method name is:
 
 ```
 public bool IsWorkflowUnpublishable();
