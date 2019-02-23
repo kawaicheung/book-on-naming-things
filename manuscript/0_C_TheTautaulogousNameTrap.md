@@ -2,19 +2,25 @@
 
 It's good habit to look for business logic that we can extract into a method or variable. Consistently doing this infuses better meaning into our code. It makes it easier to understand our intentions later on. But, naming these extractions appropriately can be more elusive than it initially appears.
 
-I'm working on a piece of code that processes incoming emails for an application. One of its responsibilities is to send a generic auto-response email back to the original sender if certain conditions are met.
+I'm working on a piece of code that processes incoming emails for DoneDone. One of its responsibilities is to send an auto-response email back to the original sender if certain conditions are met.
 
-In the first iteration of this feature, we decide to send an auto-response email only if the original email was received outside of a company's office hours. I've written another method to handle the dirty work, querying the company's work hours and comparing these date ranges to the current `DateTime` before returning a boolean to answer the question. I then call on this method to determine if an auto-response is necessary.
+In the first iteration of this feature, we decide to initiate the auto-response only if the original email was received outside of a company's office hours. 
+
+I've written a method responsible for this work, querying the company's work hours and comparing these date ranges to the current `DateTime` to answer the question. 
 
 ```C#
 bool isCurrentlyOutsideOfficeHours();
+```
 
-...
+In my incoming email handler, I call this method to determine if an auto-response is necessary.
 
+```
 if (isCurrentlyOutsideOfficeHours()) 
   sendAutoResponse();
 ```
-The method name `isCurrentlyOutsideOfficeHours()` makes the conditional statement pretty coherent: If we are currently outside the office hours, then send an auto-response.
+The method name `isCurrentlyOutsideOfficeHours()` makes the conditional statement read coherently. Even a non-programmer can read the statement above and deduce it's saying the following:
+
+> If we are currently outside the office hours, then send an auto-response.
 
 A few weeks later, we receive some requests from our customers to allow them to configure company holidays as well as office hours. This way, the auto-response will always be triggered during a company holiday regardless of the time of day.
 
