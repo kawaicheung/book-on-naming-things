@@ -53,7 +53,11 @@ if (shouldSendAutoResponse())
 }
 
 ```
-With the new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional statement is tautologous: If we should send an auto-response, then we should send an auto-response. That's not particularly helpful. 
+With the new method extracted, the conditional, once again, feels tidy. But, now we have a new problem. The conditional statement is tautologous: 
+
+> If we should send an auto-response, then we should send an auto-response. 
+
+That's not a particularly helpful statement for the code reader. 
 
 When we read the conditional in isolation, we don't know _why_ we're sending the auto-response. We need to trickle into the `shouldSendAutoResponse()` method to find out. The extraction doesn't give us better comprehension; It merely tucks away some logic that we likely will have to drill into later anyways.
 
