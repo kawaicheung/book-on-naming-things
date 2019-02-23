@@ -1,4 +1,4 @@
-## Surfacing parameters
+# Surfacing parameters
 
 The beauty of names is that they are immediate. When you read the name of a method, it tells you what that method does without requiring any additional digging. Take advantage of this. Look for opportunities where you can impart more meaning directly into the name rather than into one of its parameters. Take this example.
 
