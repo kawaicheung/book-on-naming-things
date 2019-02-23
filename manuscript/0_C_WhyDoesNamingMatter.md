@@ -17,3 +17,5 @@ Scrutinizing names is the first thing I do when I want to improve a codebase. Th
 ---
 
 ***A quick note:** All of the examples I'll discuss are written in Microsoft's C# language and use object-oriented principles. But, those are just tangential details and shouldn't get in the way even if you've never programmed in C# before. Regardless of what language or style of programming you use, it's the thought-process that I hope you take away from each example.*
+
+*Many of my examples also come from my work developing DoneDone, an issue tracker and customer support tool. In a book like this, It's critical to see real examples of imperfect code rather than fabricated ones.*
