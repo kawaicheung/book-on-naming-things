@@ -1,5 +1,5 @@
 
-## Scannability
+# Naming for scannability
 
 When reading code, _scannability_ is just as critical as readability. Our eyes spend as much time dancing around code scanning for patterns as they do reading the actual words. The more familiar we are with a codebase, the more we scan. 
 
