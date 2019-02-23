@@ -1,4 +1,4 @@
-# Maintaining your shape
+# Code has shape
 
 _Good design_ in software usually means something that isn't immediately visible. You have to spend awhile working with the code to appreciate its design. But, there's a more immediate kind of code design.
 
