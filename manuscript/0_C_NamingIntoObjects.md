@@ -2,7 +2,7 @@
 
 If you develop applications today, you probably use some flavor of a model-view-controller (MVC) framework. The gist of any deriviative of this framework is to separate data from business logic and presentation. 
 
-I often see examples where these hard lines are blurred--logic creeps into the presentation layer. I have the habit of doing this myself. Take this simple case.
+I often see examples where these hard lines are blurred. Logic creeps into the presentation layer. I have the habit of doing this myself. Take this simple case. (Change this part above to be more generic -- doesn't really have to be MVC).
 
 I have a `User` class that stores a `Person` class that holds a person's first name, last name, and their account role.
 
