@@ -1,4 +1,4 @@
-# Pushing (and naming) logic into objects
+# Naming the small stuff
 
 If you develop applications today, you probably use some flavor of a model-view-controller (MVC) framework. The gist of any deriviative of this framework is to separate data from business logic and presentation. 
 
