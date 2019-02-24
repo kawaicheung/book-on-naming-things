@@ -43,8 +43,19 @@ var fromName = person.FirstName + " " + person.LastName.Substring(0,1) + ".";
 return fromName + " added a comment";
 ```
 
-Throughout the application, whereever the `Person` object is used, all sorts of little bits of logic against its properties are sprinkled about. Because these bits of logic are so tiny, you might not even consider them to be _bits of logic_. But they are. And whenever there are bits of logic against an object's properties strewn about, it's a smell that they can be pushed back into the object--_and_ we can name them. 
+Throughout the application, whereever the `Person` object is used, all sorts of little bits of logic against its properties are sprinkled about. Because these bits of logic are so tiny, you might not even consider them to be _bits of logic_ -- certainly not enough to take another pass at where they belong. But, whenever there are bits of logic against an object's properties strewn about, it's a smell that they can be pushed back into the object--_and_ we can name them. 
 
-In our view example, displaying a person's first and last name might not seem like _logic_, but it is. 
+In our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it.
+```C#
+public string FullName
+{
+  get
+  {
+    return FirstName + " " + LastName;
+  }
+}  
+```
+We can do the same for the other _bits of logic_ we've written throughout the app. 
+
 
 
