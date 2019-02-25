@@ -1,55 +1,49 @@
-# Naming the small stuff
+# Corralling bits of logic into names
 
-If you develop applications today, you probably use some flavor of a model-view-controller (MVC) framework. The gist of any deriviative of this framework is to separate data from business logic and presentation. 
-
-I often see examples where these hard lines are blurred. Logic creeps into the presentation layer. I have the habit of doing this myself. Take this simple case. (Change this part above to be more generic -- doesn't really have to be MVC).
-
-I have a `User` class that stores a `Person` class that holds a person's first name, last name, and their account role.
-
-[Add: LastLoginDate]
-[Add: Admin or Owner == Admin Access]
-[Add: Profile address]
+[INTRO]
 
 ```C#
 public class Person
 {
-    public readonly string FirstName;
-    public readonly string LastName;
-    public readonly AccountRoleType Role;
-
-    public Person(string firstName, string lastName, AccountRoleType role)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Role = role;
-    }
+    public string FirstName;
+    public string LastName;
+    public DateTime LastLoggedIn;
+    public AccountRoleType Role;
+    
+    ...
 }
 ```
-Instances of this class spring up all over the codebase--appearing within other data models, as return objects from various methods, and surfacing in the application's view layer. 
+Instances of this class spring up all over the codebase--appearing within other objects, as return objects from various methods, or surfacing in the application's view layer. 
 
-For instance, on a person's profile page, I use this object to display their name and show a few links to other sections of the application they have access to.
-
+For instance, on a person's profile page, you might use this object to display a person's name and show a few links to other sections of the application they have access to.
 ```
 <div>
   <h2>@Model.LoggedInPerson.FirstName @Model.LoggedInPerson.LastName</h2>
-  @if (Model.LoggedInPerson.Role == AccountRoleType.ADMIN)
+  @if (Model.LoggedInPerson.Role == AccountRoleType.ADMIN || 
+       Model.LoggedInPerson.Role == AccountRoleType.OWNER)
   {
-      <a href="">Edit</a> | <a href="">Cancel</a>
+      <a href="...">Edit</a> | <a href="...">Cancel</a>
   }
 </div>
 ```
-
-In another part of the application, I use the person object to prep notification messages. But, in this case, I just want to return the person's first name and last initial.
-
+In another part of the application, you might use the person's first and last name to prep notification messages.
 ```C#
 // Display from name as [first name] [last initial]
 var fromName = person.FirstName + " " + person.LastName.Substring(0,1) + ".";
 return fromName + " added a comment";
 ```
+Somewhere else, you might check if the person hasn't logged into the application in a certain amount of time and require them to re-login.
+```C#
+if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)
+{
+    // Sign out and require this person to login again.
+}
+```
+Throughout the application, whereever the `Person` object is used, little bits of business logic against its properties are sprinkled about. Most of these bits of logic are so minor--simple, one-line constructions and statements--you might not even consider them to be real business logic at all.
 
-Throughout the application, whereever the `Person` object is used, all sorts of little bits of logic against its properties are sprinkled about. Because these bits of logic are so tiny, you might not even consider them to be _bits of logic_ -- certainly not enough to take another pass at where they belong. But, whenever there are bits of logic against an object's properties strewn about, it's a smell that they can be pushed back into the object--_and_ we can name them. 
+I see this a lot in code I've read, and, it's something I do quite often. When I need to perform some small manipulation on an object's properties, I do them in the place I currently need them rather than push them back into the object. But, doing so is a missed opportunity to clarify what these manipulations mean. 
 
-In our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it.
+For instance, in our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can easily push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it.
 ```C#
 public string FullName
 {
@@ -59,7 +53,52 @@ public string FullName
   }
 }  
 ```
-We can do the same for the other _bits of logic_ we've written throughout the app. 
+Similarly, you can push the check for whether this person is an admin or owner as a property of the object itself, and give it a meaningful name. In this case, the check is answering the question, "Does this person have administrative access?"
+```C#
+public bool HasAdminAccess
+{
+  get
+  {
+    return Role == AccountRoleType.ADMIN || Role == AccountRoleType.OWNER;
+  }
+}  
+```
+We can do the same for the other _bits of logic_ in this example. Now, our `Person` class describes 
+
+```C#
+public class Person
+{
+    public string FirstName;
+    public string LastName;
+    public DateTime LastLoggedIn;
+    public AccountRoleType Role;
+    
+    public string FullName
+    {
+      get
+      {
+        return FirstName + " " + LastName;
+      }
+    }  
+    
+    public string FirstNameLastInitial
+    {
+      get
+      {
+        return person.FirstName + " " + person.LastName.Substring(0,1) + ".";
+      }
+    } 
+    
+    public bool HasAdminAccess
+    {
+      get
+      {
+        return Role == AccountRoleType.ADMIN || Role == AccountRoleType.OWNER;
+      }
+    } 
+    ...
+}
+```
 
 
 
