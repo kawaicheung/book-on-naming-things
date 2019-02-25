@@ -33,9 +33,7 @@ For instance, on a person's profile page, you might use this object to display a
 In another part of the application, you might use the person's first and last name to prep notification messages.
 
 ```C#
-// Display from name as [first name] [last initial]
-var fromName = person.FirstName + " " + person.LastName.Substring(0,1) + ".";
-return fromName + " added a comment";
+var subject = person.FirstName + " " + person.LastName.Substring(0,1) + "." + " added a comment";
 ```
 
 Somewhere else, you might check if the person hasn't logged into the application in a certain amount of time and require them to re-login.
@@ -123,7 +121,7 @@ public class Person
 
 By moving this logic into the `Person` class, it's now easier to DRY up your codebase. There will likely be other places that require displaying a person's full name or knowing whether they have administrative privileges. Those answers are already baked into the object itself.
 
-But, the biggest gain comes from the improved readability of your code. Look at how much tighter and fluid the updated implementations feels now:
+And besides reuse, the biggest gain comes from the improved readability of your code. Here's how the improved implementations look like:
 
 ```
 <div>
@@ -135,9 +133,13 @@ But, the biggest gain comes from the improved readability of your code. Look at 
 </div>
 ```
 
+First, in our HTML markup, the business logic below competes far less with the HTML around it.
+
 ```C#
-return person.AbbreviatedName + " added a comment";
+var subject = person.AbbreviatedName + " added a comment";
 ```
+
+The subject of the email notification can also be interpreted with one glance. You don't spend time focusing on the details of how the person's name is being displayed anymore.
 
 ```C#
 if (person.DaysSinceLastLogin > 1)
@@ -146,5 +148,7 @@ if (person.DaysSinceLastLogin > 1)
 }
 ```
 
+Finally, the conditional check on the person's login date can be understood instantly, instead of having to parse (even if for a brief moment) through the date logic.
 
+Keep hunting for places where you can corral bits of logic back into the objects they're derived from. It will do wonders to the clarity of your code.
 
