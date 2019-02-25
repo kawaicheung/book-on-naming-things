@@ -6,6 +6,9 @@ I often see examples where these hard lines are blurred. Logic creeps into the p
 
 I have a `User` class that stores a `Person` class that holds a person's first name, last name, and their account role.
 
+[Add: LastLoginDate]
+[Add: Admin or Owner == Admin Access]
+
 ```C#
 public class Person
 {
