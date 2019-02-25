@@ -1,6 +1,8 @@
 # Corralling bits of logic into names
 
-Making your codebase clearer isn't just about naming things better. It's also about finding things to name where they weren't being named before. You can hunt for these nameless things anytime you see small bits of logic strewn about code. 
+Making your codebase clearer isn't just about naming things better. It's also about finding things to name where they weren't being named before. 
+
+A common place you can find these nameless things is anywhere you see small bits of business logic using the properties of the same object in a place other than the object itself. 
 
 Suppose you have a `Person` class that houses some basic information.
 
@@ -17,7 +19,7 @@ public class Person
 ```
 Instances of this class spring up all over the codebase--appearing within other objects, as return objects from various methods, or surfacing in the application's view layer. 
 
-For instance, on a person's profile page, you might use this object to display a person's name and show a few links to other sections of the application they have access to.
+For example, on a person's profile page, you might use this object to display a person's name and show a few links to other sections of the application they have access to.
 
 ```HTML
 <div>
