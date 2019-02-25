@@ -8,6 +8,7 @@ I have a `User` class that stores a `Person` class that holds a person's first n
 
 [Add: LastLoginDate]
 [Add: Admin or Owner == Admin Access]
+[Add: Profile address]
 
 ```C#
 public class Person
