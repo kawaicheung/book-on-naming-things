@@ -1,4 +1,4 @@
-# Corralling bits of logic into names
+# Pushing names back into objects
 
 Making your codebase clearer isn't just about naming things better--it's also about finding things to name that weren't being named before. 
 
