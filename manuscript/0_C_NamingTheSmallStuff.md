@@ -1,10 +1,10 @@
 # Corralling bits of logic into names
 
-Making your codebase clearer isn't just about naming things better. It's also about finding things to name where they weren't being named before. 
+Making your codebase clearer isn't just about naming things better--it's also about finding things to name that weren't being named before. 
 
-A common place you can find these nameless things is anywhere you see small bits of business logic using the properties of the same object in a place other than the object itself. 
+A common place you can find these nameless things is anywhere you see small bits of business logic using the properties of the same object in a place _other_ than within the object itself. There's usually an easy way to name that logic and push it back into the object.
 
-Suppose you have a `Person` class that houses some basic information.
+Suppose you have a `Person` class that houses some basic information used throughout your codebase.
 
 ```C#
 public class Person
@@ -17,7 +17,7 @@ public class Person
     ...
 }
 ```
-Instances of this class spring up all over the codebase--appearing within other objects, as return objects from various methods, or surfacing in the application's view layer. 
+Instances of this class spring up all over--appearing within other objects, as return objects from various methods, or surfacing in the application's view layer. 
 
 For example, on a person's profile page, you might use this object to display a person's name and show a few links to other sections of the application they have access to.
 
@@ -32,13 +32,14 @@ For example, on a person's profile page, you might use this object to display a 
 </div>
 ```
 
-In another part of the application, you might use the person's first and last name to prep notification messages.
+In another part of the application, you might use the person's first and last name to prep notification messages when they update their profile.
 
 ```C#
-var subject = person.FirstName + " " + person.LastName.Substring(0,1) + "." + " added a comment";
+// e.g. "Mary D. updated their profile"
+var subject = person.FirstName + " " + person.LastName.Substring(0,1) + "." + " updated their profile.";
 ```
 
-Somewhere else, you might check if the person hasn't logged into the application in a certain amount of time and require them to re-login.
+In a security class, you might check if the person hasn't logged into the application in a certain amount of time and require them to re-login.
 
 ```C#
 if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)
@@ -49,9 +50,9 @@ if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)
 
 Throughout the application, whereever the `Person` object is used, little bits of business logic against its properties are sprinkled about. Most of these bits of logic are so minor--simple, one-line constructions and statements--you might not even consider them to be real business logic at all.
 
-I see this a lot in code I've read, and, it's something I do quite often. When I need to perform some small manipulation on an object's properties, I do them in the place I currently need them rather than push them back into the object. But, doing so is a missed opportunity to clarify what these manipulations mean. 
+I do this myself all the time. When I need to write code against an object's properties, I do it in the place I currently need that logic rather than push the logic back into the object. But, doing so is a missed opportunity to clarify what these manipulations mean. 
 
-For instance, in our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can easily push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it.
+For instance, in our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can easily push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it something meaningful. 
 
 ```C#
 public string FullName
@@ -63,6 +64,18 @@ public string FullName
 }  
 ```
 
+Likewise, the same can be done for the person's name in the subject line of the notification message:
+
+```C#
+public string AbbreviatedName
+{
+  get
+  {
+    return FirstName + " " + LastName.Substring(0,1) + ".";
+  }
+}
+```
+
 Similarly, you can push the check for whether this person is an admin or owner as a property of the object itself, and give it a meaningful name. In this case, the check is answering the question, "Does this person have administrative access?"
 
 ```C#
@@ -72,10 +85,41 @@ public bool HasAdminAccess
   {
     return Role == AccountRoleType.ADMIN || Role == AccountRoleType.OWNER;
   }
+}   
+```
+The logic against the `Person` object within the security class can be pushed back to the class in a couple of ways. Let's take a closer look at the conditional statement again:
+
+```C#
+if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)...
+```
+
+You could take the entire statement and turn it into a boolean property off the `Person` like so:
+
+```C#
+public bool IsLastLoginWithinOneDay
+{
+  get
+  {
+    return person.LastLoggedIn - DateTime.Now).TotalDays > 1;
+  }
 }  
 ```
 
-We can do the same for the other _bits of logic_ in this example. Our `Person` class now evolves to something a lot more powerful:
+Or, you could judiciously push just the calculation of the total days into the object:
+
+```C#
+public int DaysSinceLastLogin
+{
+  get
+  {
+    return person.LastLoggedIn - DateTime.Now).TotalDays;
+  }
+}  
+```
+
+I prefer the latter. The former seems a bit too specific to push into the `Person` class. The latter feels like the right amount of responsibility for the `Person` class to own.
+
+With these updates, our `Person` class now evolves to something a lot more powerful:
 
 ```C#
 public class Person
@@ -153,4 +197,3 @@ if (person.DaysSinceLastLogin > 1)
 Finally, the conditional check on the person's login date can be understood instantly, instead of having to parse (even if for a brief moment) through the date logic.
 
 Keep hunting for places where you can corral bits of logic back into the objects they're derived from. It will do wonders to the clarity of your code.
-
