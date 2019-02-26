@@ -1,10 +1,8 @@
 # Profession-speak
 
-The image of the recluse toiling away at code, completely isolated from the rest of the business is -- fortunately -- an antiquated one. People that write code today are often the same ones making business decisions or collaborating directly with clients. This makes it even more critical that programmers understand the business reasons behind their work.
+People that write code today are often the same ones making business decisions or collaborating directly with clients. This makes it even more critical that programmers understand the business reasons behind their work. One of the best ways we can encourage this is to infuse the language of the business directly into our code.
 
-The best way we can encourage this is to infuse the language of the business directly into our code.
-
-If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Employees`. This way, I don't have to make the mental mapping between what the client calls Concept X with what I call Concept Y.
+If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Users`. This way, I don't have to make the mental mapping between what the client calls Concept X with what I call Concept Y.
 
 Business concepts can also dictate the kind of structures we introduce to a codebase. Consider this example.
 
