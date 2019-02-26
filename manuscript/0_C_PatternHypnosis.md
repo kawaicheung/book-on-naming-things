@@ -1,4 +1,4 @@
-## Pattern Hypnosis
+# Pattern Hypnosis
 
 Unearthing patterns is one of the most fundamental mental exercises in coding. When we can trivialize a procedure that once required a lot of thought into something seemingly automatic, we can move onto solving other problems. 
 
