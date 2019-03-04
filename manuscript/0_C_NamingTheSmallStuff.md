@@ -2,24 +2,24 @@
 
 Making your codebase clearer isn't just about naming things better--it's also about finding things to name that weren't being named before. 
 
-A common place you can find these nameless things is anywhere you see small bits of business logic using the properties of the same object in a place _other_ than within the object itself. There's usually an easy way to name that logic and push it back into the object.
+A common place I hunt for is anywhere I see bits of business logic using only the properties of an object in a place _other_ than inside the object itself. There's usually an easy way to name that logic and push it back into the object.
 
-Suppose you have a `Person` class that houses some basic information used throughout your codebase.
+In this example, I have a `Person` class that houses some basic information used throughout my codebase.
 
 ```C#
 public class Person
 {
     public string FirstName;
     public string LastName;
-    public DateTime LastLoggedIn;
+    public DateTime LastAccessTimestamp;
     public AccountRoleType Role;
     
     ...
 }
 ```
-Instances of this class spring up all over--appearing within other objects, as return objects from various methods, or surfacing in the application's view layer. 
+Instances of `Person` naturally spring up all over the place--appearing within various methods and other objects or surfacing in the application's view layer. 
 
-For example, on a person's profile page, you might use this object to display a person's name and show a few links to other sections of the application they have access to.
+For example, on a person's profile page, I use this object to display a person's name and show a few links to other sections of the application they have access to.
 
 ```HTML
 <div>
@@ -32,27 +32,29 @@ For example, on a person's profile page, you might use this object to display a 
 </div>
 ```
 
-In another part of the application, you might use the person's first and last name to prep notification messages when they update their profile.
+In another part of the application, I use the person's first and last name to prep notification messages when they update their profile.
 
 ```C#
 // e.g. "Mary D. updated their profile"
 var subject = person.FirstName + " " + person.LastName.Substring(0,1) + "." + " updated their profile.";
 ```
 
-In a security class, you might check if the person hasn't logged into the application in a certain amount of time and require them to re-login.
+I also have a method inside of a security class that checks if the person has accessed the application within an hour. If not, I require them to log in again.
 
 ```C#
-if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)
+if ((person.LastAccessTimestamp - DateTime.Now).TotalMinutes > 60)
 {
-    // Sign out and require this person to login again.
+    // Automatically log this person out and require them to login again.
 }
 ```
 
-Throughout the application, whereever the `Person` object is used, little bits of business logic against its properties are sprinkled about. Most of these bits of logic are so minor--simple, one-line constructions and statements--you might not even consider them to be real business logic at all.
+Throughout the application, whereever the `Person` object is used, little bits of business logic against its properties are sprinkled about. Most of these bits feel so inconsequentually minor--simple, one-line constructions and statements--you might not even consider them to be real business logic at all.
 
-I do this myself all the time. When I need to write code against an object's properties, I do it in the place I currently need that logic rather than push the logic back into the object. But, doing so is a missed opportunity to clarify what these manipulations mean. 
+I write code like this all the time. When I need to write code against an object's properties, I do so in the place I currently need that logic rather than push the logic back into the object. For instance, while I was writing the security class method, I needed to find out how long the person has been idle. I had all the pieces I needed -- the person's last access time and the current time, so it made sense to write the simple math inside the security method.
 
-For instance, in our view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. You can easily push this bit of logic back to the `Person` class itself. This also gives you the opportunity to name it something meaningful. 
+But, doing so is a missed opportunity to clarify what these manipulations _mean_. 
+
+For instance, in the view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. I can easily push this bit of logic back to the `Person` class itself. This also gives me the opportunity to name it something meaningful. 
 
 ```C#
 public string FullName
@@ -76,7 +78,7 @@ public string AbbreviatedName
 }
 ```
 
-Similarly, you can push the check for whether this person is an admin or owner as a property of the object itself, and give it a meaningful name. In this case, the check is answering the question, "Does this person have administrative access?"
+Back to the view example, I can push the check for whether this person is an admin or owner as a property of the object itself, and give it a meaningful name. In this case, the check is answering the question, "Does this person have administrative access?". `HasAdminAccess` is a sound name.
 
 ```C#
 public bool HasAdminAccess
@@ -90,34 +92,35 @@ public bool HasAdminAccess
 The logic against the `Person` object within the security class can be pushed back to the class in a couple of ways. Let's take a closer look at the conditional statement again:
 
 ```C#
-if ((person.LastLoggedIn - DateTime.Now).TotalDays > 1)...
+if ((person.LastAccessTimestamp - DateTime.Now).TotalMinutes > 60)...
 ```
 
-You could take the entire statement and turn it into a boolean property off the `Person` like so:
+I could take this entire statement and turn it into a boolean property off the `Person` like so:
 
 ```C#
-public bool IsLastLoginWithinOneDay
+public bool HasPersonBeenIdleForMoreThan60Minutes
 {
   get
   {
-    return person.LastLoggedIn - DateTime.Now).TotalDays > 1;
+    return person.LastLoggedIn - DateTime.Now).TotalMinutes > 60;
   }
 }  
 ```
 
-Or, you could judiciously push just the calculation of the total days into the object:
+Or, I could push just the calculation of the total days into the object:
 
 ```C#
-public int DaysSinceLastLogin
+public int MinutesIdle
 {
   get
   {
-    return person.LastLoggedIn - DateTime.Now).TotalDays;
+    return (person.LastAccessTimestamp - DateTime.Now).TotalMinutes;
   }
 }  
 ```
+The first option cleans up _all_ of the logic from the security method. But, the name feels too particular to me. If someone were just inspecting the `Person` class, they might ask why such a specific property exists. In addition, if I change the requirements around the idle time, I might easily forget to change the name of the property. I don't like this trade off.
 
-I prefer the latter. The former seems a bit too specific to push into the `Person` class. The latter feels like the right amount of responsibility for the `Person` class to own.
+Instead, I prefer the latter option. The security method decides what the idle time limit should be (60 minutes) while the `Person` class can tell us how long they've been idle. We leave the appropriate bits of logic in the appropriate places in code.
 
 With these updates, our `Person` class now evolves to something a lot more powerful:
 
@@ -154,20 +157,20 @@ public class Person
       }
     } 
     
-    public int DaysSinceLastLogin
+    public int MinutesIdle
     {
       get
       {
-        return (person.LastLoggedIn - DateTime.Now).TotalDays;
+        return (person.LastAccessTimestamp - DateTime.Now).TotalMinutes;
       }
     } 
     ...
 }
 ```
 
-By moving this logic into the `Person` class, it's now easier to DRY up your codebase. There will likely be other places that require displaying a person's full name or knowing whether they have administrative privileges. Those answers are already baked into the object itself.
+By moving this logic into the `Person` class, it's now easier to DRY up my codebase. There will likely be other places that require displaying a person's full name or knowing whether they have administrative privileges. Those answers are already baked into the object itself.
 
-And besides reuse, the biggest gain comes from the improved readability of your code. Here's how the improved implementations look like:
+And besides reuse, the biggest gain comes from the improved readability of my code. Here's how the improved implementations look like:
 
 ```
 <div>
@@ -179,7 +182,7 @@ And besides reuse, the biggest gain comes from the improved readability of your 
 </div>
 ```
 
-First, in our HTML markup, the business logic below competes far less with the HTML around it.
+First, in my HTML markup, the business logic below competes far less with the HTML around it.
 
 ```C#
 var subject = person.AbbreviatedName + " added a comment";
@@ -188,7 +191,7 @@ var subject = person.AbbreviatedName + " added a comment";
 The subject of the email notification can also be interpreted with one glance. You don't spend time focusing on the details of how the person's name is being displayed anymore.
 
 ```C#
-if (person.DaysSinceLastLogin > 1)
+if (person.MinutesIdle > 60)
 {
     // Sign out and require this person to login again.
 }
