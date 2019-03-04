@@ -2,7 +2,6 @@
 0_C_WhatMakesANameGood.md
 -0_C_WordsAreCurrency.md
 -0_C_Scannability.md
--0_C_MaintainingCodeShape.md
 -0_C_EvenBetterThanTheRealThing.md
 0_C_OppositesDontAlwaysAttract.md
 -0_C_SurfacingParameters.md
@@ -10,6 +9,7 @@
 -0_C_PatternHypnosis.md
 -0_C_ProfessionSpeak.md
 0_C_TheTautaulogousNameTrap.md
+0_C_MaintainingCodeShape.md
 -0_C_TidyingUp.md
 -__THE_REST.md
 -0_C_OvercomingAmbiguity.md
