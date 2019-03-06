@@ -118,7 +118,9 @@ In DoneDone, I have a series of bulk editing methods that live in a services lay
 ```C#
 public void UpdateDueDates(List<long> item_ids, DateTime? due_date, string comment, User requester);
 ```
+
 Crawling up to the application layer, here's a snippet of the controller method that calls the bulk edit methods depending on the user's input:
+
 ```C#
 switch (input.ActionChangeType)
 {
@@ -137,10 +139,11 @@ switch (input.ActionChangeType)
     ... 
 }
 ```
+
 Due dates are optional--hence the nullable `DateTime?` object representing the due date in the parameter list. In a recent feature update, we wanted to explicitly add an option to remove due dates from all items. Because the `UpdateDueDates()` method already gives the option to pass in a `null` value, the update was easy:
 
 ```C#
-switch (input.BulkAction)
+switch (input.ActionChangeType)
 {
     ...
         
@@ -173,6 +176,7 @@ public void RemoveDueDates(List<long> item_ids, string comment, User requester)
   UpdateDueDates(item_ids, null, comment, requester);
 }
 ```
+
 But with this small addition, I now get to tidy up where I invoke the method on the application layer. Not only do I dissolve the `null` parameter, I also benefit from the name of the new method. In context, the two actions around due dates are much more distinct and clearer to parse.
 
 ```C#
