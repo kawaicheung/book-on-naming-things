@@ -1,12 +1,12 @@
 # Opposites don't always attract
 
-Much of programming is about tracking states. A user might be either active or inactive; A purchase order is either pending or confirmed and so forth.
+Much of programming is about tracking states. A user might be active or inactive. A purchase order is either pending or processed. 
 
-Luckily, the English language is broad enough that most states have a meaningful opposite. For instance, if we have a piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
+The English language has enough breadth in vocabulary that most states have a meaningful opposite. For instance, if we have a piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
 
-Unfortunately, we don't always have the luxury of a convenient opposite word. Take this example.
+Unfortunately, this isn't always the case. That makes naming a state succinctly a bit of a challenge. Take this example.
 
-In DoneDone, we've created a new concept called _Workflows_. A workflow defines a series of statuses that an issue can be in. We let users create workflows to tailor them to their own business processes. When a user is ready to use the workflow, it has to be _published_.
+There's a concept in DoneDone called _Workflows_. A workflow defines a series of statuses that an item can be in. A typical issue tracking workflow might have states like "Open", "In Progress", and "Closed". We let users create workflows to tailor them to their own business processes. When a user is ready to use the workflow, it has to be _published_.
 
 A user can also--for lack of a better verb--_unpublish_ a workflow. The requirements for a workflow to be "unpublishable" are more than just that it's already been published; There are a few other caveats as well. So, I decide to wrap this logic inside of a convenient little method. My first attempt at a method name is:
 
