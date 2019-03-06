@@ -73,7 +73,7 @@ _billing_repository.CancelAccount(account_id, CancelationType.NOW);
 
 ```
 
-This is an improvement. I've gotten rid of the ambiguity issues we had with the booolean parameter. It also leaves us better positioned to introduce additional cancelation types in the future.
+This is an improvement. I've gotten rid of the ambiguity issues we had with the boolean parameter. It also leaves us better positioned to introduce additional cancelation types in the future.
 
 But, having worked with this software since its beginning, I'd bet there won't be any new cancelation types added soon. It just doesn't feel like one of those features we'd continually augment in the near future. 
 
@@ -108,3 +108,81 @@ void CancelAccount(int account_id, bool cancel_at_period_end)
 ```
 
 The method body would not only be much longer, but it would have more than one responsibility. Breaking the methods apart not only clarify their use, but will make finding and updating their implementations easier down the road.
+
+----
+
+Another place you'll come across a golden opportunity to create a new method is whenever `null` values are passed to your method. Usually, it's a sign that a new method name ought to be created to handle the passing of the `null` to the original method.
+
+In DoneDone, I have a series of bulk editing methods that live in a services layer. They accept a list of `item_ids` and perform some action on each of them. One of these is a function to bulk update item due dates. Here's the signature:
+
+```C#
+public void UpdateDueDates(List<long> item_ids, DateTime? due_date, string comment, User requester);
+```
+Crawling up to the application layer, here's a snippet of the controller method that calls the bulk edit methods depending on the user's input:
+```C#
+switch (input.ActionChangeType)
+{
+    ...
+        
+    case BulkActions.UPDATE_PRIORITY_LEVEL:
+        _items_service.UpdatePriorityLevels(input.ItemIDs, short.Parse(input.Value), input.comment, _LoggedInUser);
+        success_alert = "The priority level has been updated for these items.";
+        break;   
+        
+    case BulkActions.UPDATE_DUE_DATE:
+        _items_service.UpdateDueDates(input.ItemIDs, DateTime.Parse(input.Value), input.comment, _LoggedInUser);
+        success_alert = "The due date has been updated for these items.";
+        break;
+    
+    ... 
+}
+```
+Due dates are optional--hence the nullable `DateTime?` object representing the due date in the parameter list. In a recent feature update, we wanted to explicitly add an option to remove due dates from all items. Because the `UpdateDueDates()` method already gives the option to pass in a `null` value, the update was easy:
+
+```C#
+switch (input.BulkAction)
+{
+    ...
+        
+    case BulkActions.UPDATE_PRIORITY_LEVEL:
+        _items_service.UpdatePriorityLevels(input.ItemIDs, short.Parse(input.Value), input.comment, _LoggedInUser);
+        success_alert = "The priority level has been updated for these items.";
+        break;   
+        
+    case BulkActions.UPDATE_DUE_DATE:
+        _items_service.UpdateDueDates(input.ItemIDs, DateTime.Parse(input.Value), input.comment, _LoggedInUser);
+        success_alert = "The due date has been updated for these items.";
+        break;
+        
+    case BulkActions.REMOVE_DUE_DATE:
+        _items_service.UpdateDueDates(input.ItemIDs, null, input.comment, _LoggedInUser);
+        success_alert = "The due date has been removed for these items.";
+        break;
+        
+    ... 
+}
+```
+
+But, explicitly passing `null` makes the method invocation less readable. When I inevitably revisit this line of code down the road, I have to trickle into the method to be certain of what it means. Also, in this case, there would never be a reason to pass anything other than a hard-coded `null` -- so why not eliminate the need altogether?
+
+Back on the service layer, I create a new method. It's nothing more than a wrapper to the original `UpdateDueDates()` method:
+
+```C#
+public void RemoveDueDates(List<long> item_ids, string comment, User requester)
+{
+  UpdateDueDates(item_ids, null, comment, requester);
+}
+```
+But with this small addition, I now get to tidy up where I invoke the method on the application layer. Not only do I dissolve the `null` parameter, I also benefit from the name of the new method. In context, the two actions around due dates are much more distinct and clearer to parse.
+
+```C#
+case BulkActions.UPDATE_DUE_DATE:
+  _items_service.UpdateDueDates(input.ItemIDs, DateTime.Parse(input.Value), input.comment, _LoggedInUser);
+  success_alert = "The due date has been updated for these items.";
+  break;
+        
+case BulkActions.REMOVE_DUE_DATE:
+  _items_service.RemoveDueDates(input.ItemIDs, input.comment, _LoggedInUser);
+  success_alert = "The due date has been removed for these items.";
+  break;
+```
