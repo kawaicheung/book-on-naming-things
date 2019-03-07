@@ -203,4 +203,6 @@ Finally, the conditional check on the person's login date can be understood inst
 
 Keep hunting for places where you can corral bits of logic back into the objects they're derived from. It will do wonders to the clarity of your code.
 
-_By the way, if you are familiar with common anti-patterns in object-oriented programming, what I've described in this chapter is a flavor of Martin Fowler's anemic domain model. If you've never read his take on this anti-pattern, I recommend taking a few minutes to read his take and enjoy his one-of-a-kind writing style: https://www.martinfowler.com/bliki/AnemicDomainModel.html_
+_By the way, if you are familiar with common anti-patterns in object-oriented programming, what I've described in this chapter is a flavor of Martin Fowler's anemic domain model. If you've never read his take on this anti-pattern, I recommend taking a few minutes to read his take and enjoy his one-of-a-kind writing style: 
+
+https://www.martinfowler.com/bliki/AnemicDomainModel.html_
