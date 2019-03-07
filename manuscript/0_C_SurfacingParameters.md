@@ -190,3 +190,9 @@ case BulkActions.REMOVE_DUE_DATE:
   success_alert = "The due date has been removed for these items.";
   break;
 ```
+
+---
+
+In both examples, adding a _new_ method rather than relying on the parameters of an existing method helps clarify each method's meaning. In both cases, there was only one variant to the parameters -- requiring one additional method. If the amount of variations are small (say, 3 or less), and these variations are unlikely to change over time, surfacing parameters into method names makes sense.
+
+However, you may find yourself in situations where there are dozens or more variations to a method, and new variations are added to relatively frequently. In those cases, it might be best to lay off creating new methods to avoid having too many names and making updates to them too often.
