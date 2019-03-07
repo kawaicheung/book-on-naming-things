@@ -54,7 +54,7 @@ I write and see code like this all the time.
 
 When we write code against an object's properties, it makes sense to do so where it's currently needed. For instance, it was _when_ I was writing the security class method that I needed to find out how long the person has been idle. So, it made sense to write the simple math inside the security method and move on with things.
 
-But, doing so is a missed opportunity to better define what these manipulations _mean_ and to organize them in a place more conducive to reuse. Namely, back inside the class where all the properties are already defined.
+But, leaving the code as is costs you an opportunity to better define these manipulations and to organize them in a place more conducive to reuse. Namely, back inside the class where all the properties are already defined.
 
 For instance, in the view example, displaying a person's first and last name might not seem like _logic_, but it is--it represents a person's _full name_. I can easily push this bit of logic back to the `Person` class itself. This also gives me the opportunity to name it something meaningful. 
 
