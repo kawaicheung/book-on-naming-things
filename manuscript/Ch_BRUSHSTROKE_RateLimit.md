@@ -85,3 +85,6 @@ well shit...need to expose the 'retry-after'...so move this to "APIRequestMustWa
             // If we reach here, we are over the rate limit...
             return rate_limit_info.ExpiresInSeconds;
         }
+
+
+RateLimitInfo ==> RateLimiter? No. RateLimitEVALUATOR. feels right.
