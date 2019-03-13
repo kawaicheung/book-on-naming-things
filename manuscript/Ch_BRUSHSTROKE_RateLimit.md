@@ -87,4 +87,4 @@ well shit...need to expose the 'retry-after'...so move this to "APIRequestMustWa
         }
 
 
-RateLimitInfo ==> RateLimiter? No. RateLimitEVALUATOR. feels right.
+RateLimitInfo ==> RateLimiter? No. Not actually doing the rate limiting. RateLimitEVALUATOR. feels right.
