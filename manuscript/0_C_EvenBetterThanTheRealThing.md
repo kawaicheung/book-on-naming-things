@@ -37,3 +37,61 @@ I imagine this person with a stern face dressed in a police uniform. And suddenl
 At first, the name feels strange. "Officer" is not a very programmatic term. But, that's _just the point_.
 
 The more I've let the name sit, the more correct it feels. If you asked me a month later what the class `EmailNotificationOfficer` does in the DoneDone codebase, I can tell you in great detail. I can also tell you I wouldn't have had the same luck had I stuck with a name like `EmailNotificationManager`.
+
+---
+
+Finding naming gems like an `EmailNotificationOfficer` doesn't always happen. There isn't always that perfect descriptor available -- not because the English language is missing a word, but because objects in code can be quite dormant. Many of them don't do a whole lot. It's hard to name something descriptive that doesn't offer much to be descriptive about. Finding that key word can be elusive.
+
+Like many SaaS apps, ours comes with a public API. In order to provide some protection against DoS attacks and activity that could be out-of-the-ordinary, I've added a rate limit to the API. The rules of the rate limit are straightforward. An authenticated user can make up to 1000 calls within a 1-hour period. If that limit is surpassed, the API returns a `429` error code on subsequent requests, until the 1-hour period has passed.
+
+After several refactorings, I've landed on an implementation I'm happy with--but with a key part of it I'm finding difficult to name. That key part is a class that holds the essential bits of information needed to determine whether a user has reached their limit. Here's the entirety of that class, with its name and its constructor name hidden.
+
+```C#
+
+public sealed class XXXXXXXXXXX
+{
+    private readonly DateTime expiresOn;
+    public int NumberOfRequests { get; set; }
+
+    public bool IsOverLimit(int limit)
+    {
+        return NumberOfRequests > limit;
+    }
+
+    public bool Expired
+    {
+        get
+        {
+            return ExpiresOn <= DateTime.UtcNow;
+        }
+    }
+
+    public int ExpiresInSeconds
+    {
+        get
+        {
+            return (int)(expiresOn - DateTime.UtcNow).TotalSeconds;
+        }
+    }
+
+    public XXXXXXXXXXX(int minutes_until_expired)
+    {
+        ExpiresOn = DateTime.UtcNow.AddMinutes(minutes_until_expired);
+        NumberOfRequests = 1;
+    }
+}
+    
+```
+
+Before I dive into the struggles I had with naming this class, it's worth discussing exactly how this class is invoked, and what it does _and doesn't_ do. 
+
+* It's instantiated the first time a user ever reaches the limit, 
+* Works with a service method that is called on each user request...
+
+
+
+
+
+
+
+
