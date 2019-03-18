@@ -14,7 +14,15 @@ Yet, we all have written and read names that confuse, misdirect, conflate, or ot
 
 I thought for a long time about how to write a book about naming things. Most other technical books flow like a series of recipes. An abstract topic is introduced, followed by some concrete examples, and ending with some bullet-point takeaways. Each chapter tends to build upon the previous one. The author _is_ the authoritative voice on the subject, steering you away from the obvious wrongs and toward the clear rights. 
 
-But, I don't think that approach works well for a topic like this. Naming well is elusive. It has a lot to do with gut, feel,  style and even _aesthetics_. It is, in my humble opinion, the most _non-technical_ of technical subjects. Naming is an art.
+But, I don't think that approach works well for a topic like this. Naming well is elusive. It has a lot to do with gut, feel,  style and even _aesthetics_. It is, in my humble opinion, the most _non-technical_ of technical subjects. Naming is an art. Good naming has a whole lot of subjectivity.
 
-So, the approach I've taken to this book is simply the way I would talk about naming if I were working alongside you as a fellow programmer. I've studied a handful of real problems I've had with code in recent years. Sometimes, the naming part itself was the problem; Other times, it was the naming part that got me _out_ of the problem. In each of these cases, coming up with the _right_ name required all of that non-technical 
+So, the approach I've taken to this book is simply the way I would talk about naming if I were working alongside you as a fellow programmer. I've studied a handful of real problems I've had with code in recent years. Sometimes, the naming part itself was the problem; Other times, it was the naming part that got me _out_ of the problem. In each of these cases, coming up with, what I thought, was the _right_ name required all of that non-technical stuff I just mentioned. 
+
+Naming well isn't a binary exercise, and, I won't treat it like one in this book. I hope by reading this you get some better ideas for _how_ to approach naming in your own code. I don't want (nor expect) you to agree with all of my ideas in this book. Rather, I think it's having the ideas out there for discussion that is paramount.
+
+> There are only three hard things in Computer Science: cache invalidation, naming things, and writing a book about naming things.
+
+-Ka Wai Cheung
+March, 2019
+
 
