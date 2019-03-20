@@ -2,9 +2,11 @@
 
 Much of programming is about tracking states. A user might be active or inactive. A purchase order is either pending or processed. 
 
-The English language has enough breadth in vocabulary that most states have a meaningful opposite. For instance, if we have a piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
+Code tends to be more readable if concepts are stated positively. Anytime I see a variable with a not operator (`!`), I see if there's another variable I can create that expresses the same concept without the `!`. For instance, a conditional statement like `if (!won)` can be improved by replacing it with `if (lost)`.
 
-Unfortunately, this isn't always the case. That makes naming a state succinctly a bit of a challenge. Take this example.
+Usually, the English language has enough breadth in vocabulary that most states have a meaningful opposite. A piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
+
+Unfortunately, this isn't always the case. That makes naming a state's opposite succinctly a bit of a challenge. Take this example.
 
 There's a concept in DoneDone called _Workflows_. A workflow defines a series of statuses that an item can be in. A typical issue tracking workflow might have states like "Open", "In Progress", and "Closed". We let users create workflows to tailor them to their own business processes. When a user is ready to use the workflow, it has to be _published_.
 
