@@ -4,7 +4,7 @@ Much of programming is about tracking states. A user might be active or inactive
 
 Code tends to be more readable if concepts are stated positively. Anytime I see a variable with a not operator (`!`), I see if there's another variable I can create that expresses the same concept without the `!`. For instance, a conditional statement like `if (!won)` can be improved by replacing it with `if (lost)`.
 
-Usually, the English language has enough breadth in vocabulary that most states have a meaningful opposite. A piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
+Usually, the English language has enough breadth in vocabulary that most states have a meaningful opposite. For a piece of functionality that allows us to move a file from the trash, we don't have to say _undelete_. _Restore_ makes perfect sense. It's clear that a file that can be restored is already in the state of being deleted.
 
 Unfortunately, this isn't always the case. That makes naming a state's opposite succinctly a bit of a challenge. Take this example.
 
