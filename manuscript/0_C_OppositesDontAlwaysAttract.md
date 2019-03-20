@@ -16,7 +16,7 @@ A user can also--for lack of a better verb--_unpublish_ a workflow. The requirem
 public bool IsWorkflowUnpublishable();
 ```
 
-However, there's something unsavory about this name. We could easily mistake this as a check that a workflow can't be published rather than a check that a workflow can be unpublished -- two very different things.
+However, there's something unsavory about this name. We could easily mistake this as a check that a workflow *cannot be published* rather than a check that a workflow *can be unpublished* -- two very different things.
 
 The problem is that there just isn't a good adjective that means the opposite of "published". There aren't even a good few words for it. "In draft mode" might be the best way to describe the opposite of published, but a method name like `IsWorkflowAbleToBeInDraftMode()` or `IsWorkflowDraftModable()` feels like we're headed in the wrong direction fast.
 
