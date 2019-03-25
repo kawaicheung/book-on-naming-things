@@ -1,5 +1,9 @@
 # What makes a name good?
 
+Coding is the strangest art. Our audience is only ourselves (and our fellow programmer) and no one else. There is no sense of finality - software is never done. It is constantly iterated upon even after the software has been launched. And so, the person who is reading already-written code isn't doing so sitting on their favorite chair, curled up to their laptop under the warm light of a reading lamp. Instead, they are probably reading code at their desk, with furrowed brow -- like a detective -- in the process of figuring out what it is trying to say while simultaneously adding their own prose on top of it.
+
+This makes the qualification for what makes a name good different than any other kind of naming. [Finish]
+
 So what does a good name *look* like? As with most things in programming, it depends.
 
 * A good name might be long. 
