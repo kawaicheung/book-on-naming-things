@@ -4,7 +4,7 @@ I love what Brandon Rhodes had to say at the Pycon US conference in 2013.
 
 > _One of the biggest sins you can commit is to stop programming when it works._
 
-Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider the names of things over again. It's easy to leave the working code as-is, without considering the debt you've just placed on the next code reader.
+Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider the names of things over again. It's easy to leave working code as-is, without considering the debt you've just handed over the next reader.
 
 Awhile back, I had a method that updated various pieces of account data:
 
