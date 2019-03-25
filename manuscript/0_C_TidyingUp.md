@@ -1,8 +1,10 @@
 # Remembering to tidy up
 
-> _One of the biggest sins you can commit is to stop programming when it works. - Brandon Rhodes
+I love what Brandon Rhodes had to say at the Pycon US conference in 2013.
 
-Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider names over again. 
+> _One of the biggest sins you can commit is to stop programming when it works._
+
+Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider the names of things over again. It's easy to leave the working code as-is, without considering the debt you've just placed on the next code reader.
 
 Awhile back, I had a method that updated various pieces of account data:
 
@@ -29,6 +31,8 @@ public void UpdateAccountName(string name);
 This change sounds obvious to make, but it's only because I've isolated the discussion of what changed to just this lone method--not the other myriad of method additions, refactorings, and adjustments that come as a natural part of every kind of software change.
 
 When you’ve moved code around your application to get the pieces fitting just right, revisit how you’ve named the methods, properties, and classes that have undergone the facelift. Do these names still make sense? Do the comments around these methods still apply?
+
+--- Here's another example -- markdown/html body--
 
 When you’re in the same code daily, you might not even notice that the name of a variable or method is misleading because you’re so familiar with it. But, to someone coming into the codebase fresh (or, if you happen to take a few weeks off and come back later), misleading names will be detrimental to their understanding of the system.
 
