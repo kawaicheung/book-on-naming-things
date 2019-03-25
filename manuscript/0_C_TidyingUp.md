@@ -1,5 +1,8 @@
 # Remembering to tidy up
 
+> One of the biggest sins you can commit is to stop programming when it works.
+> - Brandon Rhodes
+
 Keeping a codebase with well-intentioned names is often just about _remembering_ to do so. Everytime we make a change to a codebase, we have to consider names over again. 
 
 Awhile back, I had a method that updated various pieces of account data:
