@@ -1,5 +1,22 @@
 # Remembering to tidy up
 
+In the original version of DoneDone, all forms of text a user can input is saved and stored in Markdown format, from the application interface all the way down to the database. The controller method parameter that represented this text was named `body`. The service methods that handled the updates and inserts also named its text parameters `body`. Down into my repository layer, where the text ships off into the database, I call this text parameter `body`.
+
+Because all text was submitted, stored, and returned as Markdown, there wasn't a need to note that anywhere in a name. This is how we started things in the next version of DoneDone (which was an iterative refactoring of the original version's codebase). So, the various references to `body` remained.
+
+About two-thirds of the way through developing the new version, I realized that storing everything as Markdown was becoming a crutch. We had introduced a WYSIWYG editor which would replace the Markdown editor we had been using. Initially, I thought the best approach to implementing the new editor was to force the editor to convert HTML into Markdown before submitting it into the codebase. This way, I wouldn't have to make wholesale changes to existing code. But, a _reliable_ HTML-to-Markdown converter is, I'd come to find, a veritable oxymoron.
+
+Eventually, I came to terms with the fact that the easier approach was to have my backend code accept HTML instead of Markdown. But, this would only be true for certain text -- namely the ones that originate from a WYSIWYG editor in the application. There were other bits of text (most of which is generated behind the scenes), that still were being stored and served as Markdown.
+
+The fact that some text was stored as HTML and other text was stored as Markdown wasn't a big deal. But, keeping track of whether a particular method parameter would be in HTML or Markdown was. Not only was there a breadth of text to track, but usually there would be 3 or 4 layers that a particular piece of text would traverse before it's final resting place.
+
+One option to resolve this would be a deep cut. [(Subclassing)...]
+
+[I opted for the other option -- lightweight (renaming each of these text parameters). I get 90% of the benefit for 10% of the work.]
+
+
+
+
 
 [Ref: Brandon Rhodes 2013 Python duck naming Pycon]
 
