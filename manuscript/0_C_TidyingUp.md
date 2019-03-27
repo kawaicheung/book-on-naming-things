@@ -6,19 +6,36 @@ Because all text was submitted, stored, and returned as Markdown, there wasn't a
 
 About two-thirds of the way through developing the new version, I realized that storing everything as Markdown was becoming a crutch. We had introduced a WYSIWYG editor which would replace the Markdown editor we had been using. Initially, I thought the best approach to implementing the new editor was to force the editor to convert HTML into Markdown before submitting it into the codebase. This way, I wouldn't have to make wholesale changes to existing code. But, a _reliable_ HTML-to-Markdown converter is, I'd come to find, a veritable oxymoron.
 
-Eventually, I came to terms with the fact that the easier approach was to have my backend code accept HTML instead of Markdown. But, this would only be true for certain text -- namely the ones that originate from a WYSIWYG editor in the application. There were other bits of text (most of which is generated behind the scenes), that still were being stored and served as Markdown.
+Eventually, I came to terms with the fact that the easier approach was to have my backend code accept HTML instead of Markdown. But, this would only be true for certain text -- namely the ones that originate from a WYSIWYG editor in the application. There were other bits of text (most of which is generated behind the scenes), that still were being stored and served as Markdown. Further complicatin things, there were a few places in my code where the new HTML text still had to be converted to Markdown. Specifically, to send Slack notifications, I had to convert text originating from the editor to Markdown because that's how the Slack endpoint was still expecting its text.
 
-The fact that some text was stored as HTML and other text was stored as Markdown wasn't a big deal. But, keeping track of whether a particular method parameter would be in HTML or Markdown was. Not only was there a breadth of text to track, but usually there would be 3 or 4 layers that a particular piece of text would traverse before it's final resting place.
+However, the fact that some text was stored as HTML and other text was stored as Markdown wasn't a big deal. Keeping track of whether a particular method parameter or a particular class property would be in HTML or Markdown was. This was an issue up and down all the layers of my code.
 
-One option to resolve this would be a deep cut. [(Subclassing)...]
+One option to resolve this would be a pretty deep cut. I could create two new classes that subclass `String`, say a `MarkdownString` and `HTMLString` class, then, manually replace the myriad of string declarations in my code that needed this further specification. This would let me lean on the compiler to catch any issues--for instance, if an `HTMLString` were passed to my Slack API wrapper class. But, this felt like a sledgehammer approach to the whole problem. 
 
-[I opted for the other option -- lightweight (renaming each of these text parameters). I get 90% of the benefit for 10% of the work.]
+I opted for a much lighterweight approach--simply rename the parameters and properties _themselves_. Where a `body` method parameter existed, I replaced with `html_body` or `markdown_body`. Where a `text` class property lived, I replaced with `html_text` or `markdown_text`.
+
+The best approach I've found is to rename the top and bottommost layers first. That's because those are the places where I know, with 100% confidence, what format the text should be. 
+
+I started with the very top--at the interface level. A form element for a WYSIWYG editor would be renamed to `html_body`. (By necessity, I'd then rename its corresponding controller method parameter `html_body` since the parameters bind together by default on a name match).
+
+Once I had all the top-level names updated, I then moved to the very bottom of the app, the layers that integrate with our own datastore or an external API. For instance, I have an object I pass to my Slack API wrapper which holds the body text that's displayed on a Slack message. I renamed that from `body` to `markdown_body`, because I know that's how Slack expects the data.
+
+At this point, the code would compile because I'd done nothing more than rename properties. But, the work was far from done. There was all the naming to do in between.
+
+For example, even though my 
+
+I'd trickle my way inward through the layers of abstraction. (By the way, it's at a time like this where a `Rename...` feature on your development environment is most useful. I always use the built-in feature in Visual Studio for this rather than renaming a property and all of its references manually).
+
+
+
+At first, this felt like cheating. It felt too...easy. And, I'm accustomed to nothing in programming being as easy as things first appear.
+
+But, the more I went down this path, the more fluid the code felt. 
 
 
 
 
 
-[Ref: Brandon Rhodes 2013 Python duck naming Pycon]
 
 Power of just renaming params without structurally changing anything.
 
