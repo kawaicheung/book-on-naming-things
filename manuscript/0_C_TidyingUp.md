@@ -20,9 +20,29 @@ I started with the very top--at the interface level. A form element for a WYSIWY
 
 Once I had all the top-level names updated, I then moved to the very bottom of the app, the layers that integrate with our own datastore or an external API. For instance, I have an object I pass to my Slack API wrapper which holds the body text that's displayed on a Slack message. I renamed that from `body` to `markdown_body`, because I know that's how Slack expects the data.
 
-At this point, the code would compile because I'd done nothing more than rename properties. But, the work was far from done. There was all the naming to do in between.
+At this point, the code would compile because I'd done nothing more than rename properties. But, the work was _far_ from done. There was all the naming to do in between.
 
-For example, even though my 
+For example, even though a database repository method's parameter was renamed....
+
+```C#
+UpdateComment(int id, string html_body)
+```
+...calls to this method from higher level layers weren't touched yet.
+
+```C#
+public UpdateComment(int comment_id, string body, Requester user)
+{
+   // Validate user has access to this comment...
+   _permissions.ConfirmUserCanUpdateComment(comment_id, user);
+   
+   _database.UpdateComment(comment_id, body);
+}
+```
+
+Updating all the [tedious trivial]
+
+
+
 
 I'd trickle my way inward through the layers of abstraction. (By the way, it's at a time like this where a `Rename...` feature on your development environment is most useful. I always use the built-in feature in Visual Studio for this rather than renaming a property and all of its references manually).
 
