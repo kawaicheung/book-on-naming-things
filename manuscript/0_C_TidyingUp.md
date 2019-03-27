@@ -4,9 +4,11 @@ In the original version of DoneDone, all forms of text a user can input is saved
 
 Because all text was submitted, stored, and returned as Markdown, there wasn't a need to note that anywhere in a name. This is how we started things in the next version of DoneDone (which was an iterative refactoring of the original version's codebase). So, the various references to `body` remained.
 
-About two-thirds of the way through developing the new version, I realized that storing everything as Markdown was becoming a crutch. We had introduced a WYSIWYG editor which would replace the Markdown editor we had been using. Initially, I thought the best approach to implementing the new editor was to force the editor to convert HTML into Markdown before submitting it into the codebase. This way, I wouldn't have to make wholesale changes to existing code. But, a _reliable_ HTML-to-Markdown converter is, I'd come to find, a veritable oxymoron.
+About two-thirds of the way through developing the new version, I realized that storing everything as Markdown was becoming a crutch. We had introduced a WYSIWYG editor which would replace the Markdown editor we had been using, while providing more sophisticated style and formatting options. 
 
-Eventually, I came to terms with the fact that the easier approach was to have my backend code accept HTML instead of Markdown. But, this would only be true for certain text -- namely the ones that originate from a WYSIWYG editor in the application. There were other bits of text (most of which is generated behind the scenes), that still were being stored and served as Markdown. Further complicatin things, there were a few places in my code where the new HTML text still had to be converted to Markdown. Specifically, to send Slack notifications, I had to convert text originating from the editor to Markdown because that's how the Slack endpoint was still expecting its text.
+Initially, I thought the best approach to implementing the new editor was to force the editor to convert HTML into Markdown before submitting it into the codebase. This way, I wouldn't have to make wholesale changes to existing code. But, Markdown has a much more limited set of formatting options by design. So, depending on the nature of the text, once the text was converted to Markdown, some of the styling was lost for good. Trying to hack through these issues is an exercise for the mildly masochist.
+
+Eventually, I came to terms with the fact that the easier approach was to have my backend code accept HTML instead of Markdown. But, this would only be true for certain text -- namely the ones that originate from a WYSIWYG editor in the application. There were other bits of text (most of which is generated behind the scenes), that still were being stored and served as Markdown. Further complicating things, there were a few places in my code where the new HTML text still had to be converted to Markdown. Specifically, to send Slack notifications, I had to convert text originating from the editor to Markdown (knowing full-well this means losing some of the styling) because that's how the Slack endpoint expects the text.
 
 However, the fact that some text was stored as HTML and other text was stored as Markdown wasn't a big deal. Keeping track of whether a particular method parameter or a particular class property would be in HTML or Markdown was. This was an issue up and down all the layers of my code.
 
@@ -18,40 +20,90 @@ The best approach I've found is to rename the top and bottommost layers first. T
 
 I started with the very top--at the interface level. A form element for a WYSIWYG editor would be renamed to `html_body`. (By necessity, I'd then rename its corresponding controller method parameter `html_body` since the parameters bind together by default on a name match).
 
+_By the way, it's at a time like this where a `Rename...` feature on your development environment is most useful. I always use the built-in feature in Visual Studio for this rather than renaming a property and all of its references manually._
+
 Once I had all the top-level names updated, I then moved to the very bottom of the app, the layers that integrate with our own datastore or an external API. For instance, I have an object I pass to my Slack API wrapper which holds the body text that's displayed on a Slack message. I renamed that from `body` to `markdown_body`, because I know that's how Slack expects the data.
 
-At this point, the code would compile because I'd done nothing more than rename properties. But, the work was _far_ from done. There was all the naming to do in between.
+At this point, the code would compile because I've done nothing more than rename properties. But, the work was _far_ from done. There was all the naming to do in between.
 
-For example, even though a database repository method's parameter was renamed....
+For example, even though a database repository method's parameter was renamed from `comment` to `html_comment`....
 
 ```C#
-UpdateComment(int id, string html_body)
+AddCommentToItem(int item_id, string html_comment);
 ```
-...calls to this method from higher level layers weren't touched yet.
-
+...calls to this method from higher level layers weren't touched yet, as this method in an `ItemService` class shows.
 ```C#
-public UpdateComment(int comment_id, string body, Requester user)
+public AddComment(int id, string comment, Requester user)
 {
-   // Validate user has access to this comment...
-   _permissions.ConfirmUserCanUpdateComment(comment_id, user);
+   // Validate user has access to this item
+   _permissions.ConfirmUserCanAccessItem(id, user);
    
-   _database.UpdateComment(comment_id, body);
+   // Update the database comment
+   _database.AddCommentToItem(id, comment);
+
+   // Create the Slack message
+   var slack_message = new SlackMessage(comment, user);
+   _slack_wrapper.QueueMessage(slack_message);
+}
+```
+Updating all the text properties in the in-between layers is, admittedly, tedious. But, with good tooling, it's also quite trivial. Starting at the bottom, I find all the references of each parameter or property I've updated (a right-click > `Find all references...` on my development environment) and modify the names on my way up the layers of abstraction. I then rename the properties passed to these methods with the identical prefix. For the method above, it's a trivial change.
+```C#
+public AddCommentToItem(int item_id, string html_comment, Requester user)
+{
+   // Validate user has access to this item
+   _permissions.ConfirmUserCanAccessItem(item_id, user);
+   
+   // Update the database comment
+   _database.AddComment(comment_id, html_comment);
+
+   // Create the Slack message
+   var slack_message = new SlackMessage(html_comment, user.Name);
+   _slack_wrapper.QueueMessage(slack_message);
+}
+```
+However, this is where I start seeing the ends not connecting. In the method above, I pass an `html_comment` to the `SlackMessage` constructor, while the `SlackMessage` constructor's parameter is named `markdown_body`. 
+```C#
+public class SlackMessage
+{
+   public readonly string MarkdownBody;
+   
+   ...
+   
+   public SlackMessage(string markdown_body, string author_name)
+   {
+      MarkdownBody = markdown_body;
+   }
+}
+```
+I'm trying to put a traditional pair of headphones into an iPhone headphone jack, proverbially speaking.
+
+Because I've already made the prefix update to the `SlackMessage` parameter, and I've intentionally worked my way up my codebase, I know the disconnect lives in the call to the constructor rather than in the constructor. I simply convert the HTML text to markdown with an existing method I have handy, and pass it in.
+```C#
+public AddCommentToItem(int item_id, string html_comment, Requester user)
+{
+   // Validate user has access to this item
+   _permissions.ConfirmUserCanAccessItem(item_id, user);
+   
+   // Update the database comment
+   _database.AddComment(comment_id, html_comment);
+   
+   var markdown_comment = convertHTMLToMarkdown(html_comment);
+
+   // Create the Slack message
+   var slack_message = new SlackMessage(html_comment, user.Name);
+   _slack_wrapper.QueueMessage(slack_message);
 }
 ```
 
-Updating all the [tedious trivial]
+I continue up this path until I reach the surface of the application again, making any necessary conversions from the new HTML format to the old Markdown format when the disconnects appear. 
 
+In the end, I compile and test. Surprisingly, I find I've gotten all my text conversions right on the first swing. At first, this felt like cheating. It feels too easy. And, anytime something feels too easy to me, I have a feeling of impending doom--as if I've forgotten something obviously critical. But, my intuitions were unfounded.
 
+The alternative approach of replacing these string types with different class names would've felt more _safe_ because I would've been able to lean on the compiler more to check types. But, this would also have disrupted a whole lot more code. I would also have to remember to use a `MarkdownString` or `HTMLString` in future updates or document this for someone in the future.
 
+The lightweight approach is also more immediate. There is no ambiguity with the variable `html_body` as there might be with a variable `body` which happens to be of type `HTMLString`, for instance. I get everything I was aiming for (clarifying what kind of text something is) without acquiring any additional burdens to carry forward.
 
-I'd trickle my way inward through the layers of abstraction. (By the way, it's at a time like this where a `Rename...` feature on your development environment is most useful. I always use the built-in feature in Visual Studio for this rather than renaming a property and all of its references manually).
-
-
-
-At first, this felt like cheating. It felt too...easy. And, I'm accustomed to nothing in programming being as easy as things first appear.
-
-But, the more I went down this path, the more fluid the code felt. 
-
+[Segue to Brandon Rhodes]
 
 
 
