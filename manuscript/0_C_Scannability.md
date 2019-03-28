@@ -71,3 +71,31 @@ GetProjectsForUser(int userID)
 ```
 
 Overall, the final result balances brevity with meaning and keeps each of the names distinct _enough_ from each other. The name choices make the collective group of methods easier to scan.
+
+With methods, we'll always face these types of scannability problems because all programming methods perform the same handful of actions -- the simplest ones get, create, update, delete. The more complex ones perform some combination of these actions. There are certainly more detailed ways to label a method's actions (I get into this in a later chapter). But, we'll always have to weigh the trade-offs that the symmetry of these ubiquitous verbs provides.
+
+With general domain language naming, on the other hand, we have a whole lot more freedom with our naming choices. 
+
+In the original version of DoneDone, we had a single business concept called a _project_. A _project_ held a set of _issues_. In the second version, we have two concepts. A _project_ now holds _tasks_. This is essentially a carryover from the original version. The second concept is a _mailbox_. A mailbox specifically serves as a container for incoming emails. After much deliberation, we agreed that we'd call each individual email a _conversation_.
+
+Naturally, I took to these names when writing the code to support these business concepts. But, as I began enveloping these names into my code, I noticed the name `conversation` feeling cumbersome. It's somewhat lengthy, especially when compared to the corresponding concept in a project, the delightfully short _task_. And, given how integral the name was to the app, I knew it would infest itself all over the codebase. I'd be typing and reading this word for days.
+
+`Conversation`. `ConversationController`. `GetConversationDetail()`. `UpdateConversation()`. `ConversationTypes`. `/Views/Conversations/Detail`.
+
+I went hunting for a different word. I didn't want to change the word entirely (i.e. calling it a _message_ or _chat_), as we had already settled and liked how the word _conversation_ sounded in, conversation. It was the right word to use to talk about the concept, and coming up with something entirely different in code would've placed the constant burden of translating a business concept into a coding concept.
+
+Instead, I simply shortened the word in code to `Convo`. At first, it felt too informal ("I'm just gonna build a little convo controller here") until I realized that there is no rule, nor should there be, for formalities in programming names. It might not be how I would talk about the concept to the British parliament, but until they have a hand in the codebase, it also doesn't matter.
+
+A convo is no more ambiguous a word than a conversation. The word convo is delightfully short and has a similar directness with its counterpart, task. It also helps keep every mention of the idea shorter in code, meaning our eyes scan less from left-to-right.
+
+```C#
+public Conversation GetConversationForDetail(int conversation_id);
+...
+public Convo GetConvoForDetail(int convo_id);
+```
+
+I also appreciate the unique aesthetics of the name. There are few, if any words, that end with _onvo_. There are a multitude that end with _ation_ or _tion_. In fact, a quick lookup in my current DoneDone codebase reveals the following matches:
+
+_Cre**ation**_, _Integr**ation**_, _Registr**ation**_, _Applic**ation**_, _Notific**ation**_, _Authentic**ation**_, _Ac**tion**_, _Excep**tion**_, _Projec**tion**_
+
+When scoping out names to describe your domain language, it's important to see how those names manifest in the actual code. For longer names, or names that _look_ a lot like other names, is there a different way to shape that name, without losing its meaning? If so, it might be worth the swap.
