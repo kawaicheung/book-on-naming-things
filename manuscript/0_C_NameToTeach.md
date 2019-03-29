@@ -45,6 +45,7 @@ This helps rid some of the dizzying effects. At least the instance name is more 
 
 ```C#
 Object foo = new Object();
+```
 
 At this level, we often teach concepts too abstractly -- as if diving directly into concrete examples that demonstrate a concept would somehow mask the underlying purpose of the concept.
 
