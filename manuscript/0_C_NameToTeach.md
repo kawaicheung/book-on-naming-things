@@ -14,6 +14,10 @@ At this level, we often teach concepts too abstractly -- as if diving directly i
 
 [Culprit #1 -- Foo / Bar]
 
-[Culprit #2 -- "My"]
+[Culprit #2 -- "My" or "1/2"]
+
+http://www.deitel.com/books/cpphtp5/cpphtp5_03_sample.pdf
 
 [Culprit #3 -- Real-world examples vs. realistic examples] 
+
+Dogs/Cats or car parts.
