@@ -1,6 +1,6 @@
 # Preface
 
-If you've been around code long enough, there's a good chance you're familiar with this quote, attributed to Phil Karlton.
+If you've written code long enough, there's a good chance you're familiar with this quote, attributed to Phil Karlton.
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
 
