@@ -1,4 +1,4 @@
-## INCOMPLETE: Name to Teach
+# Name to Teach
 
 I have a very simple thing to say about how code is taught. The more advanced you are, the more likely you teach the craft poorly. As you become more advanced in a field, more basic concepts in that field become so familiar that it becomes harder to recall what it was like before you understood those concepts. 
 
