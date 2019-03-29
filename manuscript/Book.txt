@@ -12,6 +12,7 @@ preface.md
 0_C_TheTautaulogousNameTrap.md
 0_C_MaintainingCodeShape.md
 0_C_TidyingUp.md
+0_C_NameToTeach.md
 __THE_REST.md
 0_C_OvercomingAmbiguity.md
 0_C_Precision.md
@@ -27,5 +28,4 @@ __THE_REST.md
 0_C_EnglishAndSearch.md
 0_C_FluentInterfaces.md
 0_C_ObnoxiouslyLongNames.md
-0_C_NameToTeach.md
 
