@@ -40,24 +40,50 @@ Object foo = new Object();
 foo.DoSomething();
 ```
 
-This helps rid some of the dizzying effects. At least the instance name is more readily discernable. But, the newbie is still left wondering what this all means. What is a _foo_? I'd come to find that it's intentionally meant to mean nothing specific--a way of ensuring the novice understands that the concept can be pplicable to nearly every kind of a "thing". But, at such an early step in the process, concreteness is exactly what the novice needs. The mental bridge to the abstract is far easier to cross this way, than to immediately start with the abstract. 
+This helps rid some of the dizzying effects. At least the instance name is more readily discernable. But, the newbie is still left wondering what this all means. What is a _foo_? I'd come to find that it's intentionally meant to mean nothing specific--a way of ensuring the novice understands that the concept can be pplicable to nearly every kind of a "thing". 
 
-Then there are the "concrete" examples that are easy to visualize, but unrelatable to the vast majority of real programming tasks. This makes the bridge from the example to something a novice actually might need to do a difficult one to cross. The prototypical case I see is
+But, at such an early step in the process, concreteness is exactly what the novice needs. The mental bridge to the abstract is far easier to cross this way, than to immediately start with the abstract. 
+
+Then there are the "concrete" examples that are easy to visualize, but unrelatable to the vast majority of real programming tasks. This makes the bridge from the example to something a novice might actually need to do, still, a difficult one to cross. I see this in many writeups when demonstrating how an interface is used, with the classic example always revolving around domesticated household pets.
 
 ```C#
-Dog dog = new Dog();
-Cat cat = new Cat();
+interface IAnimal
+{
+    string Speak();
+}
 
+class Dog : IAnimal
+{
+    public string Speak()
+    {
+        return "Bark!";
+    }
+}
+
+class Cat : IAnimal
+{
+    public string Speak()
+    {
+        return "Meow!";
+    }
+}
+```
+The example is certainly concrete, but one that would only be relatable for those of us lucky enough to work on a video game with pet superheroes. Imagine the novice attempting to parlay this introductory example of interfaces into an implementation of [TODO: What's a good, simple implementation of an interface?]. [Is there a good metaphor here?]
+
+The best way to teach a newbie is to find simple concrete examples of real programming problems. Then, it's imperative to name the constructs in our examples as _concretely_ as possible. Let the novice anchor their understanding around something real. This will make the bridge to other similar examples easy to cross. With confidence and momentum behind their newfound knowledge, it will make the further reaching bridges quicker to cross as well.
+
+
+[Deitel and Deitel example of gradebook...concrete, and more real world -- we might be building some system...but still using myGradebook1 and myGradebook2]
+
+A better example of constructors and class instantiation may be something like this:
+
+```C#
+User requester = new User(username, password);
+requester.AttemptLogin();
 ```
 
-At this level, we often teach concepts too abstractly -- as if diving directly into concrete examples that demonstrate a concept would somehow mask the underlying purpose of the concept.
+Most all software these days require logins and users. This would be an instantly relatable example to the vast majority of novices. 
 
-[Culprit #1 -- Foo / Bar]
-
-[Culprit #2 -- "My" or "1/2"]
-
-http://www.deitel.com/books/cpphtp5/cpphtp5_03_sample.pdf
-
-[Culprit #3 -- Real-world examples vs. realistic examples.Dogs/Cats or car parts.] 
+[Finish]
 
 
