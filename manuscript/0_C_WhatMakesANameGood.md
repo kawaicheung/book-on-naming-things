@@ -9,6 +9,7 @@ Instead, the reader is probably sitting at their desk, mildly stressed with furr
 A good name might...
 
 * Stand out amongst other code so it's easy to spot at a glance.
+* Fade into the background so the more important bits of code stand out.
 * Make the code around it more readable.
 * Make the intentions obvious.
 * Be memorable. The next day, you can say exactly what the name of something is without looking back at the code.
@@ -21,7 +22,7 @@ This makes the qualifications for a good name different than any other kind of n
 * It might stand out. It might fade into the background. 
 * It might be full of detail. It might be abstract. 
 
-By naming things well, the entire codebase improves. Indeed, the whole codebase becomes much more readable than simply the sum of its parts. 
+By naming things well, the entire codebase improves. The whole codebase becomes much more readable than simply the sum of its parts. 
 
 Good names will make your codebase clearer. If a method's name requires you to dig into the details everytime you stumble across it, it's likely you can come up with a better name.
 
