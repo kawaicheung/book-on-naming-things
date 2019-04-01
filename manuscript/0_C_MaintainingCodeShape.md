@@ -1,8 +1,19 @@
 # Code shape
 
+The first time I ever played around with code was as a 7-year old. My brother and I had convinced our parents to get us our first family computer -- an Apple IIc. As part of the purchase, the local computer store also subscribed us to a year's subscription to _Nibble_, a magazine for Apple II computer users focusing on hobbyist programming.
+
+My favorite section of the magazine was called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
+
+At seven, I knew what I was doing was some form of "coding". I remember thinking that code was a bunch of instructions intended for the computer to understand -- not for the user to read. In fact, the more mysterious the code was to me, the more exhilirating it was to see the result of something real happen. Here's an example of an actual one-liner from an edition of _Nibble_.
+
+[https://csc.lsu.edu/~kooima/misc/nibble/nibble2.jpg]
+
+A decade later, I becam
+
 _Good design_ in software usually means something that isn't immediately visible. You have to spend awhile working with the code to appreciate its design. But, there's a more immediate kind of code design.
 
 Code has a certain _shape_ to it. It's spacing. The way it's broken out. How it flows down a page.
+
 
 Variable names can play a large role in determining this shape. Consider this simple `for` loop.
 
