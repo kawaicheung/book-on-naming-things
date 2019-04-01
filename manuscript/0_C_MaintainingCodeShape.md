@@ -1,8 +1,8 @@
 # Code shape
 
-The first time I ever played around with code was as a 7-year old. My brother and I had convinced our parents to get us our first family computer -- an Apple IIc. As part of the purchase, the local computer store also subscribed us to a year's subscription to _Nibble_, a magazine for Apple II computer users focusing on hobbyist programming.
+The first time I ever played around with code was as a 7-year old. My brother and I had convinced our parents to get us our first family computer -- an Apple IIc. As part of the purchase, the local computer store also subscribed us to a year's subscription to _Nibble_, a magazine for Apple II computer users focusing on hobbyist programming. I started reading it because it had a funny name.
 
-My favorite section of the magazine was called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
+My favorite section of the magazine was on the back page of each issue, called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
 
 Here's an example of an actual one-liner from an edition of _Nibble_.
 
