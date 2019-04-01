@@ -4,16 +4,34 @@ The first time I ever played around with code was as a 7-year old. My brother an
 
 My favorite section of the magazine was called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
 
-At seven, I knew what I was doing was some form of "coding". I remember thinking that code was a bunch of instructions intended for the computer to understand -- not for the user to read. In fact, the more mysterious the code was to me, the more exhilirating it was to see the result of something real happen. Here's an example of an actual one-liner from an edition of _Nibble_.
+Here's an example of an actual one-liner from an edition of _Nibble_.
 
 [https://csc.lsu.edu/~kooima/misc/nibble/nibble2.jpg]
 
-A decade later, I becam
+At seven, I knew what I was doing was some form of programming. But, I remember thinking that code was a bunch of cryptic instructions intended for the computer to understand -- not for the user to read. In fact, the more mysterious the code was to me, the more exhilirating it was to see the result of something real happen.
 
-_Good design_ in software usually means something that isn't immediately visible. You have to spend awhile working with the code to appreciate its design. But, there's a more immediate kind of code design.
+I never picked up any kind of programming again until the late 1990s. In college, I became enamored with the possibilities of designing web sites. I began learning a new form of code called HTML. At some point, my classmate uncovered a wonderful "secret" feature of a web browser called "View Source". Like sneaking behind-the-stage of a production, I was able to see how all of the stuff on screen was actually created.
 
-Code has a certain _shape_ to it. It's spacing. The way it's broken out. How it flows down a page.
+It was through viewing the source of various sites that I learned about tables--particularly about using them as a way to layout complex designs in combination with chopped up graphics from Photoshop. However, I remember struggling with a particular issue in Internet Explorer (mind you, this was long before IE6). 
 
+No matter what I added to my table cell tags, I couldn't get two columns in a row containing images to display next to each other without an annoying 1 pixel sliver of white space.
+```HTML
+<TABLE CELLPADDING="0" CELLSPACING="0" WIDTH="600">
+  <TR>
+    <TD><IMG SRC="/image/001.gif"></TD>
+    <TD><IMG SRC="/image/002.gif"></TD>
+  </TR>  
+</TABLE>
+```
+At some point, days into my frustration, I figured out the space was due to the physical gap between the `<TD>`s. By omitting the gaps, the white space disappeared.
+
+```HTML
+<TABLE CELLPADDING="0" CELLSPACING="0" WIDTH="600"><TR><TD><IMG SRC="/image/001.gif"></TD><TD><IMG SRC="/image/002.gif"></TD></TR></TABLE>
+```
+
+And so, for the next several years, my code was--like the code I had written a decade earlier--a mashing together of lines of text meant for the browser to understand, not the human.
+
+Fortunately, times have changed. Programmers care about the design of their code. I don't just mean the architectural design, but the physical one. Code has a certain _shape_ to it. It's spacing and indentation. The way it's broken out. How it flows down a page. 
 
 Variable names can play a large role in determining this shape. Consider this simple `for` loop.
 
