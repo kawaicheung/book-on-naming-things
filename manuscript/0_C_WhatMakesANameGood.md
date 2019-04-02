@@ -1,30 +1,20 @@
 # What makes a name good?
 
-Coding is the strangest kind of art. For starters, our audience is ourselves, our fellow programmers alone. No one--in their right mind--is a casual reader of code. 
+Coding is the strangest kind of art. 
 
-There is also no sense of finality. Code writing is never "done". It is constantly iterated upon even after (and especially when) the software finally launches. The person who is reading code isn't doing so relaxed on their favorite chair, curled up to their laptop under the warm light of a reading lamp with a cup of hot chocolate in-hand. 
+The person who is reading your code isn't doing so relaxed in their favorite chair, curled up to their laptop under a warm light with a cup of hot chocolate in-hand. 
 
-Instead, the reader is probably sitting at their desk, mildly stressed with furrowed brow, in the process of figuring out what the code is trying to say because they're about to fix something about it or add something to it. Their coffee is getting cold.
+Your reader is probably sitting at their desk, hunched over a screen with a furrowed brow, intensely focused on determining what your code is doing because they're about to fix something or add something to it. Their coffee is getting cold.
 
-A good name might...
+Writing code is not like writing a novel or sculpting a piece of art or building a spaceship. All of these acts end with a final product that remains fixed. There is no sense of finality to code writing. It is constantly iterated upon even after the software finally launches. You write code knowing that it may eventually change again. There is no ending.
 
-* Stand out amongst other code so it's easy to spot at a glance.
-* Fade into the background so the more important bits of code stand out.
-* Make the code around it more readable.
-* Make the intentions obvious.
-* Be memorable. The next day, you can say exactly what the name of something is without looking back at the code.
+This makes naming things in code a special kind of skill. You aren't writing for the reader; You're writing for the next writer. That makes the goals of naming fundamentally unique.
 
-The key word is that it _might_. Most times, you can't achieve all of these goals with one name. Sometimes, you have to decide what goals are more important in a particular situation, and drive the name toward achieving those goals first.
+Some names might describe and guide. Some names might be easy to scan. Some names might be memorable. Some names might simply get out of the way. It all depends on how the names of things, together, piece the entire story of your codebase. This book will show you a handful of different kinds of naming conundrums and describe why I landed upon a particular name. 
 
-This makes the qualifications for a good name different than any other kind of name in any other kind of writing. 
+/* I dunno here....*/
 
-* A good name might be long. It might be short.
-* It might stand out. It might fade into the background. 
-* It might be full of detail. It might be abstract. 
-
-By naming things well, the entire codebase improves. The whole codebase becomes much more readable than simply the sum of its parts. 
-
-Good names will make your codebase clearer. If a method's name requires you to dig into the details everytime you stumble across it, it's likely you can come up with a better name.
+In the end, if you choose good names, your codebase will be clearer. It will 
 
 Good names will make reading your codebase more fluid. You can scan code more easily because the words flow better together. Your eyes dance over the code because its shape feels natural. You grasp what the code is saying because there's an orderliness to the way constructs are named.
 
