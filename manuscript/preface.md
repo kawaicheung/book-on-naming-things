@@ -25,4 +25,19 @@ Naming well isn't a binary exercise, and, I won't treat it like one in this book
 -Ka Wai Cheung
 March, 2019
 
+===
+
+Writing code is different from any other kind of writing. Other writing _ends_. A tweet is sent. A novel is published. A blog post is released. You can edit most writing from a fixed position. But, writing code is a fluid kind of act. It is constantly iterated upon even after the software finally launches. You code knowing that it may eventually change again. 
+
+You also code for two different audiences. The first is the compiler or interpreter--the thing that is actually turning your instruction into something else. The second is the human--the person who's reading your stuff so they too can write for the first audience.
+
+So, to get your code to "work" is one thing. To get your code to be understandable is a whole other thing. As Brandon Rhodes once said, "One of the biggest sins you can commit is to stop programming when it works."
+
+How you name things is the largest determining factor for how understandable your code is. Because code is never done, the names of things provide all the _meaning_ of the parts in that exact moment in time. Small changes in code might require large changes in naming.
+
+As a codebase does more complex things (and all codebases do more complex things over time) it will naturally accrue more imperfections, bottlenecks, and general "ickyness" in its architecture. The names of things become even more critical to the understanding of imperfect code. They become the guideposts to a successful refactoring.
+
+Not all names should aim for the same goals, either. Some names might describe and guide. Some names might be easy to scan. Some names might be memorable. Some names might simply get out of the way. It all depends on how the names of things, together, piece the entire story of your codebase together. 
+
+This makes writing code the strangest kind of art, and naming things one of the more difficult skills in the craft.
 
