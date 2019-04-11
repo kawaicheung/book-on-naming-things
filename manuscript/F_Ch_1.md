@@ -1,1 +1,1 @@
-# Better than CRUD
+# When CRUD is crud
