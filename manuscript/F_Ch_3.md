@@ -1,6 +1,10 @@
 # Hunting for Names
 
-[Need to add: Collab/outreach]
+[Need to add: Collab/outreach example - simply putting names to conditionals]
+
+[Git before: https://github.com/GetDoneDone/donedone-2.0/blob/ccc52e4c45e95bff06df2c863d10dec8e75858a9/Services/Accounts.cs]
+
+[Git after: https://github.com/GetDoneDone/donedone-2.0/blob/892c7d69ac5ff9aa98d3c85df3f009408eeb8504/Services/Accounts.cs]
 
 Making your codebase clearer isn't just about naming things better--it's also about finding things to name that weren't being named before. 
 
