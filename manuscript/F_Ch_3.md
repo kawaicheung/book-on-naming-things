@@ -1,4 +1,4 @@
-# Good Name Hunting
+# Hunting for Names
 
 [Need to add: Collab/outreach example - simply putting names to conditionals]
 
