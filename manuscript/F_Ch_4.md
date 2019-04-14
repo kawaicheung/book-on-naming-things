@@ -3,7 +3,7 @@
 
 **Words are currency**
 
-[Use this bit to segue into scannability -- that scanning is aided by making each word also count, so you aren't adding anything extra that is unnecessary]
+[Use this bit to segue into scannability -- that scanning is aided by making each word also count, so you aren't adding anything extra that is unnecessary. It means keywords stand out mre -- "GetAll..." cognitively means something. Or, if "scan" isn't perfect, maybe leave as is and change title to scannability & digestibility or scannability & readability?]
 
 In school, writing assignments always had some sort of minimum length requirement. Five paragraphs. 2000 words. Ten pages. 
 
