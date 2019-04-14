@@ -164,6 +164,8 @@ This brings up an important general idea we see throughout all programming conce
 
 As I write code, I usually start with names that describe their constructs concretely before gradually iterating toward something more abstract. Proper abstractions need to be made at the right pace. Abstract too slowly and it will be the feature creep that steers the ship. Abstract too soon and the boat will soon be sinking under its own weight.
 
+[Maybe Sandi Metz bit here about championing the idea of duplicate code better than the wrong abstraction?]
+
 Naming should also undergo the same kind of scrutiny. The gradual reshaping of our codebase also warrants constant re-evaluation of the names we give to the constructs in our code. 
 
 It's taxing work. And I think it leads programmers (including myself) to abstract the meaning of a name too early in the process - a desparate attempt to get a name right, once and forever. But I've never found prematurely abstracting a name helpful. In fact, it often inflicts more pain than comfort, just like premature code abstraction does.
