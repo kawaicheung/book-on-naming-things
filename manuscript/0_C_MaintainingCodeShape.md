@@ -1,5 +1,16 @@
 # Code shape
 
+The first time I ever played around with code was as a 7-year old. My brother and I had convinced our parents to get us our first family computer -- an Apple IIc. As part of the purchase, the local computer store also subscribed us to a year's subscription to _Nibble_, a magazine for Apple II computer users focusing on hobbyist programming. I started reading it because it had a funny name.
+
+My favorite section of the magazine was on the back page of each issue, called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
+
+Here's an example of an actual one-liner from an edition of _Nibble_ https://csc.lsu.edu/~kooima/misc/nibble/nibble2.jpg.
+
+![A one-line program that produces a 3D-rendering of a missile's nose cone](images/nibble.png)
+
+At seven, I knew what I was doing was some form of programming. But, I remember thinking that code was a bunch of cryptic instructions intended for the computer to understand -- not for the user to read. In fact, the more mysterious the code was to me, the more exhilirating it was to see the result of something real happen.
+
+I never picked up any kind of programming again until the late 1990s. 
 In college, I became enamored with the possibilities of designing web sites. I began learning a new form of code called HTML. At some point, my classmate uncovered a wonderful "secret" feature of a web browser called "View Source". Like sneaking behind-the-stage of a production, I was able to see how all of the stuff on screen was actually created.
 
 It was through viewing the source of various sites that I learned about tables--particularly about using them as a way to layout complex designs in combination with chopped up graphics from Photoshop. However, I remember struggling with a particular issue in Internet Explorer (mind you, this was long before IE6). 
