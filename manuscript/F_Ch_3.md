@@ -1,5 +1,15 @@
 # Hunting for Names
 
+[The idea of lines of code is no longer as important when every char counted -- readability is far more important]
+
+The first time I ever played around with code was as a 7-year old. My brother and I had convinced our parents to get us our first family computer -- an Apple IIc. As part of the purchase, the local computer store also subscribed us to a year's subscription to _Nibble_, a magazine for Apple II computer users focusing on hobbyist programming. I started reading it because it had a funny name.
+
+My favorite section of the magazine was on the back page of each issue, called the "One- And Two-Liners". Readers would submit programs that could be written in just one or two lines of AppleSoft BASIC. You would then type these lines of code meticulously into the console, hit ENTER, and pray for the thing to work. Usually, the thing was some sort of graphical rendering.
+
+Here's an example of an actual one-liner from an edition of _Nibble_ https://csc.lsu.edu/~kooima/misc/nibble/nibble2.jpg.
+
+![A one-line program that produces a 3D-rendering of a missile's nose cone](images/nibble.png)
+
 [Need to add: Collab/outreach example - simply putting names to conditionals]
 
 [Git before: https://github.com/GetDoneDone/donedone-2.0/blob/ccc52e4c45e95bff06df2c863d10dec8e75858a9/Services/Accounts.cs]
