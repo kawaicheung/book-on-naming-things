@@ -1,6 +1,4 @@
-# Even Better than the Real Thing
-
-[Migrator/importer/copier example -- not as much of a visual 'leap' as officer, so a good starter piece]
+# Imagining Things
 
 If you're a fan of the cult classic _Office Space_, you'll certainly remember the line in the film when the contemptuous consultant asks the agitated employee a simple--yet piercing--question.
 
@@ -13,6 +11,12 @@ This is why the term _object-oriented_ is itself a bit of a misnomer. Most class
 Instead, we usually herd together groups of similar functionality into, what we'll call, an _object_. And because this object doesn't have an obvious physical translation, we lean on generic names that don't tell us much of anything. These are the classes employing names like `UserManager`, `StringHelper`, and `RequestHandler`. Like our corporate consultant, we encounter these names and ask ourselves what exactly it is they do here.
 
 Fortunately, the English language is full of more expressive nouns. Sometimes, even when an object doesn't have an obvious physical representation, a bit of imagination can bridge the gap. Here's an example.
+
+===
+
+[Migrator/importer/copier example -- not as much of a visual 'leap' as officer, so a good starter piece]
+
+===
 
 In DoneDone, I built a messaging service whose sole responsibility is to decide whom should receive an email based on a created or newly updated issue. The answer depends, first, on who's involved on the issue. For example, I create an issue for Aaron and also add Lindsay, Mustafa, and Penelope on the issue. They all should be notified.
 
