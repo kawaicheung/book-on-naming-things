@@ -1,4 +1,4 @@
-# Name Traps
+# Traps, Corners, and Confusion
 
 [Mesh these two chapters into one + fluent interfaces discussion here?]
 
