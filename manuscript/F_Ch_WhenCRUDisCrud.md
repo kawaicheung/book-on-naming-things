@@ -1,4 +1,4 @@
-# When CRUD is crud
+# When CRUD is Crud
 
 **Ambiguity**
 
