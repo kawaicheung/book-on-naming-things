@@ -215,6 +215,7 @@ We've already covered a few better replacements for many overly-used terms. We a
 |Get    |Convert         |Getting a manipulation of an object.		|date.ConvertToShortDate()			   |
 |Get    |Filter          |Passing a list of items and returning less. |filterProjects(List<projects>, UserID)			   |
 |Get    |Decrypt         |Decrypting a token and returning a value/object |decryptRegistrationToken(string token) 
+|Get    |Map             |i.e. mapping types from one app to another (Classic to DD2)
 |Update |Overwrite       | 										    |									   |
 |Update |Replace 		 |								            |									   |
 |Update |Merge	 		 |								            |									   |
