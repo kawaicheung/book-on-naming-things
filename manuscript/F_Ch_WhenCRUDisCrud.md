@@ -1,8 +1,12 @@
-# Describing actions
+# Describing methods
 
-There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it's written beautifully. Code that helps the end user, the system, and its future authors is the ultimate accomplishment.
+There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Code that helps the end user, the system, and its future authors is the ultimate accomplishment.
 
-The last stage is the only one we can't measure. There's no metric for what makes code beautiful. But, like so many immeasurable things, you know it when you see it. I think a lot of this is controlled by choosing the perfect words to describe our methods.
+[Bit on OOP not being conducive to good reading becuase its all about misdirection...]
+
+The last stage is the only one we can't measure. There's no metric for what makes code beautiful. But, like so many immeasurable things, you know it when you see it. I think a lot of this is controlled by choosing the perfect words to describe our methods. The right name makes you instantly understand what that method will do. A method name that's even just slightly off will make you question it's intent. 
+
+becomes harder and harder to read code without constantly having to trickle into each misdirection.
 
 [One of the great tragedies of programming is CRUD.]
 
