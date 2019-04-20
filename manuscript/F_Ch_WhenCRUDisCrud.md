@@ -1,4 +1,12 @@
-# When CRUD is Crud
+# Describing actions
+
+There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it's written beautifully. Code that helps the end user, the system, and its future authors is the ultimate accomplishment.
+
+
+
+
+####
+
 
 **Ambiguity**
 
