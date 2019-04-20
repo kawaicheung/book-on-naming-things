@@ -1,14 +1,48 @@
 # Describing methods
 
-There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Code that helps the end user, the system, and its future authors is the ultimate accomplishment.
+There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate accomplishment of a programmer.
 
-[Bit on OOP not being conducive to good reading becuase its all about misdirection...]
+But, there are two problems with this last bit. First, it's hard to measure what readable code _looks_ like. Second, if you use an object-oriented programming language, it's even harder to write it. The truth is this: object-oriented languages are fantastic for building systems--for dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, they aren't made for readability.
 
-The last stage is the only one we can't measure. There's no metric for what makes code beautiful. But, like so many immeasurable things, you know it when you see it. I think a lot of this is controlled by choosing the perfect words to describe our methods. The right name makes you instantly understand what that method will do. A method name that's even just slightly off will make you question it's intent. 
+You can't sit down and read this kind of code linearly like you would a newspaper article. Instead, you're constantly directed to other methods and objects, bouncing back and forth throughout the pages of a codebase, like a _Choose Your Own Adventure_ book. It was only fun when you were a kid.
 
-becomes harder and harder to read code without constantly having to trickle into each misdirection.
+The best way to make this kind of code readable is to spare the reader from drilling down into the layers. A great place to start is by making method names exquisitely _clear_.
 
-[One of the great tragedies of programming is CRUD.]
+
+
+---
+
+Now, let's look at a creation example. I've written a method that returns a unique API key for a given user. For this method, I could come up with a name like `CreateAPIKey()`. But, the word _create_ doesn't tell me a whole lot about _how_ the key is created. 
+
+Is it pulled from some list of available keys in a database? Is it randomly generated? Is it somehow derived from other data a user owns?
+ 
+In my case, the key is generated using a random GUID. So, instead, the name `GenerateAPIKey()`conveys the idea much more clearly. Instantly, I know the key creation involves some random generation rather than a replayable set of steps. It hints at the implementation detail just enough.
+
+Why is this important? Suppose that later on, I may want to introduce a way to revoke and issue a new. I might have a complementary method whose implementation looks like this:
+
+ ```C#
+public string RegenerateAPIKey() 
+{
+  RevokeAPIKey();
+  return GenerateAPIKey();
+}
+```
+
+If, instead, I had settled for the more generic `Create`, a consistently named sibling method might look like this:
+ 
+```C#
+public string RecreateAPIKey() 
+{
+  RevokeAPIKey();
+  return CreateAPIKey();
+}
+```
+
+ `RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
+ 
+------
+
+
 
 
 ####
