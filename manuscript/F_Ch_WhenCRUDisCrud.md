@@ -1,4 +1,4 @@
-# Describing methods
+# Describing Methods
 
 There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate accomplishment of a programmer.
 
