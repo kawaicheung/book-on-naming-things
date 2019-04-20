@@ -2,13 +2,13 @@
 
 There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate accomplishment of a programmer.
 
-But, there are two problems with this last bit. First, it's hard to measure what readable code _looks_ like. Second, if you use an object-oriented programming language, it's even harder to write it. The truth is this: object-oriented languages are fantastic for building systems--for dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, they aren't made for readability.
+But, there are two problems with this last bit. First, it's hard to measure what readable code _looks_ like. Second, if you use an object-oriented programming language, it's even harder to write it. The truth is this: object-oriented languages are fantastic for dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, this makes reading that code tedious.
 
-You can't sit down and read this kind of code linearly like you would a newspaper article. Instead, you're constantly directed to other methods and objects, bouncing back and forth throughout the pages of a codebase, like a _Choose Your Own Adventure_ book. It was only fun when you were a kid.
+You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, an energy-draining trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
-The best way to make this kind of code readable is to spare the reader from drilling down into the layers. A great place to start is by making method names exquisitely _clear_.
+The best way to make code readable is to spare the reader from traversing the layers (unless its absolutely necessary). A great place to start? Make method names exquisitely _clear_.
 
-
+Here's a seemingly _good_ method name: `CreateAPIKey()`.
 
 ---
 
@@ -41,6 +41,26 @@ public string RecreateAPIKey()
  `RecreateAPIKey()` could make me think, incorrectly, that an already-used API key will be reinstated. `RegenerateAPIKey()` makes me think, correctly, that the new API key won't be revived from the ashes.
  
 ------
+
+**The Appropriate Level of Detail**
+
+In each of the examples in the previous chapter, my revised names attempt to describe a method's implementation more clearly. Some would argue that I'm committing a cardinal programming sin -- one of the fruits of encapsulating logic in methods is to _hide_ the details of the implementation. How dare I try to expose them more!
+
+But, one of the tricks of good method naming is to expose _as much_ detail as is useful. The more knowledge we ascertain from the name of a method, the faster we get at choosing the right methods to use or deciding to add additional ones to fulfill the task-at-hand.
+
+For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better choice than `CreateAPIKey()` because it describes _how_ an API key is created with a little more detail that might be useful to the implementor.  
+
+I certainly could've carried the name even further. However, would a name like `GenerateAPIKeyUsingRandomizedGuid()` be better? If there were other API generation mechanisms at play that required alternative methods, and the mechanism mattered outside of the method itself, then absolutely. In my case, there wasn't.
+
+A name like `GenerateAPIKeyUsingRandomizedGuid()` also presents a couple more issues:
+
+1. It's long, and long names can reak havoc on the overall shape of code. By the way, we'll talk about long names and [code shape](#ch_shape) later -- including one case where I believe they actually would be beneficial.
+
+2. It's fragile. If, at any point, I decide to change _how_ the API key is generated, I'd have to remember to change the name as well to avoid misleading the implementor.
+
+In the end, exposing the appropriate level of detail is more art than science. Undoubtedly, as a codebase evolves, what's "appropriate" will also change. Naming--like coding itself--requires constant upkeep. We're never done with naming so long as the product is still evolving.
+
+---
 
 
 
@@ -201,23 +221,6 @@ A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.Search
 ### Some sort of conclusion here
 
 
-**The Appropriate Level of Detail**
-
-In each of the examples in the previous chapter, my revised names attempt to describe a method's implementation more clearly. Some would argue that I'm committing a cardinal programming sin -- one of the fruits of encapsulating logic in methods is to _hide_ the details of the implementation. How dare I try to expose them more!
-
-But, one of the tricks of good method naming is to expose _as much_ detail as is useful. The more knowledge we ascertain from the name of a method, the faster we get at choosing the right methods to use or deciding to add additional ones to fulfill the task-at-hand.
-
-For instance, in the API key generation example above, I felt that `GenerateAPIKey()` was a better choice than `CreateAPIKey()` because it describes _how_ an API key is created with a little more detail that might be useful to the implementor.  
-
-I certainly could've carried the name even further. However, would a name like `GenerateAPIKeyUsingRandomizedGuid()` be better? If there were other API generation mechanisms at play that required alternative methods, and the mechanism mattered outside of the method itself, then absolutely. In my case, there wasn't.
-
-A name like `GenerateAPIKeyUsingRandomizedGuid()` also presents a couple more issues:
-
-1. It's long, and long names can reak havoc on the overall shape of code. By the way, we'll talk about long names and [code shape](#ch_shape) later -- including one case where I believe they actually would be beneficial.
-
-2. It's fragile. If, at any point, I decide to change _how_ the API key is generated, I'd have to remember to change the name as well to avoid misleading the implementor.
-
-In the end, exposing the appropriate level of detail is more art than science. Undoubtedly, as a codebase evolves, what's "appropriate" will also change. Naming--like coding itself--requires constant upkeep. We're never done with naming so long as the product is still evolving.
 
 **Being Blunt**
 
