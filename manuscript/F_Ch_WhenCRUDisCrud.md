@@ -2,7 +2,7 @@
 
 There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. Not only is it efficient, but it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate accomplishment of a programmer.
 
-But, there are two problems with this last bit. First, it's hard to measure what readable code _looks_ like. Second, if you use an object-oriented programming language, it's even harder to write it. The truth is this: object-oriented languages are fantastic for dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, this makes reading that code tedious.
+But, there are two problems with this last bit. First, it's hard to measure what readable code _looks_ like. Second, if you use an object-oriented programming language, it's even harder to write it. The truth is this: object-oriented languages are fantastic for dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, this makes for a tedious read.
 
 You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, an energy-draining trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
