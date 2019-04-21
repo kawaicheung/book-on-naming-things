@@ -8,7 +8,27 @@ You can't sit down and read this kind of stuff linearly like you would a newspap
 
 The best way to make code readable is to spare the reader from traversing the layers (unless its absolutely necessary). A great place to start? Make method names exquisitely _clear_.
 
-Here's a seemingly _good_ method name: `CreateAPIKey()`.
+--
+
+I've written an extension method off of the `string` class which pulls out all email addresses for the given string using some magical regular expressions, and returns them in a `List`. It's a nifty method I can use to notify anyone mentioned in a user's comment. 
+
+`GetEmails()` is my first attempt at a concise name. But, it doesn't quite make sense in context:
+
+```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+List<string> emails_in_comment = comment.GetEmails();
+```
+
+The method feels out of place. It suggests that `comment` already has knowledge of some emails in tow. When I read the line `comment.GetEmails()` my first thought is, how exactly do you get emails from a piece of text? There's a better verb we can use.
+
+The method is really _extracting_ emails, not merely _getting_them. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
+
+ ```C#
+string comment = "Hey bill@microsoft.com, can I get a raise?";
+List<string> emails_in_comment = comment.ExtractAnyEmails();
+```
+
+I think it's a considerable improvement.
 
 ---
 
@@ -146,29 +166,7 @@ In this case, I'd prefer to leave the method intact. It's not worth trading away
 
 This example _seems_ like a whole lot of thinking for something inconsequential. But, once you get accustomed to critiquing names this way, the exercise becomes a normal, fluid, and somewhat addictive part of the code writing process. You get faster and better at it. A codebase that's full of expressive and thoughtful names will make your development more enjoyable. 
 
-**Precision**
 
-While removing extraneous words is important, writing better names isn't always about concision. We want each part of a name to clarify what something does. Sometimes, this requires more precise words. The usual standbys of programmatic verbs like `Get` or `Create` often leave something on the table. Here are a few examples.
-
-I've written an extension method off of the `string` class which pulls out all email addresses for the given string using some magical regular expressions, and returns them in a `List`. It's a nifty method I can use to notify anyone mentioned in a user's comment. 
-
-`GetEmails()` is my first attempt at a concise name. But, it doesn't quite make sense in context:
-
-```C#
-string comment = "Hey bill@microsoft.com, can I get a raise?";
-List<string> emails_in_comment = comment.GetEmails();
-```
-
-The method feels out of place. It suggests that `comment` already has knowledge of some emails in tow. When I read the line `comment.GetEmails()` my first thought is, how exactly do you get emails from a piece of text? There's a better verb we can use.
-
-The method is really _extracting_ emails, not merely _getting_them. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
-
- ```C#
-string comment = "Hey bill@microsoft.com, can I get a raise?";
-List<string> emails_in_comment = comment.ExtractAnyEmails();
-```
-
-I think it's a considerable improvement.
 
 ----------------
 
