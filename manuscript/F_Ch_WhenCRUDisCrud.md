@@ -6,7 +6,9 @@ But, there are two problems with this last hurdle. First, it's hard to measure w
 
 You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, an energy-draining trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
-The best way to make code readable is to spare the reader from traversing through its layers (unless its absolutely necessary). A great place to start? Make method names exquisitely _clear_.
+The best way to make code readable is to spare the reader the trouble of traversing down its layers. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name tells you everything. If, on the other hand, a name is ambigious, the reader has to stop in their tracks and detour into the method to find out more.
+
+I've extended the `string` class with a method that's a little out of the ordinary. I
 
 --
 
@@ -30,6 +32,9 @@ List<string> emails_in_comment = comment.ExtractAnyEmails();
 
 I think it's a considerable improvement.
 
+===
+
+Even worse than ambigious is misleading --> OverwriteUsers...
 ---
 
 Now, let's look at a creation example. I've written a method that returns a unique API key for a given user. For this method, I could come up with a name like `CreateAPIKey()`. But, the word _create_ doesn't tell me a whole lot about _how_ the key is created. 
