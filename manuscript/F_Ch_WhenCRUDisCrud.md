@@ -6,7 +6,7 @@ But, there are two problems with this last hurdle. First, it's hard to measure w
 
 You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, an energy-draining trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
-The best way to make code readable is to spare the reader from traversing the layers (unless its absolutely necessary). A great place to start? Make method names exquisitely _clear_.
+The best way to make code readable is to spare the reader from traversing through its layers (unless its absolutely necessary). A great place to start? Make method names exquisitely _clear_.
 
 --
 
