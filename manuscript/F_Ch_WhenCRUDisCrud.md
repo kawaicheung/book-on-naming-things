@@ -4,20 +4,19 @@ There's nothing like writing a good piece of code. It's code that, first of all,
 
 But, there are two problems with this last hurdle. First, it's hard to measure what readable code _looks_ like. Second, it's even harder to write it. The truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, this makes for a tedious read.
 
-You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, an energy-draining trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
+You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
-The best way to make code readable is to spare the reader the trouble of traversing down its layers. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name tells you everything. If, on the other hand, a name is ambigious, the reader has to stop in their tracks and detour into the method to find out more.
+The best way to make code readable is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name should expose the whole story. If, on the other hand, a name is ambigious, the reader has to stop in their tracks and detour into the method (and potentially detour again) to find out more. Here's an example.
 
-I've extended the `string` class with a method that's a little out of the ordinary. I
+I've added a method to the `string` class which pulls out any email addresses for a given string via regular expressions, returning them in a list. It's kind of a strange method, but one I need throughout my codebase. Whenever a user adds any type of comment, the app plucks out any email addresses referenced in the comment and notifies those users of the comment as well.
 
---
+[ Make it @-mentions]
 
-I've written an extension method off of the `string` class which pulls out all email addresses for the given string using some magical regular expressions, and returns them in a `List`. It's a nifty method I can use to notify anyone mentioned in a user's comment. 
+My first inclination is to name this method `GetEmails()`.
 
-`GetEmails()` is my first attempt at a concise name. But, it doesn't quite make sense in context:
+But, it doesn't quite make sense in context:
 
 ```C#
-string comment = "Hey bill@microsoft.com, can I get a raise?";
 List<string> emails_in_comment = comment.GetEmails();
 ```
 
