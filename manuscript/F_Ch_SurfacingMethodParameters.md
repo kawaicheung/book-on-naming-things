@@ -1,10 +1,18 @@
 # Surfacing Method Parameters
 
-The beauty of names is that they are immediate. When you read the name of a method, it tells you what that method does without requiring any additional digging. Take advantage of this. Look for opportunities where you can impart more meaning directly into the name rather than into one of its parameters. Take this example.
+There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. And not only is it efficient, it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate programming accomplishment.
 
-I'm working on a feature addition to canceling accounts. Up until now, if you wanted to cancel the account, it's instantaneous and irreversible. That works for the vast majority of customers.
+But, there are two problems with this last hurdle. First, it's hard to measure what readable code _looks_ like--and people in our industry love measuring things. Second, it's even harder to write it. The truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, all of this is at the expense of how readable it is.
 
-However, some customers want to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
+You can't sit down and read this kind of stuff linearly like you would a newspaper article, a book, or...well anything you'd normally read. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choices aren't really yours.
+
+The best way to make code readable, then, is to spare the reader these adventures--unless they actually choose them. If you make a method's signature exquisitely _clear_, then the reader only needs to dive into it when they need to modify something about it. 
+
+I try to name my methods in a way that tells the whole story. If a method's signature is ambigious, someone just trying to understand my code has to stop in their tracks and detour into the method (and potentially detour into subsequent methods down the path) to find out exactly what's going on. 
+
+I'll start with an example of a feature addition I worked on involving account cancellations. For years, we only allowed our customers the option to cancel an account immediately -- it was instantaneous and irreversible. That worked for the vast majority of customers.
+
+However, we'd get the occasional request from a customer that wanted to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
 
 There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to the current `CancelAccount()` repository method. Here's what it looks like at the moment:
 
