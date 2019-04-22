@@ -2,32 +2,33 @@
 
 There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. And not only is it efficient, it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate programming accomplishment.
 
-But, there are two problems with this last hurdle. First, it's hard to measure what readable code _looks_ like. Second, it's even harder to write it. The truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, this makes for a tedious read.
+But, there are two problems with this last hurdle. First, it's hard to measure what readable code _looks_ like--and people in our industry love measuring things. Second, it's even harder to write it. The truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, all of this is at the expense of how readable it is.
 
-You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
+You can't sit down and read this kind of stuff linearly like you would a newspaper article, a book, or...well anything you'd normally read. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choices aren't really yours.
 
-The best way to make code readable is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name should tell the whole story. If, on the other hand, a name is ambigious, someone just trying to understand your code has to stop in their tracks and detour into the method (and potentially detour into subsequent methods) to find out more. Here's an example.
+The best way to make code readable, then, is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it when they need to modify something about it. 
 
-I've added a method to the `string` class which pulls out any email addresses for a given string via regular expressions, returning them in a list. It's a method that does a somewhat odd thing, but one I need in a few places in my codebase. 
+I try to make my method names tell the whole story. If a method name is ambigious, someone just trying to understand my code has to stop in their tracks and detour into the method (and potentially detour into subsequent methods down the path) to find out exactly what's going on. 
 
-Whenever a user submits a comment, which can happen in a number of places, the app needs to pluck out any email addresses referenced in the comment and notifies those users of the comment as well.
+For instance, I've added an extension method to the `string` class which pulls out any email addresses for a given string via regular expressions and returns them in a list. It's a method that does a somewhat odd thing, but one I happen to need in a few places in my codebase. 
 
-[ Make it @-mentions]
+You can probably imagine what the implementation looks like--a method accepts a string and passes it through a heinous looking piece of regex I snipped from a StackOverflow post and plucks out the matches into a list. I'll spare you the details. But, waht to name this odd little method?
 
-My first inclination is to name this method `GetEmails()`.
-
-But, it doesn't quite make sense in context:
+My first inclination is `GetEmails()`. Simple enough. But, here's what it looks like in a place I use the method.
 
 ```C#
+string comment;
+
+...
+
 List<string> emails_in_comment = comment.GetEmails();
 ```
 
-The method feels out of place. It suggests that `comment` already has knowledge of some emails in tow. When I read the line `comment.GetEmails()` my first thought is, how exactly do you get emails from a piece of text? There's a better verb we can use.
+The name just reads so strangely. When I read the line `comment.GetEmails()` my first thought is, how exactly does a string "get emails"? There must be a better verb I can use here.
 
-The method is really _extracting_ emails, not merely _getting_them. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
+The method is really _extracting_ emails, not merely _getting_ them. And since I can't guarantee there will be emails in the string at-hand, I can further clarify that the method will "extract any emails" rather than simply "extract emails." Let's see the result:
 
  ```C#
-string comment = "Hey bill@microsoft.com, can I get a raise?";
 List<string> emails_in_comment = comment.ExtractAnyEmails();
 ```
 
