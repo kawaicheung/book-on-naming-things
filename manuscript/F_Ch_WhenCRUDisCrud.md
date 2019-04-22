@@ -6,9 +6,11 @@ But, there are two problems with this last hurdle. First, it's hard to measure w
 
 You can't sit down and read this kind of stuff linearly like you would a newspaper article. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choice isn't really yours.
 
-The best way to make code readable is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name should expose the whole story. If, on the other hand, a name is ambigious, the reader has to stop in their tracks and detour into the method (and potentially detour again) to find out more. Here's an example.
+The best way to make code readable is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it if they need to modify something about it. Otherwise, the method name should tell the whole story. If, on the other hand, a name is ambigious, someone just trying to understand your code has to stop in their tracks and detour into the method (and potentially detour into subsequent methods) to find out more. Here's an example.
 
-I've added a method to the `string` class which pulls out any email addresses for a given string via regular expressions, returning them in a list. It's kind of a strange method, but one I need throughout my codebase. Whenever a user adds any type of comment, the app plucks out any email addresses referenced in the comment and notifies those users of the comment as well.
+I've added a method to the `string` class which pulls out any email addresses for a given string via regular expressions, returning them in a list. It's a method that does a somewhat odd thing, but one I need in a few places in my codebase. 
+
+Whenever a user submits a comment, which can happen in a number of places, the app needs to pluck out any email addresses referenced in the comment and notifies those users of the comment as well.
 
 [ Make it @-mentions]
 
