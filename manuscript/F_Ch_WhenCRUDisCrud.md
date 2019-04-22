@@ -1,14 +1,6 @@
 # Describing Methods
 
-There's nothing like writing a good piece of code. It's code that, first of all, works. Not only does it work, but it _does_ its work efficiently. And not only is it efficient, it reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate programming accomplishment.
-
-But, there are two problems with this last hurdle. First, it's hard to measure what readable code _looks_ like--and people in our industry love measuring things. Second, it's even harder to write it. The truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, all of this is at the expense of how readable it is.
-
-You can't sit down and read this kind of stuff linearly like you would a newspaper article, a book, or...well anything you'd normally read. Instead, it's a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choices aren't really yours.
-
-The best way to make code readable, then, is to spare the reader these adventures--unless they actually choose them. If you make a method name exquisitely _clear_, then the reader only needs to drill into it when they need to modify something about it. 
-
-I try to make my method names tell the whole story. If a method name is ambigious, someone just trying to understand my code has to stop in their tracks and detour into the method (and potentially detour into subsequent methods down the path) to find out exactly what's going on. 
+===
 
 For instance, I've added an extension method to the `string` class which pulls out any email addresses for a given string via regular expressions and returns them in a list. It's a method that does a somewhat odd thing, but one I happen to need in a few places in my codebase. 
 
