@@ -14,7 +14,7 @@ Fortunately, the English language is full of more expressive nouns. Sometimes, e
 
 ===
 
-[Migrator/importer/copier example -- not as much of a visual 'leap' as officer, so a good starter piece]
+[Migrator/importer/copier example -- not as much of a visual 'leap' as officer, so a good starter piece]  -> Also, maybe an anecdote about Mike saying why do you care since its just you? YOu should ESPECIALLY care. Since you OWN the codebase, its about taking OWNERSHIP by caring about what your world will look like.
 
 ===
 
