@@ -86,6 +86,11 @@ Most all software these days require logins and users. This would be an instantl
 
 [Notice I actually pass parameters into the actual constructor. Why not demonstrate this capability initially, then explain that you could have a constructor without parameters? If the initial example doesn't show parameters, how would the novice even know that you could pass parameters in? To us, it's obvious -- well, it's a method. All methods are denoted with parentheses at the end of its name which optionally include the set of paramters it expects.
 
+
+Also, idea of a parameter name neeed not be the name of the passed in thing!!!!
+
+(string myText) doesnt have to pass something called myText. Show SCOPE. Silly things we take for granted but a newbie wouldnt.
+
 [Finish]
 
 
