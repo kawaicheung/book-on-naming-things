@@ -8,5 +8,6 @@ F_Ch_SpeakingTheNativeTongue.md
 F_Ch_ImaginingThings.md
 F_Ch_NamingCompletely.md
 F_Ch_NamingToTeach.md
+F_Ch_FluentInterfaces.md
 F_Ch_TrapsCornersAndConfusion.md
 F_Ch_BeforeTheRefactor.md
