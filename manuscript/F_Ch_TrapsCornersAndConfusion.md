@@ -1,6 +1,5 @@
 # Traps, Corners, and Confusion
 
-[Mesh these two chapters into one + fluent interfaces discussion here?]
 
 **Opposites don't always attract**
 
