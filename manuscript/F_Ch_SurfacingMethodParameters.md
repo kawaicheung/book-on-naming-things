@@ -8,11 +8,13 @@ You can't sit down and read code linearly like you would a newspaper article, a 
 
 The best way to make code readable, then, is to spare the reader these adventures--unless they actually choose them. 
 
-I try to structure my methods in a way that tells the whole story at its surface. If you make a method's signature exquisitely _clear_, then the reader only needs to dive into it when they need to modify something about it. 
+I try to name my methods in a way that tells the whole story at its surface. If you make a method's name exquisitely clear, then the reader need only dive into it when they want to modify something about it. Otherwise, they can continue reading past it knowing exactly what just took place.
 
-If a method's signature is ambigious, someone simply trying to understand my code has to stop in their tracks, detour into the method definition, perhaps through the method itself, and potentially into subsequent methods down the path to find out exactly what's going on. 
+If a method's name is ambigious, someone simply trying to understand my code has to stop in their tracks, detour into the method definition and potentially into subsequent methods down the path to find out exactly what's going on. 
 
-I'll start with an example of a feature addition I worked on for account cancellations. For years, we only allowed our customers the option to cancel an account immediately -- it was instantaneous and irreversible. That worked for the vast majority of customers.
+I'll start with an example of a feature addition I worked on for account cancellations. 
+
+For years, we only allowed our customers the option to cancel an account immediately -- it was instantaneous and irreversible. That worked for the vast majority of customers.
 
 I have a method off of a billing repository class who's responsible for invoking the cancellation when requested. It's about as simple a read as you can imagine.
 
