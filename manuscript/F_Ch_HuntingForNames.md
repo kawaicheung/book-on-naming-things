@@ -18,7 +18,7 @@ Here's an example of an actual one-liner from an edition of _Nibble_ https://csc
 
 Making your codebase clearer isn't just about naming things better--it's also about finding things to name that weren't being named before. 
 
-A common place I hunt for is anywhere I see bits of business logic using only the properties of an object in a place _other_ than inside the object itself. There's usually an easy way to name that logic and push it back into the object.
+A common place I hunt for is anywhere I see bits of business logic using only the properties of an object in a place _other_ than inside the object itself. There's usually an easy way to name that logic and push it back into the object. The object, in turn, gets more powerful and self-sufficient. It can _do_ a lot more than it once did, and that helps any other code that interacts with instances of that class in the future.
 
 In this example, I have a `Person` class that houses some basic information used throughout my codebase.
 
