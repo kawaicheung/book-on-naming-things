@@ -53,6 +53,8 @@ for (int curIndexOfTokenArray=0;
 
 Up until now, I've championed the idea of name clarity. Following this line of thought, `curIndexOfTokenArray` is certainly be a better name than `i`. The name is far more clear. 
 
+[FYI - this may be controversial-- clean code]
+
 But, now we face a more onerous problem. The whole thing just _looks_ substantially more complex. We need more time to digest what it's saying. The code has lost its shape.
 
 While the current index is a critical anchor of a `for` loop, representing it in a verbally meaningful way isn’t. For one thing, an index is common to _every_ kind of `for` loop. In addition, it's scope is small -- it only exists for the duration of a few lines inside the loop. If someone were really confused about the variable name, they only need to look around a small visual radius to get refamiliarized.
