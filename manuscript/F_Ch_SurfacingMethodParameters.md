@@ -1,6 +1,6 @@
 # Surfacing Method Parameters
 
-There's nothing like writing a good piece of code. Code that not only works, but _does_ its work efficiently. Code that isn't just efficient, but reads beautifully. Producing code that helps the end user, the operating system, and its future authors is the ultimate programming accomplishment.
+There's nothing like writing a good piece of code. Code that not only works, but _does_ its work efficiently. Code that isn't just efficient, but reads beautifully. Code that helps the end user, the operating system, and its future authors. That's the ultimate programming accomplishment.
 
 But, the truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve goals like encapsulation, extensibility, and reuse. But, all of these goals are at the expense of how quickly you can comprehend the code.
 
