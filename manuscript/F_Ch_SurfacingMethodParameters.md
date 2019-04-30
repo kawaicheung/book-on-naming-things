@@ -31,15 +31,11 @@ And here's how I call it in an account service class.
 _billing_repository.CancelAccount(account_id);
 ```
 
-However, we'd get the occasional request from a customer that wanted to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. I start implementing the solution.
+However, we'd get the occasional request from a customer that wanted to cancel their account at the end of their term, which could be several months out. Rather than require them to remember to cancel the account in a few months, they'd like the account to _automatically_ cancel on the last day of the term. 
 
-There are now two cancellation types. We can cancel immediately or cancel at the end of a period. To begin the implementation, I start by tacking on a parameter to the current `CancelAccount()` repository method. Here's what it looks like at the moment:
+I started implementing by tacking on a parameter to the current `CancelAccount()` repository method. Since there were now two cancellation options, cancelling immediately or at the end of the billing period, I chose the simplest parameter type that fills the need, a boolean. 
 
-```C#
-public void CancelAccount(int account_id);
-```
-
-I need to pass this extra important bit of information in. Since there are now two cancellation options, I choose the simplest parameter type that fills the need -- a boolean. Now, I can pass in `true` to handle this new special case.
+I decided to name it `cancel_at_period_end`. Now, I can pass in `true` to handle this new special case, and `false` to handle the original case.
 
 ```C#
 public void CancelAccount(int account_id, bool cancel_at_period_end);
