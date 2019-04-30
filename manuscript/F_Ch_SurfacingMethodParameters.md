@@ -2,7 +2,7 @@
 
 There's nothing like writing a good piece of code. Code that not only works, but does its work efficiently. Code that isn't just efficient, but reads beautifully. Code that accomplishes the _trifecta_ -- helping the end user, the operating system, and its future authors. That's the ultimate programming accomplishment.
 
-But, the truth is this: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve the goals most programmers have become fond of -- like encapsulation, extensibility, and reuse. But, this can make reading code much harder.
+Here's the rub: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve the goals most programmers have become fond of -- like encapsulation, extensibility, and reuse. But, this can make reading code much harder.
 
 You can't sit down and read code linearly like you would a newspaper article, a book, or...well anything you'd normally read. Instead, code reading is a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choices aren't really yours.
 
