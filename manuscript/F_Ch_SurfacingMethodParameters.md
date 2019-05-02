@@ -1,17 +1,5 @@
 # Surfacing Method Parameters
 
-There's nothing like writing a good piece of code. Code that not only works, but does its work efficiently. Code that isn't just efficient, but reads beautifully. Code that accomplishes the _trifecta_ -- helping the end user, the operating system, and its future authors. That's the ultimate programming accomplishment.
-
-Here's the rub: Object-oriented languages are fantastic at dispersing work to various layers of a system to achieve the goals most programmers have become fond of -- like encapsulation, extensibility, and reuse. But, this can make reading code much harder.
-
-You can't sit down and read code linearly like you would a newspaper article, a book, or...well anything you'd normally read. Instead, code reading is a constant redirection to other places, a mind-bending trip throughout the entirety of a codebase, like a _Choose Your Own Adventure_ book where the choices aren't really yours.
-
-The best way to make code readable, then, is to spare the reader these adventures--unless they actually choose them. 
-
-I try to name my methods in a way that tells the whole story at its surface. If you make a method's name exquisitely clear, then the reader need only dive into it when they want to modify something about it. Otherwise, they can continue reading past it knowing exactly what just took place.
-
-If a method's name is ambigious, someone simply trying to understand my code has to stop in their tracks, detour into the method definition and potentially into subsequent methods down the path to find out exactly what's going on. 
-
 I'll start with an example of a feature addition I worked on for account cancellations. 
 
 For years, we only allowed our customers the option to cancel an account immediately -- it was instantaneous and irreversible. That worked for the vast majority of customers.
