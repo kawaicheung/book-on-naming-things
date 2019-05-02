@@ -2,6 +2,8 @@
 
 [Maybe start with Jeff Atwood tweet: https://twitter.com/codinghorror/status/1115890829405638657]
 
+[ReferenceID vs ReferenceNumber in DoneDone issues -- Number better differentiates from the true global ID]
+
 **Remembering to tidy up**
 
 In the original version of DoneDone, all forms of text a user can input is saved and stored in Markdown format, from the application interface all the way down to the database. The controller method parameter that represented this text was named `body`. The service methods that handled the updates and inserts also named its text parameters `body`. Down into my repository layer, where the text ships off into the database, I call this text parameter `body`.
