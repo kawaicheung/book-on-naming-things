@@ -128,5 +128,3 @@ _Cre**ation**_, _Integr**ation**_, _Registr**ation**_, _Applic**ation**_, _Notif
 When scoping out names to describe your domain language, it's important to see how those names manifest in the actual code. For longer names, or names that _look_ a lot like other names, is there a different way to shape that name, without losing its meaning? If so, it might be worth the swap.
 
 
-
-[ReferenceID vs ReferenceNumber in DoneDone issues -- Number better differentiates from the true global ID]
