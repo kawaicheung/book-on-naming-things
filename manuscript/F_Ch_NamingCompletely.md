@@ -2,6 +2,11 @@
 
 [Maybe start with Jeff Atwood tweet: https://twitter.com/codinghorror/status/1115890829405638657]
 
+First small example: 
+[ReferenceID vs ReferenceNumber in DoneDone issues -- Number better differentiates from the true global ID]
+
+* First went with ID, but decided it would not be a real 'identifier' like it is in the URL. 
+* Ref Number feels less 'serious' and doesnt get confused with the global ID
 
 **Remembering to tidy up**
 
