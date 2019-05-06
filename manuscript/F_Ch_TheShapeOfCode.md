@@ -73,6 +73,8 @@ for (int i=0; i < tokens.length; i++)
 }
 ```
 
+[Another example: Lucene documents -- lucene_document vs doc; repeated doc.Add() looks much cleaner -- emphasis on the rest of the params)in addSearchDocuments()]
+
 Here’s another example. In this method, `systemTimeZones` represents a collection of objects each describing a time zone. The method loops through this collection, then extracts time zone information to build a list of `DropDownComponents` while marking the passed-in time zone as `Selected`:
 
 ```C#
