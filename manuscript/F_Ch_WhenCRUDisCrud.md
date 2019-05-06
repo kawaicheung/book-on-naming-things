@@ -231,6 +231,7 @@ A> `/app/search` &rarr; `PeopleController.Search()` &rarr; `PeopleService.Search
  
 ### Some sort of conclusion here
 
+[Filter vs Search -- filter reserved for task filtering and search reserved for text-based stuff]
 
 
 **Being Blunt**
