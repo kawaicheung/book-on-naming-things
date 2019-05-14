@@ -36,9 +36,11 @@ Migrating felt like a very misleading word. I wouldn't want our Classic customer
 
 First, the word "copy" makes it seem like a literal duplication -- a CTRL + C -- this wasn't that. There were all sorts of differences between Classic and DoneDone 2, so some aspects of a Classic issue didn't translate identically in DoneDone 2. There were some assumptions I had to make in code to translate things as closely as we could.
 
-I didn't like Migrate. I didn't like Copy. Mike suggested we call this an import.
+I didn't like Migrate. I didn't like Copy. I decided to get some input from Mike. It was his insistence on this feature after all.
 
-Now, import is an interesting word. I feel like it has a very specific meaning in technical speak -- there's some engine involved in importing data, usually with metal gear icons spinning slowly. There's a heftiness to the word. Even when you import things in the real world, it has the same feeling -- cargo ships coming to port across the ocean and offloading goods.
+At first, Mike asked, "Why is this name so important? It's just **you** looking at it." I ranted a bit about how, because it was me and only me -- code that I alone would be maintaining for quite some time -- that it was even *more* important that we found the perfect word. Then, he suggested we call this an *import*.
+
+Now, import is a very interesting word. I feel like it has a very specific meaning in technical speak -- there's some engine involved in importing data, usually with metal gear icons spinning slowly. There's a heftiness to the word. Even when you import things in the real world, it has the same feeling -- cargo ships coming to port across the ocean and offloading goods.
 
 The other rather interesting thing with the word is, unlike migrating, it doesn't strike me as leaving one place and going to another. Unlike the migrating birds, importing data doesn't make me feel like I'm losing the old data. I don't quite know why -- after all, in the real world, if I import some goods, the goods are no longer where they started.
 
@@ -48,7 +50,7 @@ I think we use the words import and export incorrectly in the technical world...
 
 So, import was the verb I used in code. The ClassicImporter, ImportProjects(), QueueImportRequests(). Sometimes, the right word is more about how it feels rather than whether it's literally the correct word.
 
-[maybe an anecdote about Mike saying why do you care since its just you? YOu should ESPECIALLY care. Since you OWN the codebase, its about taking OWNERSHIP by caring about what your world will look like]
+
 
 ===
 
