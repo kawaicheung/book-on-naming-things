@@ -28,9 +28,9 @@ So, at first, it made sense to call this a "migrator" in my code. ClassicMigrato
 
 Migration, in the programmatic sense, means moving things from one place to another -- like a flock of birds migrating south for the winter. They're not copying themselves over to the south -- they're leaving the north.
 
-However, our migration tool wasn't a true "migrator" in that sense. We were leaving the original data in Classic untouched. This way, Classic users would have a chance to play around with the new system against their existing data but they wouldn't be required to leave Classic if they didn't like the change.
+However, our migration tool wasn't a true "migrator" in that sense. We were leaving the original data in Classic untouched. This way, Classic users would have a chance to play around with the new system with their existing data but they wouldn't be required to leave Classic if they didn't like the change. They could just go back to using the old system.
 
-Migrating was a very misleading word. I wouldn't want our Classic customers being timid about trying out the new system for fear they couldn't go back.
+Migrating felt like a very misleading word. I wouldn't want our Classic customers being timid about trying out the new system for fear they couldn't go back.
 
 "Copy" felt like the most straightforward way of describing this tool. We were copying data from Classic to DoneDone 2. But, this also had a few drawbacks.
 
