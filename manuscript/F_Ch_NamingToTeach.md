@@ -68,10 +68,11 @@ class Cat : IAnimal
     }
 }
 ```
-The example is certainly concrete, but one that would only be relatable for those of us lucky enough to work on a video game with pet superheroes. Imagine the novice attempting to parlay this introductory example of interfaces into an implementation of [TODO: What's a good, simple implementation of an interface?]. [Is there a good metaphor here?]
+The example is certainly _concrete_, but when's the last time you worked on a video game with anima superheroes or for a pet store supply chain? . Imagine a newbie attempting to parlay the knowledge gained from this example of interfaces into a generic integration engine or a file export tool. 
 
-The best way to teach a newbie is to find simple concrete examples of real programming problems. Then, it's imperative to name the constructs in our examples as _concretely_ as possible. Let the novice anchor their understanding around something real. This will make the bridge to other similar examples easy to cross. With confidence and momentum behind their newfound knowledge, it will make the further reaching bridges quicker to cross as well.
+It may be second nature for a seasoned programmer, but for someone who's just learning these new concept of inheritance and intefaces, it takes a large leap to correlate a method like `Speak()` with animals to `ExportFile()` with various file types. At the same time, it's not as if a newbie doesn't understand the concept that a document can be exported as a PDF, plain-text file, Word doc, and so forth.
 
+So, why not skip the animal stuff and just start with a more relatable example -- you know, the ones you find when you're trying to do things with _software_. Then, it's imperative to name the constructs in our examples as _concretely_ as possible. Let the novice anchor their understanding around something real. This will make the bridge to other similar examples easy to cross. With confidence and momentum behind their newfound knowledge, it will make the further reaching bridges quicker to cross as well.
 
 [Deitel and Deitel example of gradebook...concrete, and more real world -- we might be building some system...but still using myGradebook1 and myGradebook2]
 
@@ -84,7 +85,7 @@ requester.AttemptLogin();
 
 Most all software these days require logins and users. This would be an instantly relatable example to the vast majority of novices. 
 
-[Notice I actually pass parameters into the actual constructor. Why not demonstrate this capability initially, then explain that you could have a constructor without parameters? If the initial example doesn't show parameters, how would the novice even know that you could pass parameters in? To us, it's obvious -- well, it's a method. All methods are denoted with parentheses at the end of its name which optionally include the set of paramters it expects.
+By the way, [Notice I actually pass parameters into the actual constructor. Why not demonstrate this capability initially, then explain that you could have a constructor without parameters? If the initial example doesn't show parameters, how would the novice even know that you could pass parameters in? To us, it's obvious -- well, it's a method. All methods are denoted with parentheses at the end of its name which optionally include the set of paramters it expects.
 
 
 Also, idea of a parameter name neeed not be the name of the passed in thing!!!!
