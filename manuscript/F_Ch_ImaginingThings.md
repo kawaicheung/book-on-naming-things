@@ -12,8 +12,6 @@ Instead, we usually herd together groups of similar functionality into, what we'
 
 Fortunately, the English language is full of more expressive nouns. Sometimes, even when an object doesn't have an obvious physical representation, a bit of imagination can bridge the gap. Here's an example.
 
-===
-
 One of the key features I needed to build into DoneDone 2 was a migration tool from DoneDone Classic. This would allow any of the users of our old product (some of them have been around for nearly a decade!) to import their users, projects, and issues into DoneDone 2. To be honest, it was a task I was dreading -- there were so many differences between how DoneDone 2 and DoneDone Classic stored data. I knew it would be a really daunting task.
 
 At some point a few weeks before launch, the "Migration tool" crept up to the top of my to-do list. That, and some consistent nudging from Mike. OK, mainly it was the consistent nudging. Sometimes you build things to build things. Other times, you build things so people will stop nudging you.
