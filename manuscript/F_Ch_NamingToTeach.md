@@ -85,8 +85,23 @@ requester.AttemptLogin();
 
 Most all software these days require logins and users. This would be an instantly relatable example to the vast majority of novices. 
 
-By the way, [Notice I actually pass parameters into the actual constructor. Why not demonstrate this capability initially, then explain that you could have a constructor without parameters? If the initial example doesn't show parameters, how would the novice even know that you could pass parameters in? To us, it's obvious -- well, it's a method. All methods are denoted with parentheses at the end of its name which optionally include the set of paramters it expects.
+Nearly every programming book I know will start with an example of a default constructor method that always has no parameters. Now, I know technical authors do this to prove the point that a constructor's unique quality -- the thing that differentiates it from any other method of a class -- is that it instantiates the object. We want to show the newbie that the mere act of calling this thing -- the one with the same name as the class but with two parentheses at the end -- creates an instance. Adding parameters to that method would just get in the way of that point.
 
+But, I remember thinking that for some reason, constructors _couldn't_ have parameters attached to them -- that somehow this made a constructor no longer a constructor. 
+
+Instead, if we showed early examples of constructors with parameters, the whole idea of a constructor makes much more sense. 
+
+```C#
+var date_of_birth = new DateTime(1980,1,3);
+Person mary = new Person("Mary", date_of_birth);
+
+```
+
+Ah, I see... we're creating a person named Mary born on January 3rd, 1980.
+
+Of course, we know that constructors can have parameters. In fact, most well-written objects will have parameterized constructors that, in particular, accept data that can only be given during the instance's construction. This leads to all sorts of other concepts that bring out the empassioned object-oriented audience like immutability and hiding implementation details.
+
+--
 
 Also, idea of a parameter name neeed not be the name of the passed in thing!!!!
 
