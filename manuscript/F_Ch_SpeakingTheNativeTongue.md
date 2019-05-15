@@ -30,6 +30,8 @@ This isn't to say that the default pattern never works. Lots of times, it is the
 
 **Profession-speak**
 
+[Anecdote about Detroit Country Day School using H4 with all the lawyer speak -- employees/teachers -> paralegals->students -> practiceareas -> courses]
+
 People that write code today are often the same ones making business decisions or collaborating directly with clients. This makes it even more critical that programmers understand the business reasons behind their work. One of the best ways we can encourage this is to infuse the language of the business directly into our code.
 
 If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Users`. This way, I don't have to make the mental mapping between what the client calls Concept X with what I call Concept Y.
