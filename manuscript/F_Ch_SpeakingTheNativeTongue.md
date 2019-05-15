@@ -30,8 +30,6 @@ This isn't to say that the default pattern never works. Lots of times, it is the
 
 **Profession-speak**
 
-[Anecdote about Detroit Country Day School using H4 with all the lawyer speak -- employees/teachers -> paralegals->students -> practiceareas -> courses]
-
 People that write code today are often the same ones making business decisions or collaborating directly with clients. This makes it even more critical that programmers understand the business reasons behind their work. One of the best ways we can encourage this is to infuse the language of the business directly into our code.
 
 If I were building internal software to track the organizational aspects of a law firm, I'd want the names of the constructs in my software system to be as closely aligned to the words law professionals use to describe their own concepts. `PracticeAreas` instead of `Topics`. `PracticeGroups` instead of `Teams`. `Attorneys` and `Paralegals` instead of `Users`. This way, I don't have to make the mental mapping between what the client calls Concept X with what I call Concept Y.
@@ -99,4 +97,16 @@ public class Panel
 These name and construct choices seem small at first. But, as the codebase grows and the functionality gets more complex, the benefits become more significant.
 
 By naming concepts in code the way in which software users would talk about them, we remove a layer of unnecessary interpretation. Our code becomes less foreign to people that aren't directly working with it. Software writers can have more productive discussions with other teams within the organization. And, most importantly, we have a better grasp of the business concepts we have to maintain.
+
+---
+
+A> The law firm example has a particular place in my brain because many moons ago, I worked at a company that specialized in building software for law firms (websites, intranets, and "extranets").
+
+A> At some point, we did some pro-bono work for the CEO's old grade school by building their website and content management system. But, instead of building a custom database for them, we "leveraged" the existing database schema we'd been using for many of our corporate law client clients. I guess there were enough similarities in the organizational structures of a school that we could get by with our pre-built software for law firms.
+
+A> This, naturally, led to some pretty entertaining naming translations. The `tbl_Employees` table held teachers and students. A column normally reserved for law firm employee types was now re-purposed for the school. Teachers became attorneys; Principals became partners. The `tbl_PracticeAreas` table was repurposed for the course curriculum.
+
+A> It was funny to have to write code against a bunch of third-grade paralegals.
+
+---
 
