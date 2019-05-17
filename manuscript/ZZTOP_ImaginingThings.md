@@ -4,7 +4,7 @@ Here's why I wrote this book.
 
 So I finally got around to working on this data migration feature--something I had put off for months. But, finally, it crept to the top of my to-do list. That, and some consistent nudging from my business partner, Mike. OK--it was mainly the consistent nudging. Sometimes you build things so your business partner will stop bugging you.
 
-For the past twelve months, I had been developing a new version of DoneDone, an issue tracking and customer support tool that I originally created almost ten years ago. It's kind of a rarity in this industry, but I've been fortunate enough to work on this one product for a very long time. Though the codebase has had a handful of contributors in its life, I've been there since day one. I know how this code works intimately.
+For the prior twelve months, I had been building a new version of DoneDone, an issue tracking and customer support tool that I created almost ten years ago. It's kind of a rarity in this industry, but I've been fortunate enough to work on this one product for a very long time. Though the codebase has had a handful of contributors in its life, I've been there since day one. I know how this code works intimately.
 
 This new version wasn't a rewrite; I branched off the existing version as the starting point for what would be a year's worth of refactorings, tweaks, removals, and new feature additions. By the end of it, it essentially _was_ a complete rewrite. More on this later.
 
