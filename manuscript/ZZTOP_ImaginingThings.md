@@ -1,24 +1,32 @@
 # Naming Things
 
-So I finally got around to working on this data migration feature--something I had been putting off for months. But, eventually, the migration feature crept to the top of my to-do list. That, and some consistent nudging from my business partner, Mike. OK--it was mainly the consistent nudging. Sometimes you build things so your business partner will stop bugging you.
+Here's why I wrote this book.
 
-For the past twelve months, I had been developing a new version of DoneDone, an issue tracking and customer support tool that I originally created almost ten years ago. It's kind of a rarity in this industry, but I've been fortunate enough to work on this one product for a very long time. Though the codebase has had a handful of contributors in its life, I've been there since day one. I know how this code works better than I know how my closest friends think.
+So I finally got around to working on this data migration feature--something I had put off for months. But, finally, it crept to the top of my to-do list. That, and some consistent nudging from my business partner, Mike. OK--it was mainly the consistent nudging. Sometimes you build things so your business partner will stop bugging you.
 
-The new version wasn't a rewrite; I branched off the existing version as the starting point for what would be a year's worth of refactorings, removals, and new feature additions. By the end of it, it was essentially a complete rewrite.
+For the past twelve months, I had been developing a new version of DoneDone, an issue tracking and customer support tool that I originally created almost ten years ago. It's kind of a rarity in this industry, but I've been fortunate enough to work on this one product for a very long time. Though the codebase has had a handful of contributors in its life, I've been there since day one. I know how this code works intimately.
 
-Now, during the process of building this thing, I agonized a bit over the name. We had been calling it a "migrator" forever -- starting the months prior when Mike began his initial subtle nudging that this was an important thing to have.
+This new version wasn't a rewrite; I branched off the existing version as the starting point for what would be a year's worth of refactorings, tweaks, removals, and new feature additions. By the end of it, it essentially _was_ a complete rewrite. More on this later.
 
-So, at first, it made sense to call this a "migrator" in my code. ClassicMigrator. MigrateProjects(). QueueMigrationRequests(). and so forth. But, something felt wrong about this name.
+Anyways, the point of this data migration feature was to move data from our original version (which we now called "Classic") to the new version ("DoneDone 2"). A user could login with their old credentials, pick the projects they wanted to move, and then queue the projects for migration. It was a great way to get our current users to adopt the new version quicker. 
 
-Migration, in the programmatic sense, means moving things from one place to another -- like a flock of birds migrating south for the winter. They're not copying themselves over to the south -- they're leaving the north.
+I had the feature nearly polished in about six days--the backend components, the UI, the out-of-band service that handled the data migration, everything.
 
-However, our migration tool wasn't a true "migrator" in that sense. We were leaving the original data in Classic untouched. This way, Classic users would have a chance to play around with the new system with their existing data but they wouldn't be required to leave Classic if they didn't like the change. They could just go back to using the old system.
+But, during the process of building this thing, I agonized over the name. We had been calling it a _migration tool_ forever -- starting the months prior when Mike began his initial subtle nudging that this was an important thing to have.
 
-Migrating felt like a very misleading word. I wouldn't want our Classic customers being timid about trying out the new system for fear they couldn't go back.
+So, at first, it made sense to use the word `migrate` (and all of its derivatives) in my code. The migration service was named the `ClassicMigrator`. There were methods named `MigrateProjects()`, `QueueMigrationRequests()`, and so forth. The URL routes and MVC components all used the word _migrate_ somewhere.
 
-"Copy" felt like the most straightforward way of describing this tool. We were copying data from Classic to DoneDone 2. But, this also had a few drawbacks.
+But, when I took a fresh look at it, something felt wrong with this name.
 
-First, the word "copy" makes it seem like a literal duplication -- a CTRL + C -- this wasn't that. There were all sorts of differences between Classic and DoneDone 2, so some aspects of a Classic issue didn't translate identically in DoneDone 2. There were some assumptions I had to make in code to translate things as closely as we could.
+Migrate means to move something from one place to another, like a flock of birds migrating south for the winter. They're not copying themselves over to the south--they're leaving the north.
+
+However, that's not exactly what the migration feature did. We were leaving the original data in Classic untouched. This way, Classic users would have a chance to play around with the new system using their existing data but they wouldn't be required to leave Classic if they didn't like the change. They could just go back to using the old system.
+
+Migrate was a very misleading word. Using that word could confuse our customers and any other future developers of the app down the road.
+
+So, next, I thought of replacing it with the word _copy_ instead. But, this also had a few drawbacks.
+
+First, the word copy makes it seem like a literal duplication -- a CTRL + C -- this wasn't that. There were all sorts of differences between Classic and DoneDone 2, so some aspects of a Classic issue didn't translate identically in DoneDone 2. There were some assumptions I had to make in code to translate things as closely as we could.
 
 I didn't like Migrate. I didn't like Copy. I decided to get some input from Mike. It was his insistence on this feature after all.
 
