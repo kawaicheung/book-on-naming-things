@@ -7,3 +7,5 @@
 
 "There are only two hard things in Computer Science: cache invalidation and naming things" - Phil Karlton
 
+"Squint you eyes. Lean back. Look for changes in shape. Look for changes in colour. Shape reflects cycolmetric complexity - lots of nested conditionals. Colour reflects differing levels of abstraction, different types of things are in a mish mash. The squint test can help!" -Sandi Metz
+
