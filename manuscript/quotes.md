@@ -2,3 +2,5 @@
 
 
 "Of all the technical debt you can incur, the worst in my experience is bad names -- for database columns, variables, functions, etc. Fix those IMMEDIATELY before they metastasize all over your codebase and become extremely painful to fix later.. and they always do." - Jeff Atwood https://twitter.com/codinghorror/status/1115890829405638657
+
+""One of the biggest sins you can commit is to stop programming when it works." Brandon Rhodes - PyCon 2013
