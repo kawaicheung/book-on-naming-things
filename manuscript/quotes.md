@@ -9,3 +9,5 @@
 
 "Squint you eyes. Lean back. Look for changes in shape. Look for changes in colour. Shape reflects cycolmetric complexity - lots of nested conditionals. Colour reflects differing levels of abstraction, different types of things are in a mish mash. The squint test can help!" -Sandi Metz
 
+"The difference between a tolerable programmer and a great programmer is not how many programming languages they know...It's whether they can communicate their ideas." - Joel Spolsky
+
