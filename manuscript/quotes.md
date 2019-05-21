@@ -1,0 +1,1 @@
+"Caring about what we name things in programming is one of the absolute central skills of the discipline. I regularly spend HOURS searching for just the right domain language. When I find it, it’s one of the deepest satisfactions of the work." - DHH (https://twitter.com/dhh/status/1032267640033538048)
