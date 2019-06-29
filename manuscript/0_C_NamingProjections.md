@@ -1,5 +1,5 @@
 ## Naming Projections
-
+ 
 [Quick intro on what a projection is. How its easy to be lazy with ORMs and other frameworks by pulling out 'everything' -- and particularly as you get into front-end and you just pull the entire mess onto the js layer when you only need specific things. Part of the pain is what to name these things because you end up with lots of projections of a central business object.]
 
 A set of words I often see used in domain object names (and, I admit, I often use in moments of weakness) are Data and Info.  AccountData. ProjectData. CustomerInfo. MessageInfo. Extra filler words that emphasize that the objects of these types will, indisputably, include some sort of data or info you will have an interest in!
