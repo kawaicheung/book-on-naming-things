@@ -4,7 +4,7 @@ Writing clean code is good. No one will  disagree with this. But, what about wri
 
 The answer usually hinges on the experience of the programmer you're asking. 
 
-Ask someone who maintains a large enterprise system for a multi-million dollar organization. Their energy is mainly spent negotiating between various dysfunctional technical teams.  The codebases they work with, touched by hundreds of developers over time, can't possibly be an aeshetic masterpiece. They're likely to tell you that the goal of a codebase is to provide a function for a business. Any aspirations of aesthetics and style -- especially for the goal of delight -- are silly ones.
+Ask someone who maintains a large enterprise system for a multi-million dollar organization. Their energy is mainly spent negotiating between various dysfunctional technical teams.  The codebases they work with, touched by hundreds of developers over time, can't possibly be an aeshetic masterpiece. They're likely to tell you that the goal of a codebase is to provide a function for a business. Any aspirations of aesthetics and style -- especially for the goal of delight -- are silly ones.  \\
 
 Ask someone working on their own pet project, the one they've been noodling with and rewriting for months, and they might tell you the aesthetics of the code mean a lot -- perhaps too much. That's why they keep rewriting it.
 
