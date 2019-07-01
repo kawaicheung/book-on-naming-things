@@ -1,5 +1,5 @@
 # What is the role of aesthetics and style?
-
+ 
 Writing clean code is good. No one will disagree with this. But, what about writing delightful code? Code that has a certain aesthetic, that's pleasing to the eye and pleasurable to read. Is this a goal worth aiming for?
 
 The answer usually hinges on the experience of the programmer you're asking. 
