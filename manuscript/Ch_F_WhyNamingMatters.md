@@ -6,4 +6,4 @@ This is why I'm a big fan of focusing on naming things. Naming is fast. Somethin
 
 Renaming an object or method can clarify something that was previously ambiguous about it. It might expose an obvious painpoint you didn't see before. It also makes it easier for someone else to figure out what your intentions were when you wrote the code. That "someone else" might even be you a few months from now.
 
-Naming is the first thing I look at when I want to improve _any_ codebase.
+Naming is the first thing I look at when I want to improve _any_ codebase.  
