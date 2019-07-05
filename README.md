@@ -12,12 +12,4 @@ ssssssasdfssss ss
  s
 fffss ds
 s
- s
-s   s
-ss
-s
-s
-asdfadfs
- 
-s
-  
+
