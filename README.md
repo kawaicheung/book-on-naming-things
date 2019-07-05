@@ -2,7 +2,7 @@
 A book on naming things in programming
 a
 dfsasdf  sdf
-a asdasdfasdfsssss ssasdfdf
+a asdasdfasdfss sss ssasdfdf
 sss     
   saass
 s as d f  
