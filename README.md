@@ -3,10 +3,8 @@ A book on naming things in programming
 a
 dfsasdf  sdf
 
- ds
+ ds 
 asdfadf
 ss
-asdssss
-  sssss
-ss
- asdfadf
+asd
+  
