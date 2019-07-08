@@ -2,11 +2,19 @@
 A book on naming things in programming
 a
 dfsasdf  sdf
-a asdasdfasdfsssss ss
-sss   
+a asdasdfasdfsssss ssasdfdf
+sss     
   saass
-sasdf
-adfs
+s as d f  
+adfs    ss
+ssssssasdfssss ss
+   dssf s
+ s
+fffss ds
 s
+<<<<<<< HEAD
    dssf
   ss s  
+=======
+
+>>>>>>> origin/fun-with-git-and-dd
