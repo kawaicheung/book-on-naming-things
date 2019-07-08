@@ -1,12 +1,10 @@
-  # book-on-naming-thingsasdf
+  # book-on-naming-thingsasdf  
 A book on naming things in programming
-a
+a 
 dfsasdf  sdf
 
- ds
+ ds 
 asdfadf
 ss
-asdssss
-  sssss
-ss
- asdfadf
+asd
+  
