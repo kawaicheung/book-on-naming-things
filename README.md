@@ -7,8 +7,4 @@ dfsasdf  sdf
 asdfadf
 ss   
 asd
-<<<<<<< HEAD
-                   
-=======
-                 ss
->>>>>>> origin/master
+                    
